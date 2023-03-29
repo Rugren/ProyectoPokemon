@@ -29,7 +29,7 @@ public class PokemonController {
         // pokemon.setNombre(nombre);
 
  //       System.out.println("El pokemon " + pokemon.getNombre() + " tiene nivel: " + pokemon.getNivel());
-        txtMsg.setText("El pokemon " + pokemon.getNombre() + " tiene nivel: " + pokemon.getNivel());
+//        txtMsg.setText("El pokemon " + pokemon.getNombre() + " tiene nivel: " + pokemon.getNivel());
 
     }
 
