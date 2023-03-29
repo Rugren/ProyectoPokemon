@@ -23,12 +23,14 @@ public class PokemonController {
         String nombre = txtNombre.getText();
         int nivel = Integer.parseInt(txtNivel.getText()); //Integer.parseInt para que el int me lo pase a String.
 
-     //   setPokemonProperties();
+// hacer set nombre y set nivel, y que me lo imprima.
+        setPokemonProperties();
+        System.out.println( );
 
       //  pokemon.setNivel(nivel);
         // pokemon.setNombre(nombre);
 
- //       System.out.println("El pokemon " + pokemon.getNombre() + " tiene nivel: " + pokemon.getNivel());
+//        System.out.println("El pokemon " + pokemon.getNombre() + " tiene nivel: " + pokemon.getNivel());
 //        txtMsg.setText("El pokemon " + pokemon.getNombre() + " tiene nivel: " + pokemon.getNivel());
 
     }
