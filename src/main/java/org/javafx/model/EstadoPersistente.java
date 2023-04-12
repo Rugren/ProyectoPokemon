@@ -1,0 +1,6 @@
+package org.javafx.model;
+
+public enum EstadoPersistente {
+    PARALIZADO, QUEMADO, ENVENENADO, GRAVEMENTE_ENVENENADO,
+    DORMIDO, CONGELADO, HELADO, SOMNOLIENTO, POKERUS, DEBILITADO
+}
