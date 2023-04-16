@@ -352,4 +352,18 @@ public class Pokemon {
 
     }
 
+    // añadido el método entrenar para el Tipo de Entrenamiento dentro de la Clase Entrenador. (Ruben)
+    // Esto habrá que crear una clase con este método entrenar? (al margen de tipo entrenamiento que es una clase enum)
+    public void entrenar(int ataque, int defensa, int ataqueEspecial, int defensaEspecial, int velocidad, int vitalidad) {
+    }
+
+    // metodo creado para combatir los pokemons, creado para utilizarlo en la Clase Combate.
+    public boolean combatir(Pokemon pokemonRival) {
+        //aquí poner que si el pokemon hace tal cosa dé si o no.
+    }
+
+    // metodo creado para añadir exp. a los pokemons del equipo ganador, creado para utilizarlo en la Clase Combate.
+    public void añadirExperiencia(int experiencia) {
+        this.nivelExperiencia += experiencia;
+    }
 }
