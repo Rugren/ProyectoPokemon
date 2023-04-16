@@ -3,6 +3,7 @@ package org.javafx.model;
 import org.javafx.model.movimiento.Movimiento;
 import org.javafx.model.objeto.Objeto;
 
+import java.util.LinkedList;
 import java.util.Random;
 
 public class Pokemon {
@@ -18,17 +19,17 @@ public class Pokemon {
     private int nivel = 1;
     private Movimiento movimiento;
 
-    private Movimiento[] listaDeMovimientos = new Movimiento[3];
+    private Movimiento[] listaDeMovimientos = new Movimiento[4];
     private int fertilidad = 5;
     private Sexo sexo;
     private Tipo tipo;
-    private Estados estado;
+    private Estado estado;
     private Objeto objeto;
     private int nivelExperiencia;
 
     public Pokemon(String nombre, String mote,
                    Movimiento[] listaDeMovimientos,
-                   Sexo sexo, Tipo tipo, Estados estado, Objeto objeto) {
+                   Sexo sexo, Tipo tipo, Estado estado, Objeto objeto) {
         Random rnd = new Random();
         this.nombre = nombre;
         this.mote = mote;
@@ -179,11 +180,11 @@ public class Pokemon {
 
 
 
-    public Estados getEstado() {
+    public Estado getEstado() {
         return estado;
     }
 
-    public void setEstado(Estados estado) {
+    public void setEstado(Estado estado) {
         this.estado = estado;
     }
 
@@ -202,7 +203,7 @@ public class Pokemon {
             aprenderMovimiento();
         }
     }
-    public void atacarPokemon(Pokemon pokemon){
+    public void atacar(Pokemon pokemon){
 
     }
 
@@ -351,8 +352,18 @@ public class Pokemon {
 
     }
 
-    public void aplicarObjeto(Objeto objetoAplicado){
-
+    // añadido el método entrenar para el Tipo de Entrenamiento dentro de la Clase Entrenador. (Ruben)
+    // Esto habrá que crear una clase con este método entrenar? (al margen de tipo entrenamiento que es una clase enum)
+    public void entrenar(int ataque, int defensa, int ataqueEspecial, int defensaEspecial, int velocidad, int vitalidad) {
     }
 
+    // metodo creado para combatir los pokemons, creado para utilizarlo en la Clase Combate.
+    public boolean combatir(Pokemon pokemonRival) {
+        //aquí poner que si el pokemon hace tal cosa dé si o no.
+    }
+
+    // metodo creado para añadir exp. a los pokemons del equipo ganador, creado para utilizarlo en la Clase Combate.
+    public void añadirExperiencia(int experiencia) {
+        this.nivelExperiencia += experiencia;
+    }
 }
