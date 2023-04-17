@@ -3,36 +3,38 @@ package org.javafx.model;
 import org.javafx.model.objeto.Objeto;
 
 import java.util.LinkedList;
+import java.util.Random;
 
 public class Entrenador {
-    private LinkedList<Pokemon> equipoPokemon = new LinkedList<>();
-    private LinkedList<Pokemon> grupoSecundario = new LinkedList<>();
+    private Pokemon[] equipoPokemon = new Pokemon[5];
+    private Pokemon[] grupoSecundario = new Pokemon[5];
     private String nombre;
-    private int pokedollar;
-    private LinkedList<Objeto> listaObjetos = new LinkedList<>();
+    private int pokedollars;
+    private Objeto[] listaObjetos = new Objeto[4];
 
-    public Entrenador(LinkedList<Pokemon> equipoPokemon, LinkedList<Pokemon> grupoSecundario,
-                      String nombre, int pokedollar, LinkedList<Objeto> listaObjetos) {
+    public Entrenador(String nombre, Pokemon[] equipoPokemon, Pokemon[] grupoSecundario,
+                      Objeto[] listaObjetos) {
+        Random rnd = new Random();
         this.equipoPokemon = equipoPokemon;
         this.grupoSecundario = grupoSecundario;
         this.nombre = nombre;
-        this.pokedollar = pokedollar;
+        this.pokedollars = rnd.nextInt(800,1000);
         this.listaObjetos = listaObjetos;
     }
 
-    public LinkedList<Pokemon> getEquipoPokemon() {
+    public Pokemon[] getEquipoPokemon() {
         return equipoPokemon;
     }
 
-    public void setEquipoPokemon(LinkedList<Pokemon> equipoPokemon) {
+    public void setEquipoPokemon(Pokemon[] equipoPokemon) {
         this.equipoPokemon = equipoPokemon;
     }
 
-    public LinkedList<Pokemon> getGrupoSecundario() {
+    public Pokemon[] getGrupoSecundario() {
         return grupoSecundario;
     }
 
-    public void setGrupoSecundario(LinkedList<Pokemon> grupoSecundario) {
+    public void setGrupoSecundario(Pokemon[] grupoSecundario) {
         this.grupoSecundario = grupoSecundario;
     }
 
@@ -44,21 +46,33 @@ public class Entrenador {
         this.nombre = nombre;
     }
 
-    public int getPokedollar() {
-        return pokedollar;
+    public int getPokedollars() {
+        return pokedollars;
     }
 
-    public void setPokedollar(int pokedollar) {
-        this.pokedollar = pokedollar;
+    public void setPokedollars(int pokedollars) {
+        this.pokedollars = pokedollars;
     }
 
-    public LinkedList<Objeto> getListaObjetos() {
+    public Objeto[] getListaObjetos() {
         return listaObjetos;
     }
 
-    public void setListaObjetos(LinkedList<Objeto> listaObjetos) {
+    public void setListaObjetos(Objeto[] listaObjetos) {
         this.listaObjetos = listaObjetos;
     }
 
     //Funciones del entrenador
-}
+
+    public void moverACajaPrincipal(){
+
+    }
+    public void moverACajaSecundaria(){
+
+    }
+
+    public static Pokemon entrenarPokemon(Pokemon pokemon){
+        return Pokemon;
+    }
+
+    public void entrenamientoPesado();

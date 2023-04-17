@@ -9,6 +9,10 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 
 import javafx.stage.Stage;
+import org.javafx.model.movimiento.Movimiento;
+import org.javafx.model.objeto.Baston;
+import org.javafx.model.objeto.Objeto;
+import org.javafx.model.objeto.Pesa;
 
 import java.io.IOException;
 
@@ -28,8 +32,11 @@ public class PokemonAplication extends Application {
     }
 
     public static void main(String[] args) {
-
         launch();
+        Movimiento[] movimientosPikachu = new Movimiento[4];
+        Baston p1 = new Baston("Baston");
+
+        Pokemon pikachu = new Pokemon("pikachu", "Lolo", movimientosPikachu,Sexo.MACHO,Tipo.ELECTRICO, Estados.CENTRO_DE_ATENCION, p1);
 
     }
 
