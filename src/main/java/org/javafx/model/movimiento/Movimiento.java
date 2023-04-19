@@ -7,6 +7,7 @@ import java.util.LinkedList;
 public abstract class Movimiento {
     private String nombre;
     private int costeDeEstamina;
+
     private static LinkedList<Movimiento> movimientosDisponibles = new LinkedList<>();
 
     public Movimiento(String nombre, int costeDeEstamina) {

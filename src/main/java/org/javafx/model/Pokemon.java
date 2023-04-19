@@ -3,6 +3,7 @@ package org.javafx.model;
 import org.javafx.model.movimiento.Movimiento;
 import org.javafx.model.objeto.Objeto;
 
+import java.util.LinkedList;
 import java.util.Random;
 
 public class Pokemon {
@@ -18,17 +19,17 @@ public class Pokemon {
     private int nivel = 1;
     private Movimiento movimiento;
 
-    private Movimiento[] listaDeMovimientos = new Movimiento[3];
+    private Movimiento[] listaDeMovimientos = new Movimiento[4];
     private int fertilidad = 5;
     private Sexo sexo;
     private Tipo tipo;
-    private Estados estado;
+    private Estado estado;
     private Objeto objeto;
     private int nivelExperiencia;
 
     public Pokemon(String nombre, String mote,
                    Movimiento[] listaDeMovimientos,
-                   Sexo sexo, Tipo tipo, Estados estado, Objeto objeto) {
+                   Sexo sexo, Tipo tipo, Estado estado, Objeto objeto) {
         Random rnd = new Random();
         this.nombre = nombre;
         this.mote = mote;
@@ -179,11 +180,11 @@ public class Pokemon {
 
 
 
-    public Estados getEstado() {
+    public Estado getEstado() {
         return estado;
     }
 
-    public void setEstado(Estados estado) {
+    public void setEstado(Estado estado) {
         this.estado = estado;
     }
 
@@ -202,7 +203,7 @@ public class Pokemon {
             aprenderMovimiento();
         }
     }
-    public void atacarPokemon(Pokemon pokemon){
+    public void atacar(Pokemon pokemon){
 
     }
 
@@ -344,15 +345,9 @@ public class Pokemon {
     }
 
     public void descansar(){
-        setEstamina(this.estamina + 15);
+        this.estamina = this.estamina + 15;
     }
 
     public void aprenderMovimiento(){
 
     }
-
-    public void aplicarObjeto(Objeto objetoAplicado){
-
-    }
-
-}
