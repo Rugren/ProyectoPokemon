@@ -13,20 +13,20 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.Objects;
 
-public class PokemonController {
+public class WindowController {
     @FXML
-    private Button botonSiguiente;
-    @FXML
-    private TextField texto1;
+    private Button botonVolver;
 
     @FXML
-    public void nextWindow (ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/fxml/other.fxml")));
+    private TextField texto2;
+
+    @FXML
+    public void backWindow(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/fxml/hello.fxml")));
         Scene scene = new Scene(root, 600, 400);
         Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         stage.setTitle("Test 1");
         stage.setScene(scene);
         stage.show();
-
     }
 }
