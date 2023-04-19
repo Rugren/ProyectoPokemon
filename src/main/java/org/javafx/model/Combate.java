@@ -91,6 +91,8 @@ public class Combate {
         for (Pokemon pokemon : equipoGanador) {
             int experiencia = (pokemon.getNivel() + nivelMaximo * 10) / 4; // nivelMaximo del rival o pokemon.getNivelRival, algo así?
             pokemon.añadirExperiencia(experiencia);
+            //uSAR LOS GET Y SET DEL POKEMON
+            // this.nivelExperiencia += experiencia;
         }
     }
 
