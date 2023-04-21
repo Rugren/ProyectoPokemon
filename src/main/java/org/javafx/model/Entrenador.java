@@ -1,13 +1,5 @@
 package org.javafx.model;
 
-<<<<<<< HEAD
-import java.util.LinkedList;
-
-public class Entrenador {
-
-    private LinkedList<Pokemon> listaPokemon;
-    
-=======
 import org.javafx.model.movimiento.Movimiento;
 import org.javafx.model.objeto.Objeto;
 
@@ -16,16 +8,19 @@ import java.util.LinkedList;
 import java.util.Random;
 
 public class Entrenador {
+    // private LinkedList<Pokemon> listaPokemon;
+    private ArrayList<Pokemon> listaPokemon;
     private String nombre;
-    private LinkedList<Pokemon> equipoPokemon = new LinkedList<>();
-    private LinkedList<Pokemon> grupoSecundario = new LinkedList<>();
+// cambiar linkedList por array list    private array
+    private ArrayList<Pokemon> equipoPokemon = new ArrayList<>();
+    private ArrayList<Pokemon> grupoSecundario = new ArrayList<>();
     //   private int pokedollar; //asi es como lo tenia mikel
     private int pokedollar = new Random().nextInt(201) + 800; // random entre 800 y 1000;
-    private LinkedList<Objeto> listaObjetos = new LinkedList<>(); // también se podría llamar a la listaObjetos "mochila". Viene a ser lo mismo, la mochila equipada.
-    // poner un máximo o número finito de capacidad de la mochila.
+    private ArrayList<Objeto> listaObjetos = new ArrayList<>(); // también se podría llamar a la listaObjetos "mochila". Viene a ser lo mismo, la mochila equipada.
+    // poner un máximo o número finito de capacidad de la mochila no? O podemos meter todos los objetos que queramos?
 
-    public Entrenador(String nombre, LinkedList<Pokemon> equipoPokemon, LinkedList<Pokemon> grupoSecundario,
-                      int pokedollar, LinkedList<Objeto> listaObjetos) {
+    public Entrenador(String nombre, ArrayList<Pokemon> equipoPokemon, ArrayList<Pokemon> grupoSecundario,
+                      int pokedollar, ArrayList<Objeto> listaObjetos) {
         this.nombre = nombre;
         this.equipoPokemon = equipoPokemon;
         this.grupoSecundario = grupoSecundario;
@@ -41,19 +36,19 @@ public class Entrenador {
         this.nombre = nombre;
     }
 
-    public LinkedList<Pokemon> getEquipoPokemon() {
+    public ArrayList<Pokemon> getEquipoPokemon() {
         return equipoPokemon;
     }
 
-    public void setEquipoPokemon(LinkedList<Pokemon> equipoPokemon) {
+    public void setEquipoPokemon(ArrayList<Pokemon> equipoPokemon) {
         this.equipoPokemon = equipoPokemon;
     }
 
-    public LinkedList<Pokemon> getGrupoSecundario() {
+    public ArrayList<Pokemon> getGrupoSecundario() {
         return grupoSecundario;
     }
 
-    public void setGrupoSecundario(LinkedList<Pokemon> grupoSecundario) {
+    public void setGrupoSecundario(ArrayList<Pokemon> grupoSecundario) {
         this.grupoSecundario = grupoSecundario;
     }
 
@@ -65,11 +60,11 @@ public class Entrenador {
         this.pokedollar = pokedollar;
     }
 
-    public LinkedList<Objeto> getListaObjetos() {
+    public ArrayList<Objeto> getListaObjetos() {
         return listaObjetos;
     }
 
-    public void setListaObjetos(LinkedList<Objeto> listaObjetos) {
+    public void setListaObjetos(ArrayList<Objeto> listaObjetos) {
         this.listaObjetos = listaObjetos;
     }
 
@@ -126,6 +121,16 @@ public class Entrenador {
                 case "pesado": // entrenamiento pesado
                     costo = 20 * pokemon.getNivel();
                     ataque = 0; defensa = 5; ataqueEspecial = 0; defensaEspecial = 5; velocidad = 0; vitalidad = 5;
+
+                    if (pokedollars >= costo) {
+                        // por ejemplo si fuese un entrenamiento "pesado":
+                        pokemon.setDefensa(pokemon.getDefensa() + defensa);
+                        pokemon.setDefensaEspecial(pokemon.getDefensaEspecial() + defensaEspecial);
+                        pokemon.setVitalidad(pokemon.getVitalidad() + vitalidad);
+                        System.out.println(nombre + " ha entrenado a " + pokemon.getNombre() + " mediante un entrenamiento de tipo " + TipoEntrenamiento + ".");
+                        pokedollar -= costo;
+                    }
+
                     break;
                 case "furioso": // entrenamiento furioso
                     costo = 30 * pokemon.getNivel();
@@ -147,24 +152,24 @@ public class Entrenador {
             if (pokedollar >= costo) {
                 pokemon.equals(TipoEntrenamiento.equals("pesado"));
  */
+/*
              if (pokedollar >= costo) {
                 pokemon.entrenar(ataque, defensa, ataqueEspecial, defensaEspecial, velocidad, vitalidad);
                 pokedollar -= costo;
                 System.out.println(nombre + " ha entrenado a " + pokemon.getNombre() + " mediante un entrenamiento de tipo " + TipoEntrenamiento + ".");
             }
-
- /*
-            // algo para aumentar la defensa del pokemon o los atributos que hayamos subido por ejemplo así?:
+ */
+            // *HACIENDO ASÍ
             if (pokedollars >= costo) {
                 // por ejemplo si fuese un entrenamiento "pesado":
                 pokemon.setDefensa(pokemon.getDefensa() + defensa);
                 pokemon.setDefensaEspecial(pokemon.getDefensaEspecial() + defensaEspecial);
                 pokemon.setVitalidad(pokemon.getVitalidad() + vitalidad);
-                }
-*/
+                System.out.println(nombre + " ha entrenado a " + pokemon.getNombre() + " mediante un entrenamiento de tipo " + TipoEntrenamiento + ".");
+                pokedollar -= costo;
+               }
 
 
 
             }
->>>>>>> origin/ruben_casa
 }

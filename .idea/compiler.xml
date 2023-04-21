@@ -6,13 +6,15 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="ProyectoPokemon" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="lib" target="19" />
+    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="ProyectoPokemon" options="--add-exports java.datatransfer/java.awt=ProyectoPokemon" />
+      <module name="ProyectoPokemon" options="" />
     </option>
   </component>
 </project>

@@ -7,8 +7,17 @@ import java.util.LinkedList;
 import java.util.Random;
 
 public class Pokemon {
-    private String nombre;
+    private int numPokedex;
+    private String nomPokemon; // cambiado el nombre por nomPokemon
+    private String tipo1;
+    private String tipo2;
+    private String img;
+    private String sonido;
+    private int idEntrenador;
+    private int idPokemon;
+
     private String mote;
+
     private int vitalidad;
     private int ataque;
     private int defensa;
@@ -21,7 +30,7 @@ public class Pokemon {
 
     private Movimiento[] listaDeMovimientos = new Movimiento[4];
     private int fertilidad = 5;
-    private Sexo sexo;
+    private Sexo sexo; // private char sexo;
     private Tipo tipo;
     private Estado estado;
     private Objeto objeto;
