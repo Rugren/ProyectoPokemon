@@ -1,4 +1,4 @@
-package org.javafx.model.movimiento;
+package proyectoPokemon.model.movimiento;
 
 public class MovimientoDeMejora extends Movimiento{
     private TipoMejora mejoraAplicada;

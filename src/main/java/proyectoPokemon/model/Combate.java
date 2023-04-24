@@ -1,4 +1,4 @@
-package org.javafx.model;
+package proyectoPokemon.model;
 
 import java.util.LinkedList;
 import java.util.Random;

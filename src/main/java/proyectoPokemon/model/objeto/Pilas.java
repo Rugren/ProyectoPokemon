@@ -1,4 +1,4 @@
-package org.javafx.model.objeto;
+package proyectoPokemon.model.objeto;
 
 public class Pilas extends Objeto{
 }
