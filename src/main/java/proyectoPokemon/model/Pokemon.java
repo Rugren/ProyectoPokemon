@@ -6,6 +6,7 @@ import proyectoPokemon.model.objeto.Objeto;
 import java.util.Random;
 
 public class Pokemon {
+    private int numPokedex;
     private String nombre;
     private String mote;
     private int vitalidad;
@@ -350,3 +351,4 @@ public class Pokemon {
     public void aprenderMovimiento(){
 
     }
+}

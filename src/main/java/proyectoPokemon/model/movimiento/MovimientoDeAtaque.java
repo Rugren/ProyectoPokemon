@@ -9,8 +9,12 @@ public class MovimientoDeAtaque extends Movimiento{
     private Tipo tipoDelAtaque;
 
 
-    public MovimientoDeAtaque(String nombre, int costeDeEstamina, Tipo tipo) {
-        super(nombre, costeDeEstamina, tipo);
+    public MovimientoDeAtaque(String nombre, int costeDeEstamina, int potenciaDeAtaque, Tipo tipoDelAtaque) {
+
+        super(nombre, costeDeEstamina);
+        this.potenciaDeAtaque = potenciaDeAtaque;
+        this.tipoDelAtaque = tipoDelAtaque;
+        setCosteDeEstamina(this.potenciaDeAtaque / 2);
     }
 
     public int getPotenciaDeAtaque() {
@@ -29,7 +33,13 @@ public class MovimientoDeAtaque extends Movimiento{
         this.tipoDelAtaque = tipoDelAtaque;
     }
 
-    public void aplicarMovimentoAtaque(Pokemon pokemon){
-
+    //metodo para aplicar movimiento de ataque
+    public int aplicarMovimentoAtaque(Pokemon pokemon){
+        if (pokemon.getEstamina() < getCosteDeEstamina()){
+            return 0;
+        }else
+        pokemon.setEstamina(pokemon.getEstamina() - this.getCosteDeEstamina());
+        return this.potenciaDeAtaque;
     }
+
 }
