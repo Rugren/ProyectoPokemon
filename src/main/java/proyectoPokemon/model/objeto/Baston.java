@@ -1,6 +1,4 @@
-package org.javafx.model.objeto;
-
-import org.javafx.model.Pokemon;
+package proyectoPokemon.model.objeto;
 
 public class Baston extends Objeto{
 

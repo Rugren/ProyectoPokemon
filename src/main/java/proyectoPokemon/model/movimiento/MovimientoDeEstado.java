@@ -1,6 +1,6 @@
-package org.javafx.model.movimiento;
+package proyectoPokemon.model.movimiento;
 
-import org.javafx.model.Estado;
+import proyectoPokemon.model.Estado;
 //Altera el estado del pokemon Enemigo
 public class MovimientoDeEstado extends Movimiento{
     private Estado estadoAplicado;

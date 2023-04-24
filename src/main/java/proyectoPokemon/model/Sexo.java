@@ -1,4 +1,4 @@
-package org.javafx.model;
+package proyectoPokemon.model;
 
 public enum Sexo {
     MACHO, HEMBRA

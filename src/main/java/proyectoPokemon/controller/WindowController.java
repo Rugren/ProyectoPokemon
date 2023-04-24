@@ -1,4 +1,4 @@
-package org.javafx.controller;
+package proyectoPokemon.controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;

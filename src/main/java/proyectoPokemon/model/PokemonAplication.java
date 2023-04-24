@@ -1,4 +1,4 @@
-package org.javafx.model;
+package proyectoPokemon.model;
 
 import javafx.application.Application;
 
@@ -9,8 +9,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 
 import javafx.stage.Stage;
-import org.javafx.model.movimiento.Movimiento;
-import org.javafx.model.objeto.Baston;
+import proyectoPokemon.model.movimiento.Movimiento;
+import proyectoPokemon.model.objeto.Baston;
 
 import java.io.IOException;
 

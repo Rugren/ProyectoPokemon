@@ -1,7 +1,7 @@
-package org.javafx.model.movimiento;
+package proyectoPokemon.model.movimiento;
 
-import org.javafx.model.Pokemon;
-import org.javafx.model.Tipo;
+import proyectoPokemon.model.Pokemon;
+import proyectoPokemon.model.Tipo;
 
 //Quita vitalidad al enemigo
 public class MovimientoDeAtaque extends Movimiento{

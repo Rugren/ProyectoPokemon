@@ -1,4 +1,4 @@
-package org.javafx.model;
+package proyectoPokemon.model;
 
 public enum TipoEntrenamiento {
     PESADO, FURIOSO, FUNCIONAL, ONIRICO

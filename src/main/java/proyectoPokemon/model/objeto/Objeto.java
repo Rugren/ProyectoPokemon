@@ -1,5 +1,5 @@
-package org.javafx.model.objeto;
-import org.javafx.model.Pokemon;
+package proyectoPokemon.model.objeto;
+
 public abstract class Objeto{
     private String nombre;
 
@@ -14,5 +14,6 @@ public abstract class Objeto{
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
+
 
 }

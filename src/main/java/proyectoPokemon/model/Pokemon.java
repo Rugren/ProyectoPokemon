@@ -1,9 +1,8 @@
-package org.javafx.model;
+package proyectoPokemon.model;
 
-import org.javafx.model.movimiento.Movimiento;
-import org.javafx.model.objeto.Objeto;
+import proyectoPokemon.model.movimiento.Movimiento;
+import proyectoPokemon.model.objeto.Objeto;
 
-import java.util.LinkedList;
 import java.util.Random;
 
 public class Pokemon {

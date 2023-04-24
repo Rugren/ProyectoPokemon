@@ -1,4 +1,4 @@
-package org.javafx.model;
+package proyectoPokemon.model;
 
 public class Turno {
     private Entrenador entrenador;
