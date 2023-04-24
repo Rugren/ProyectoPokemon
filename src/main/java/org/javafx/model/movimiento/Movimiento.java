@@ -1,5 +1,6 @@
 package org.javafx.model.movimiento;
 
+import org.javafx.model.Pokemon;
 import org.javafx.model.Tipo;
 
 import java.util.LinkedList;
@@ -8,9 +9,10 @@ public abstract class Movimiento {
     private String nombre;
     private int costeDeEstamina;
 
+
     private static LinkedList<Movimiento> movimientosDisponibles = new LinkedList<>();
 
-    public Movimiento(String nombre, int costeDeEstamina) {
+    public Movimiento(String nombre, int costeDeEstamina, Tipo tipo) {
         this.nombre = nombre;
         this.costeDeEstamina = costeDeEstamina;
     }
@@ -41,7 +43,7 @@ public abstract class Movimiento {
     }
 
     //Aplicar movimiento
-    public void aplicarMovimientoMejora(MovimientoDeMejora movimientoDeMejora){
+    public void aplicarMovimiento(Pokemon pokemon){
 
     }
 }
