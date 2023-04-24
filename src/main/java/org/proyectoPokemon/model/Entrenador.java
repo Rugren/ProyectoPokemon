@@ -113,9 +113,9 @@ public class Entrenador {
             }
         }
 
-        public void entrenarPokemon(Pokemon pokemon, Enum TipoEntrenamiento) {
+        public void entrenarPokemon(Pokemon pokemon, TipoEntrenamiento tipoEntrenamiento) {
             int costo, ataque, defensa, ataqueEspecial, defensaEspecial, velocidad, vitalidad;
-            switch (TipoEntrenamiento) {
+            switch (tipoEntrenamiento) {
                 // Se puede sustituir el switch al darle a la bombilla y te lo hace así:
                 // if ("pesado".equals(TipoEntrenamiento)) { // entrenamiento pesado
                 case "pesado": // entrenamiento pesado

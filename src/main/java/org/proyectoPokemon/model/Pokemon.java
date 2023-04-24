@@ -1,4 +1,4 @@
-package org.javafx.model;
+package org.proyectoPokemon.model;
 
 import org.javafx.model.movimiento.Movimiento;
 import org.javafx.model.objeto.Objeto;
@@ -8,7 +8,7 @@ import java.util.Random;
 
 public class Pokemon {
     private int numPokedex;
-    private String nomPokemon; // cambiado el nombre por nomPokemon
+    private String nombre;
     private String tipo1;
     private String tipo2;
     private String img;
