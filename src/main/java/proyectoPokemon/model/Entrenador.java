@@ -24,6 +24,7 @@ public class Entrenador {
         this.listaObjetos = listaObjetos;
     }
 
+
     public String getNombre() {
         return nombre;
     }

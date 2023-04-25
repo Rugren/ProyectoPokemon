@@ -3,6 +3,8 @@ package proyectoPokemon.model;
 import proyectoPokemon.model.movimiento.Movimiento;
 import proyectoPokemon.model.objeto.Objeto;
 
+import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.Random;
 
 public class Pokemon {
@@ -25,6 +27,9 @@ public class Pokemon {
     private Estado estado;
     private Objeto objeto;
     private int nivelExperiencia;
+    private static HashMap<Tipo, LinkedList<Tipo>> listaVentaja;
+    private static HashMap<Tipo, LinkedList<Tipo>> listaDesventaja;
+
 
     public Pokemon(String nombre, String mote,
                    Movimiento[] listaDeMovimientos,
@@ -350,4 +355,157 @@ public class Pokemon {
     // hasmap <Tipo, List<tipo>> tablaTipos
     // AGUA [fuego,tierra,roca] una lisata apra cada elemento
     //public satic hasmap
+
+
+    public static HashMap<Tipo, LinkedList<Tipo>> getListaDesventaja() {
+        if (listaDesventaja == null){
+            listaDesventaja = new HashMap<>();
+            listaDesventaja.put(Tipo.AGUA, new LinkedList<>());
+            listaDesventaja.put(Tipo.BICHO, new LinkedList<>());
+            listaDesventaja.put(Tipo.DRAGON, new LinkedList<>());
+            listaDesventaja.put(Tipo.ELECTRICO, new LinkedList<>());
+            listaDesventaja.put(Tipo.FANTASMA, new LinkedList<>());
+            listaDesventaja.put(Tipo.FUEGO, new LinkedList<>());
+            listaDesventaja.put(Tipo.HIELO, new LinkedList<>());
+            listaDesventaja.put(Tipo.LUCHA, new LinkedList<>());
+            listaDesventaja.put(Tipo.NORMAL, new LinkedList<>());
+            listaDesventaja.put(Tipo.PLANTA, new LinkedList<>());
+            listaDesventaja.put(Tipo.PSIQUICO, new LinkedList<>());
+            listaDesventaja.put(Tipo.ROCA, new LinkedList<>());
+            listaDesventaja.put(Tipo.TIERRA, new LinkedList<>());
+            listaDesventaja.put(Tipo.VENENO, new LinkedList<>());
+            listaDesventaja.put(Tipo.VOLADOR, new LinkedList<>());
+
+            listaDesventaja.get(Tipo.AGUA).add(Tipo.AGUA);
+            listaDesventaja.get(Tipo.AGUA).add(Tipo.DRAGON);
+            listaDesventaja.get(Tipo.AGUA).add(Tipo.PLANTA);
+
+            listaDesventaja.get(Tipo.BICHO).add(Tipo.FANTASMA);
+            listaDesventaja.get(Tipo.BICHO).add(Tipo.FUEGO);
+            listaDesventaja.get(Tipo.BICHO).add(Tipo.LUCHA);
+            listaDesventaja.get(Tipo.BICHO).add(Tipo.VOLADOR);
+
+            listaDesventaja.get(Tipo.ELECTRICO).add(Tipo.DRAGON);
+            listaDesventaja.get(Tipo.ELECTRICO).add(Tipo.ELECTRICO);
+            listaDesventaja.get(Tipo.ELECTRICO).add(Tipo.PLANTA);
+
+            listaDesventaja.get(Tipo.FUEGO).add(Tipo.AGUA);
+            listaDesventaja.get(Tipo.FUEGO).add(Tipo.DRAGON);
+            listaDesventaja.get(Tipo.FUEGO).add(Tipo.FUEGO);
+            listaDesventaja.get(Tipo.FUEGO).add(Tipo.ROCA);
+
+            listaDesventaja.get(Tipo.HIELO).add(Tipo.AGUA);
+            listaDesventaja.get(Tipo.HIELO).add(Tipo.HIELO);
+
+            listaDesventaja.get(Tipo.LUCHA).add(Tipo.BICHO);
+            listaDesventaja.get(Tipo.LUCHA).add(Tipo.PSIQUICO);
+            listaDesventaja.get(Tipo.LUCHA).add(Tipo.VENENO);
+            listaDesventaja.get(Tipo.LUCHA).add(Tipo.VOLADOR);
+
+            listaDesventaja.get(Tipo.NORMAL).add(Tipo.ROCA);
+
+            listaDesventaja.get(Tipo.PLANTA).add(Tipo.BICHO);
+            listaDesventaja.get(Tipo.PLANTA).add(Tipo.DRAGON);
+            listaDesventaja.get(Tipo.PLANTA).add(Tipo.FUEGO);
+            listaDesventaja.get(Tipo.PLANTA).add(Tipo.PLANTA);
+            listaDesventaja.get(Tipo.PLANTA).add(Tipo.VENENO);
+            listaDesventaja.get(Tipo.PLANTA).add(Tipo.VOLADOR);
+
+            listaDesventaja.get(Tipo.PSIQUICO).add(Tipo.PSIQUICO);
+
+            listaDesventaja.get(Tipo.ROCA).add(Tipo.LUCHA);
+            listaDesventaja.get(Tipo.ROCA).add(Tipo.TIERRA);
+
+            listaDesventaja.get(Tipo.TIERRA).add(Tipo.BICHO);
+            listaDesventaja.get(Tipo.TIERRA).add(Tipo.PLANTA);
+
+            listaDesventaja.get(Tipo.VENENO).add(Tipo.FANTASMA);
+            listaDesventaja.get(Tipo.VENENO).add(Tipo.ROCA);
+            listaDesventaja.get(Tipo.VENENO).add(Tipo.TIERRA);
+            listaDesventaja.get(Tipo.VENENO).add(Tipo.VENENO);
+
+            listaDesventaja.get(Tipo.VOLADOR).add(Tipo.ELECTRICO);
+            listaDesventaja.get(Tipo.VOLADOR).add(Tipo.ROCA);
+
+        }
+        return listaDesventaja;
+    }
+
+    public static HashMap<Tipo, LinkedList<Tipo>> getListaVentaja() {
+        if (listaVentaja == null){
+            listaVentaja = new HashMap<>();
+
+            listaVentaja.put(Tipo.AGUA, new LinkedList<>());
+            listaVentaja.put(Tipo.BICHO, new LinkedList<>());
+            listaVentaja.put(Tipo.DRAGON, new LinkedList<>());
+            listaVentaja.put(Tipo.ELECTRICO, new LinkedList<>());
+            listaVentaja.put(Tipo.FANTASMA, new LinkedList<>());
+            listaVentaja.put(Tipo.FUEGO, new LinkedList<>());
+            listaVentaja.put(Tipo.HIELO, new LinkedList<>());
+            listaVentaja.put(Tipo.LUCHA, new LinkedList<>());
+            listaVentaja.put(Tipo.NORMAL, new LinkedList<>());
+            listaVentaja.put(Tipo.PLANTA, new LinkedList<>());
+            listaVentaja.put(Tipo.PSIQUICO, new LinkedList<>());
+            listaVentaja.put(Tipo.ROCA, new LinkedList<>());
+            listaVentaja.put(Tipo.TIERRA, new LinkedList<>());
+            listaVentaja.put(Tipo.VENENO, new LinkedList<>());
+            listaVentaja.put(Tipo.VOLADOR, new LinkedList<>());
+
+            listaVentaja.get(Tipo.AGUA).add(Tipo.FUEGO);
+            listaVentaja.get(Tipo.AGUA).add(Tipo.ROCA);
+            listaVentaja.get(Tipo.AGUA).add(Tipo.TIERRA);
+
+            listaVentaja.get(Tipo.BICHO).add(Tipo.PLANTA);
+            listaVentaja.get(Tipo.BICHO).add(Tipo.PSIQUICO);
+            listaVentaja.get(Tipo.BICHO).add(Tipo.VENENO);
+
+            listaVentaja.get(Tipo.DRAGON).add(Tipo.DRAGON);
+
+            listaVentaja.get(Tipo.ELECTRICO).add(Tipo.AGUA);
+            listaVentaja.get(Tipo.ELECTRICO).add(Tipo.VOLADOR);
+
+            listaVentaja.get(Tipo.FANTASMA).add(Tipo.FANTASMA);
+
+            // Acabar lista de ventaja y ataques nulos
+            listaDesventaja.get(Tipo.FUEGO).add(Tipo.AGUA);
+            listaDesventaja.get(Tipo.FUEGO).add(Tipo.DRAGON);
+            listaDesventaja.get(Tipo.FUEGO).add(Tipo.FUEGO);
+            listaDesventaja.get(Tipo.FUEGO).add(Tipo.ROCA);
+
+            listaDesventaja.get(Tipo.HIELO).add(Tipo.AGUA);
+            listaDesventaja.get(Tipo.HIELO).add(Tipo.HIELO);
+
+            listaDesventaja.get(Tipo.LUCHA).add(Tipo.BICHO);
+            listaDesventaja.get(Tipo.LUCHA).add(Tipo.PSIQUICO);
+            listaDesventaja.get(Tipo.LUCHA).add(Tipo.VENENO);
+            listaDesventaja.get(Tipo.LUCHA).add(Tipo.VOLADOR);
+
+            listaDesventaja.get(Tipo.NORMAL).add(Tipo.ROCA);
+
+            listaDesventaja.get(Tipo.PLANTA).add(Tipo.BICHO);
+            listaDesventaja.get(Tipo.PLANTA).add(Tipo.DRAGON);
+            listaDesventaja.get(Tipo.PLANTA).add(Tipo.FUEGO);
+            listaDesventaja.get(Tipo.PLANTA).add(Tipo.PLANTA);
+            listaDesventaja.get(Tipo.PLANTA).add(Tipo.VENENO);
+            listaDesventaja.get(Tipo.PLANTA).add(Tipo.VOLADOR);
+
+            listaDesventaja.get(Tipo.PSIQUICO).add(Tipo.PSIQUICO);
+
+            listaDesventaja.get(Tipo.ROCA).add(Tipo.LUCHA);
+            listaDesventaja.get(Tipo.ROCA).add(Tipo.TIERRA);
+
+            listaDesventaja.get(Tipo.TIERRA).add(Tipo.BICHO);
+            listaDesventaja.get(Tipo.TIERRA).add(Tipo.PLANTA);
+
+            listaDesventaja.get(Tipo.VENENO).add(Tipo.FANTASMA);
+            listaDesventaja.get(Tipo.VENENO).add(Tipo.ROCA);
+            listaDesventaja.get(Tipo.VENENO).add(Tipo.TIERRA);
+            listaDesventaja.get(Tipo.VENENO).add(Tipo.VENENO);
+
+            listaDesventaja.get(Tipo.VOLADOR).add(Tipo.ELECTRICO);
+            listaDesventaja.get(Tipo.VOLADOR).add(Tipo.ROCA);
+
+        }
+        return listaVentaja;
+    }
 }

@@ -100,7 +100,6 @@ public class Combate {
 
     public static class Combate {
         private Entrenador ganador;
-        private
         private Entrenador jugador;
         private Entrenador jugadorEquipo;
         private Entrenador rival;
