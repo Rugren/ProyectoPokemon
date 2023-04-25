@@ -6,7 +6,6 @@ import proyectoPokemon.model.objeto.Objeto;
 import java.util.Random;
 
 public class Pokemon {
-    private int numPokedex;
     private String nombre;
     private String mote;
     private int vitalidad;
@@ -179,7 +178,6 @@ public class Pokemon {
     }
 
 
-
     public Estado getEstado() {
         return estado;
     }
@@ -189,9 +187,9 @@ public class Pokemon {
     }
 
     //FUNCIONES DEL POKEMON
-    public void subirNivel(){
+    public void subirNivel() {
         Random rnd = new Random();
-        if (nivelExperiencia == 10 * nivel){
+        if (nivelExperiencia == 10 * nivel) {
             setVitalidad(this.vitalidad + (rnd.nextInt(5) + 1));
             setAtaque(this.ataque + (rnd.nextInt(5) + 1));
             setDefensa(this.defensa + (rnd.nextInt(5) + 1));
@@ -199,156 +197,157 @@ public class Pokemon {
             setDefensaEspecial(this.defensaEspecial + (rnd.nextInt(5) + 1));
             setVelocidad(this.velocidad + (rnd.nextInt(5) + 1));
         }
-        if (nivel % 3 == 0){
+        if (nivel % 3 == 0) {
             aprenderMovimiento();
         }
     }
-    public void atacar(Pokemon pokemon){
+
+    public void atacar(Pokemon pokemon) {
 
     }
 
-    public String comprobarVentaja(Pokemon pokemon){
+    public String comprobarVentaja(Pokemon pokemon) {
         String mensaje = "";
-        if (this.tipo == Tipo.AGUA){
-            if (pokemon.tipo == Tipo.AGUA || pokemon.tipo == Tipo.DRAGON || pokemon.tipo == Tipo.PLANTA){
+        if (this.tipo == Tipo.AGUA) {
+            if (pokemon.tipo == Tipo.AGUA || pokemon.tipo == Tipo.DRAGON || pokemon.tipo == Tipo.PLANTA) {
                 mensaje = "VENTAJA";
-            }else if(pokemon.tipo == Tipo.FUEGO || pokemon.tipo == Tipo.ROCA || pokemon.tipo == Tipo.TIERRA){
+            } else if (pokemon.tipo == Tipo.FUEGO || pokemon.tipo == Tipo.ROCA || pokemon.tipo == Tipo.TIERRA) {
                 mensaje = "DOBLE_VENTAJA";
-            }else
-                mensaje = "NEUTRO";
-            }
-        if (this.tipo == Tipo.BICHO){
-            if (pokemon.tipo == Tipo.FANTASMA || pokemon.tipo == Tipo.FUEGO || pokemon.tipo == Tipo.LUCHA){
-                mensaje = "VENTAJA";
-            }else if(pokemon.tipo == Tipo.PLANTA || pokemon.tipo == Tipo.PSIQUICO || pokemon.tipo == Tipo.VENENO){
-                mensaje = "DOBLE_VENTAJA";
-            }else
+            } else
                 mensaje = "NEUTRO";
         }
-        if (this.tipo == Tipo.DRAGON){
-            if(pokemon.tipo == Tipo.DRAGON){
+        if (this.tipo == Tipo.BICHO) {
+            if (pokemon.tipo == Tipo.FANTASMA || pokemon.tipo == Tipo.FUEGO || pokemon.tipo == Tipo.LUCHA) {
+                mensaje = "VENTAJA";
+            } else if (pokemon.tipo == Tipo.PLANTA || pokemon.tipo == Tipo.PSIQUICO || pokemon.tipo == Tipo.VENENO) {
                 mensaje = "DOBLE_VENTAJA";
-            }else
+            } else
                 mensaje = "NEUTRO";
         }
-        if (this.tipo == Tipo.ELECTRICO){
-            if (pokemon.tipo == Tipo.DRAGON || pokemon.tipo == Tipo.ELECTRICO || pokemon.tipo == Tipo.PLANTA){
-                mensaje = "VENTAJA";
-            }else if(pokemon.tipo == Tipo.AGUA || pokemon.tipo == Tipo.VOLADOR){
+        if (this.tipo == Tipo.DRAGON) {
+            if (pokemon.tipo == Tipo.DRAGON) {
                 mensaje = "DOBLE_VENTAJA";
-            }else if (pokemon.tipo == Tipo.TIERRA){
+            } else
+                mensaje = "NEUTRO";
+        }
+        if (this.tipo == Tipo.ELECTRICO) {
+            if (pokemon.tipo == Tipo.DRAGON || pokemon.tipo == Tipo.ELECTRICO || pokemon.tipo == Tipo.PLANTA) {
+                mensaje = "VENTAJA";
+            } else if (pokemon.tipo == Tipo.AGUA || pokemon.tipo == Tipo.VOLADOR) {
+                mensaje = "DOBLE_VENTAJA";
+            } else if (pokemon.tipo == Tipo.TIERRA) {
                 mensaje = "DESVENTAJA";
-            }
-            else
+            } else
                 mensaje = "NEUTRO";
         }
-        if (this.tipo == Tipo.FANTASMA){
-            if (pokemon.tipo == Tipo.FANTASMA){
+        if (this.tipo == Tipo.FANTASMA) {
+            if (pokemon.tipo == Tipo.FANTASMA) {
                 mensaje = "DOBLE_VENTAJA";
-            }else if (pokemon.tipo == Tipo.NORMAL || pokemon.tipo == Tipo.PSIQUICO){
+            } else if (pokemon.tipo == Tipo.NORMAL || pokemon.tipo == Tipo.PSIQUICO) {
                 mensaje = "DESVENTAJA";
-            }else
+            } else
                 mensaje = "NEUTRO";
         }
-        if (this.tipo == Tipo.FUEGO){
-            if (pokemon.tipo == Tipo.AGUA || pokemon.tipo == Tipo.DRAGON || pokemon.tipo == Tipo.FUEGO || pokemon.tipo == Tipo.ROCA){
+        if (this.tipo == Tipo.FUEGO) {
+            if (pokemon.tipo == Tipo.AGUA || pokemon.tipo == Tipo.DRAGON || pokemon.tipo == Tipo.FUEGO || pokemon.tipo == Tipo.ROCA) {
                 mensaje = "VENTAJA";
-            }else if(pokemon.tipo == Tipo.BICHO || pokemon.tipo == Tipo.HIELO || pokemon.tipo == Tipo.PLANTA){
+            } else if (pokemon.tipo == Tipo.BICHO || pokemon.tipo == Tipo.HIELO || pokemon.tipo == Tipo.PLANTA) {
                 mensaje = "DOBLE_VENTAJA";
-            }else
+            } else
                 mensaje = "NEUTRO";
         }
-        if (this.tipo == Tipo.HIELO){
-            if (pokemon.tipo == Tipo.AGUA || pokemon.tipo == Tipo.HIELO){
+        if (this.tipo == Tipo.HIELO) {
+            if (pokemon.tipo == Tipo.AGUA || pokemon.tipo == Tipo.HIELO) {
                 mensaje = "VENTAJA";
-            }else if(pokemon.tipo == Tipo.DRAGON || pokemon.tipo == Tipo.PLANTA || pokemon.tipo == Tipo.TIERRA || pokemon.tipo == Tipo.VOLADOR){
+            } else if (pokemon.tipo == Tipo.DRAGON || pokemon.tipo == Tipo.PLANTA || pokemon.tipo == Tipo.TIERRA || pokemon.tipo == Tipo.VOLADOR) {
                 mensaje = "DOBLE_VENTAJA";
-            }else
+            } else
                 mensaje = "NEUTRO";
         }
-        if (this.tipo == Tipo.LUCHA){
+        if (this.tipo == Tipo.LUCHA) {
             if (pokemon.tipo == Tipo.BICHO || pokemon.tipo == Tipo.PSIQUICO ||
-                pokemon.tipo == Tipo.VENENO || pokemon.tipo == Tipo.VOLADOR){
+                    pokemon.tipo == Tipo.VENENO || pokemon.tipo == Tipo.VOLADOR) {
                 mensaje = "VENTAJA";
-            }else if(pokemon.tipo == Tipo.HIELO || pokemon.tipo == Tipo.NORMAL || pokemon.tipo == Tipo.ROCA){
+            } else if (pokemon.tipo == Tipo.HIELO || pokemon.tipo == Tipo.NORMAL || pokemon.tipo == Tipo.ROCA) {
                 mensaje = "DOBLE_VENTAJA";
-            }else if (pokemon.tipo == Tipo.FANTASMA){
+            } else if (pokemon.tipo == Tipo.FANTASMA) {
                 mensaje = "DESVENTAJA";
-            }
-            else
+            } else
                 mensaje = "NEUTRO";
         }
-        if (this.tipo == Tipo.NORMAL){
-            if (pokemon.tipo == Tipo.FANTASMA){
+        if (this.tipo == Tipo.NORMAL) {
+            if (pokemon.tipo == Tipo.FANTASMA) {
                 mensaje = "DESVENTAJA";
-            }else if (pokemon.tipo == Tipo.PSIQUICO){
+            } else if (pokemon.tipo == Tipo.PSIQUICO) {
                 mensaje = "VENTAJA";
-            }else
+            } else
                 mensaje = "NEUTRO";
         }
-        if (this.tipo == Tipo.PLANTA){
+        if (this.tipo == Tipo.PLANTA) {
             if (pokemon.tipo == Tipo.BICHO || pokemon.tipo == Tipo.DRAGON || pokemon.tipo == Tipo.FUEGO ||
-                pokemon.tipo == Tipo.PLANTA || pokemon.tipo == Tipo.VENENO || pokemon.tipo == Tipo.VOLADOR){
+                    pokemon.tipo == Tipo.PLANTA || pokemon.tipo == Tipo.VENENO || pokemon.tipo == Tipo.VOLADOR) {
                 mensaje = "VENTAJA";
-            }else if(pokemon.tipo == Tipo.AGUA || pokemon.tipo == Tipo.ROCA || pokemon.tipo == Tipo.TIERRA){
+            } else if (pokemon.tipo == Tipo.AGUA || pokemon.tipo == Tipo.ROCA || pokemon.tipo == Tipo.TIERRA) {
                 mensaje = "DOBLE_VENTAJA";
-            }else
+            } else
                 mensaje = "NEUTRO";
         }
-        if (this.tipo == Tipo.PSIQUICO){
-            if (pokemon.tipo == Tipo.PSIQUICO){
+        if (this.tipo == Tipo.PSIQUICO) {
+            if (pokemon.tipo == Tipo.PSIQUICO) {
                 mensaje = "VENTAJA";
-            }else if(pokemon.tipo == Tipo.LUCHA || pokemon.tipo == Tipo.VENENO){
+            } else if (pokemon.tipo == Tipo.LUCHA || pokemon.tipo == Tipo.VENENO) {
                 mensaje = "DOBLE_VENTAJA";
-            }else
+            } else
                 mensaje = "NEUTRO";
         }
-        if (this.tipo == Tipo.ROCA){
-            if (pokemon.tipo == Tipo.LUCHA || pokemon.tipo == Tipo.TIERRA){
+        if (this.tipo == Tipo.ROCA) {
+            if (pokemon.tipo == Tipo.LUCHA || pokemon.tipo == Tipo.TIERRA) {
                 mensaje = "VENTAJA";
-            }else if(pokemon.tipo == Tipo.BICHO || pokemon.tipo == Tipo.FUEGO || pokemon.tipo == Tipo.HIELO ||
-                    pokemon.tipo == Tipo.VOLADOR){
+            } else if (pokemon.tipo == Tipo.BICHO || pokemon.tipo == Tipo.FUEGO || pokemon.tipo == Tipo.HIELO ||
+                    pokemon.tipo == Tipo.VOLADOR) {
                 mensaje = "DOBLE_VENTAJA";
-            }else
+            } else
                 mensaje = "NEUTRO";
         }
-        if (this.tipo == Tipo.TIERRA){
-            if (pokemon.tipo == Tipo.BICHO || pokemon.tipo == Tipo.PLANTA){
+        if (this.tipo == Tipo.TIERRA) {
+            if (pokemon.tipo == Tipo.BICHO || pokemon.tipo == Tipo.PLANTA) {
                 mensaje = "VENTAJA";
-            }else if(pokemon.tipo == Tipo.ELECTRICO || pokemon.tipo == Tipo.FUEGO || pokemon.tipo == Tipo.ROCA ||
-                    pokemon.tipo == Tipo.VENENO){
+            } else if (pokemon.tipo == Tipo.ELECTRICO || pokemon.tipo == Tipo.FUEGO || pokemon.tipo == Tipo.ROCA ||
+                    pokemon.tipo == Tipo.VENENO) {
                 mensaje = "DOBLE_VENTAJA";
-            }else if (pokemon.tipo == Tipo.VOLADOR){
+            } else if (pokemon.tipo == Tipo.VOLADOR) {
                 mensaje = "DESVENTAJA";
-            }
-            else
+            } else
                 mensaje = "NEUTRO";
         }
-        if (this.tipo == Tipo.VENENO){
+        if (this.tipo == Tipo.VENENO) {
             if (pokemon.tipo == Tipo.FANTASMA || pokemon.tipo == Tipo.ROCA || pokemon.tipo == Tipo.TIERRA ||
-                pokemon.tipo == Tipo.VENENO){
+                    pokemon.tipo == Tipo.VENENO) {
                 mensaje = "VENTAJA";
-            }else if(pokemon.tipo == Tipo.BICHO || pokemon.tipo == Tipo.PLANTA){
+            } else if (pokemon.tipo == Tipo.BICHO || pokemon.tipo == Tipo.PLANTA) {
                 mensaje = "DOBLE_VENTAJA";
-            }else
+            } else
                 mensaje = "NEUTRO";
         }
-        if (this.tipo == Tipo.VOLADOR){
-            if (pokemon.tipo == Tipo.ELECTRICO || pokemon.tipo == Tipo.ROCA){
+        if (this.tipo == Tipo.VOLADOR) {
+            if (pokemon.tipo == Tipo.ELECTRICO || pokemon.tipo == Tipo.ROCA) {
                 mensaje = "VENTAJA";
-            }else if(pokemon.tipo == Tipo.BICHO || pokemon.tipo == Tipo.LUCHA || pokemon.tipo == Tipo.PLANTA){
+            } else if (pokemon.tipo == Tipo.BICHO || pokemon.tipo == Tipo.LUCHA || pokemon.tipo == Tipo.PLANTA) {
                 mensaje = "DOBLE_VENTAJA";
-            }else
+            } else
                 mensaje = "NEUTRO";
         }
-    return mensaje;
+        return mensaje;
     }
 
-    public void descansar(){
+    public void descansar() {
         this.estamina = this.estamina + 15;
     }
 
-    public void aprenderMovimiento(){
+    public void aprenderMovimiento() {
 
     }
+    // hasmap <Tipo, List<tipo>> tablaTipos
+    // AGUA [fuego,tierra,roca] una lisata apra cada elemento
+    //public satic hasmap
 }
