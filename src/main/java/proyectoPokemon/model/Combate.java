@@ -44,7 +44,6 @@ public class Combate {
         this.numPokemonsKOrival = 0;
     }
 
-
     public void inicioCombate() {
         System.out.println("¡Comienza el combate!");
         LinkedList<Pokemon> equipoJugador = jugador.getEquipoPokemon();
@@ -95,6 +94,7 @@ public class Combate {
             // this.nivelExperiencia += experiencia;
         }
     }
+
 
 
 
