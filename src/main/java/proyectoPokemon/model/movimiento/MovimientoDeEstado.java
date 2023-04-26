@@ -9,7 +9,7 @@ public class MovimientoDeEstado extends Movimiento{
     private int turnosDuracion;
 
     public MovimientoDeEstado(String nombre, int costeDeEstamina, Estado estadoAplicado, int turnosDuracion) {
-        super(nombre, costeDeEstamina);
+        super(nombre);
         this.estadoAplicado = estadoAplicado;
         this.turnosDuracion = turnosDuracion;
         setCosteDeEstamina(this.turnosDuracion * 10);

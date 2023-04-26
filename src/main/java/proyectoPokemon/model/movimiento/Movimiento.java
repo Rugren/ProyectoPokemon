@@ -12,9 +12,8 @@ public abstract class Movimiento {
 
     private static LinkedList<Movimiento> movimientosDisponibles = new LinkedList<>();
 
-    public Movimiento(String nombre, int costeDeEstamina, Tipo tipo) {
+    public Movimiento(String nombre) {
         this.nombre = nombre;
-        this.costeDeEstamina = costeDeEstamina;
     }
 
     public String getNombre() {

@@ -8,7 +8,7 @@ public class MovimientoDeMejora extends Movimiento{
 
 
     public MovimientoDeMejora(String nombre, int costeDeEstamina, TipoMejora mejoraAplicada, int turnosDuracion) {
-        super(nombre, costeDeEstamina);
+        super(nombre);
         this.mejoraAplicada = mejoraAplicada;
         this.turnosDuracion = turnosDuracion;
         setCosteDeEstamina(this.turnosDuracion * 10);

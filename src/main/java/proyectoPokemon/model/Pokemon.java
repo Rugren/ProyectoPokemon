@@ -20,7 +20,7 @@ public class Pokemon {
     private int nivel = 1;
     private Movimiento movimiento;
 
-    private Movimiento[] listaDeMovimientos = new Movimiento[4];
+    private Movimiento[] listaDeMovimientos;
     private int fertilidad = 5;
     private Sexo sexo;
     private Tipo tipo;
@@ -34,7 +34,7 @@ public class Pokemon {
 
     public Pokemon(String nombre, String mote,
                    Movimiento[] listaDeMovimientos,
-                   Sexo sexo, Tipo tipo, Estado estado, Objeto objeto) {
+                   Sexo sexo, Tipo tipo) {
         Random rnd = new Random();
         this.nombre = nombre;
         this.mote = mote;
@@ -46,12 +46,10 @@ public class Pokemon {
         this.velocidad = rnd.nextInt(10) + 1;
         this.estamina = rnd.nextInt(10) + 1;
         this.nivel = 1;
-        this.listaDeMovimientos = listaDeMovimientos;
+        this.listaDeMovimientos = new Movimiento[4];
         this.fertilidad = 5;
         this.sexo = sexo;
         this.tipo = tipo;
-        this.estado = estado;
-        this.objeto = objeto;
         this.nivelExperiencia = 1;
     }
 
@@ -353,7 +351,6 @@ public class Pokemon {
     }
 
 
-
     public static HashMap<Tipo, LinkedList<Tipo>> getListaDesventaja() {
         if (listaDesventaja == null){
             listaDesventaja = new HashMap<>();
@@ -417,6 +414,7 @@ public class Pokemon {
             listaDesventaja.get(Tipo.TIERRA).add(Tipo.PLANTA);
 
             listaDesventaja.get(Tipo.VENENO).add(Tipo.FANTASMA);
+
             listaDesventaja.get(Tipo.VENENO).add(Tipo.ROCA);
             listaDesventaja.get(Tipo.VENENO).add(Tipo.TIERRA);
             listaDesventaja.get(Tipo.VENENO).add(Tipo.VENENO);

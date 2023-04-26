@@ -9,9 +9,9 @@ public class MovimientoDeAtaque extends Movimiento{
     private Tipo tipoDelAtaque;
 
 
-    public MovimientoDeAtaque(String nombre, int costeDeEstamina, int potenciaDeAtaque, Tipo tipoDelAtaque) {
+    public MovimientoDeAtaque(String nombre, int potenciaDeAtaque, Tipo tipoDelAtaque) {
 
-        super(nombre, costeDeEstamina);
+        super(nombre);
         this.potenciaDeAtaque = potenciaDeAtaque;
         this.tipoDelAtaque = tipoDelAtaque;
         setCosteDeEstamina(this.potenciaDeAtaque / 2);
