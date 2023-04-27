@@ -1,6 +1,7 @@
 package proyectoPokemon.model;
 
 import java.util.LinkedList;
+import java.util.ArrayList;
 import java.util.Random;
 
 public class Combate {
@@ -47,8 +48,8 @@ public class Combate {
 
     public void inicioCombate() {
         System.out.println("¡Comienza el combate!");
-        LinkedList<Pokemon> equipoJugador = jugador.getEquipoPokemon();
-        LinkedList<Pokemon> equipoRival = rival.getEquipoPokemon();
+        ArrayList<Pokemon> equipoJugador = jugador.getEquipoPokemon();
+        ArrayList<Pokemon> equipoRival = rival.getEquipoPokemon();
 
         while (numPokemonsKOjugador < 6 && numPokemonsKOrival < 6) {
             System.out.println("Turno " + turno + ":");
@@ -87,12 +88,10 @@ public class Combate {
         ganador.recibirPokedollar(pokedollar);
 
         // Se reparte la experiencia entre los Pokémon del equipo del ganador
-        LinkedList<Pokemon> equipoGanador = ganador.getEquipoPokemon();
+        ArrayList<Pokemon> equipoGanador = ganador.getEquipoPokemon();
         for (Pokemon pokemon : equipoGanador) {
             int experiencia = (pokemon.getNivel() + nivelMaximo * 10) / 4; // nivelMaximo del rival o pokemon.getNivelRival, algo así?
             pokemon.añadirExperiencia(experiencia);
-            //uSAR LOS GET Y SET DEL POKEMON
-            // this.nivelExperiencia += experiencia;
         }
     }
 
