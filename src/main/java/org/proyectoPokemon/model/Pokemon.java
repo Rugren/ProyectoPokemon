@@ -10,6 +10,7 @@ import java.util.Random;
 import static org.proyectoPokemon.model.Tipo.listaTipos;
 
 public class Pokemon {
+    private static LinkedList<Pokemon> pokedex;
     private String nombre;
     private String mote;
     private int vitalidad;

@@ -36,4 +36,5 @@ public class PokemonApplication extends Application {
         launch();
     }
 
+
 }

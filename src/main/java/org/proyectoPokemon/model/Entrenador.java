@@ -7,6 +7,7 @@ import java.util.Random;
 
 public class Entrenador {
     private String nombre;
+    private String password;
     private LinkedList<Pokemon> equipoPokemon = new LinkedList<>();
     private LinkedList<Pokemon> grupoSecundario = new LinkedList<>();
     //   private int pokedollar; //asi es como lo tenia mikel
@@ -21,6 +22,10 @@ public class Entrenador {
         this.grupoSecundario = grupoSecundario;
         this.pokedollar = pokedollar;
         this.listaObjetos = listaObjetos;
+    }
+
+    public Entrenador(String nombre, String password){
+
     }
 
 

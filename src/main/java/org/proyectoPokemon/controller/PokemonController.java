@@ -6,12 +6,11 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
+import javafx.scene.image.ImageView;
 import javafx.scene.text.TextFlow;
 import javafx.stage.Stage;
+import org.proyectoPokemon.model.Entrenador;
 
 import java.io.IOException;
 import java.util.Objects;
@@ -20,7 +19,11 @@ public class PokemonController {
     @FXML
     private Button botonLogin;
     @FXML
-    private TextFlow texto1;
+    private Button botonRegistrarse;
+    @FXML
+    private Label texto1;
+    @FXML
+    private Label texto2;
 
     @FXML
     private TextField user;
@@ -29,13 +32,32 @@ public class PokemonController {
     private PasswordField password;
 
     @FXML
-    public void nextWindow (ActionEvent event) throws IOException {
+    private ImageView logo;
+
+    @FXML
+    public void login (ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/fxml/MainMenu.fxml")));
         Scene scene = new Scene(root, 600, 400);
         Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         stage.setTitle("Menu principal");
         stage.setScene(scene);
         stage.show();
+
+    }
+    @FXML
+    public void registrar (ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/fxml/RegistroEntrenador.fxml")));
+        Scene scene = new Scene(root, 600, 400);
+        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        stage.setTitle("Menu principal");
+        stage.setScene(scene);
+        stage.show();
+
+    }
+
+    @FXML
+    public void initialize (){
+
 
     }
 }
