@@ -215,6 +215,8 @@ public class Pokemon {
     }
 
     /*public String comprobarVentaja(Pokemon pokemon) {
+    // Sustituido por el diccionario HashMap: public static HashMap<Tipo, LinkedList<Tipo>> getListaDesventaja() - getListaVentaja() y getListaAtaqueNulo
+    // No borrar este método porque estaría bien hecho. Pero abajo mejor hecho con diccionarios en el método comprobarVentaja.
         String mensaje = "";
         if (this.tipo == Tipo.AGUA) {
             if (pokemon.tipo == Tipo.AGUA || pokemon.tipo == Tipo.DRAGON || pokemon.tipo == Tipo.PLANTA) {
@@ -539,4 +541,6 @@ public class Pokemon {
     }
 
 
+    public boolean combatir(Pokemon pokemonRival) {
+    }
 }
