@@ -8,6 +8,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="lib" />
         <module name="ProyectoPokemon" />
+        <module name="javafx" />
       </profile>
     </annotationProcessing>
   </component>

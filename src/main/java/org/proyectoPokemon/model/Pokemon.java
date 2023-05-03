@@ -7,6 +7,8 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Random;
 
+import static org.proyectoPokemon.model.Tipo.listaTipos;
+
 public class Pokemon {
     private String nombre;
     private String mote;
@@ -23,7 +25,8 @@ public class Pokemon {
     private Movimiento[] listaDeMovimientos;
     private int fertilidad = 5;
     private Sexo sexo;
-    private Tipo tipo;
+    private Tipo tipo1;
+    private Tipo tipo2;
     private Estado estado;
     private Objeto objeto;
     private int nivelExperiencia;
@@ -31,10 +34,16 @@ public class Pokemon {
     private static HashMap<Tipo, LinkedList<Tipo>> listaDesventaja;
 
     private static HashMap<Tipo, LinkedList<Tipo>> listaAtaqueNulo;
+    private static LinkedList<Tipo> listaTipos;
+    public static LinkedList<Tipo> getListaTipos(){
+        if (listaTipos == null)
+        listaTipos = new LinkedList<>();
+        return listaTipos;
+    }
 
     public Pokemon(String nombre, String mote,
                    Movimiento[] listaDeMovimientos,
-                   Sexo sexo, Tipo tipo) {
+                   Sexo sexo, Tipo tipo1, Tipo tipo2) {
         Random rnd = new Random();
         this.nombre = nombre;
         this.mote = mote;
@@ -49,9 +58,11 @@ public class Pokemon {
         this.listaDeMovimientos = new Movimiento[4];
         this.fertilidad = 5;
         this.sexo = sexo;
-        this.tipo = tipo;
+        this.tipo1 = tipo1;
+        this.tipo2 = tipo2;
         this.nivelExperiencia = 1;
     }
+
 
     public String getNombre() {
         return nombre;
@@ -157,12 +168,15 @@ public class Pokemon {
         this.sexo = sexo;
     }
 
-    public Tipo getTipo() {
-        return tipo;
+    public Tipo getTipo1() {
+        return tipo1;
     }
 
-    public void setTipo(Tipo tipo) {
-        this.tipo = tipo;
+    public void setTipo1(Tipo tipo1) {
+        this.tipo1 = tipo1;
+    }
+    public void setTipo2(Tipo tipo2) {
+        this.tipo2 = tipo2;
     }
 
     public Objeto getObjeto() {
@@ -527,11 +541,11 @@ public class Pokemon {
     }
     //Método para comprobar ventaja
     public float comprobarVentaja(Pokemon pokemon){
-        if (listaVentaja.get(this.tipo).contains(pokemon.tipo))
+        if (listaVentaja.get(this.tipo1).contains(pokemon.tipo1))
             return 2.0f;
-        if (listaDesventaja.get(this.tipo).contains(pokemon.tipo))
+        if (listaDesventaja.get(this.tipo1).contains(pokemon.tipo1))
             return 0.5f;
-        if (listaAtaqueNulo.get(this.tipo).contains(pokemon.tipo))
+        if (listaAtaqueNulo.get(this.tipo1).contains(pokemon.tipo1))
             return 0f;
         return 1f;
     }

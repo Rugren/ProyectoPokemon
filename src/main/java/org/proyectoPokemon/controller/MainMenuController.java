@@ -13,19 +13,26 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.Objects;
 
-public class WindowController {
+public class MainMenuController {
     @FXML
-    private Button botonVolver;
+    private Button botonCerrarSesion;
+    @FXML
+    private Button botonEquipoPokemon;
+    @FXML
+    private Button botonCombate;
+    @FXML
+    private Button botonCapturar;
+    @FXML
+    private Button botonTienda;
 
-    @FXML
-    private TextField texto2;
+
 
     @FXML
     public void backWindow(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/fxml/hello.fxml")));
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/fxml/PokemonApplication.fxml")));
         Scene scene = new Scene(root, 600, 400);
         Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        stage.setTitle("Test 1");
+        stage.setTitle("Menú principal.");
         stage.setScene(scene);
         stage.show();
     }
