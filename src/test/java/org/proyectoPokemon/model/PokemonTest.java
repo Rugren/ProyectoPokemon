@@ -17,4 +17,9 @@ class PokemonTest {
     @Test
     void atacar() {
     }
+
+    @Test
+    void comprobarVentaja() {
+
+    }
 }
