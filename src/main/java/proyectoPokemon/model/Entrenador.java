@@ -95,11 +95,14 @@ public class Entrenador {
     // Así con ArrayList
     public void moverPokemonACaja(int indice) {
         if (equipoPokemon.length() > 1) { // al menos debe quedar un Pokemon en el equipo principal
-            Pokemon pokemon = equipoPokemon[] .del .remove(indice);
-            Pokemon pokemon = equipoPokemon.removeElement .remove(indice.length()-1); // o borrar con el .del
+            Pokemon pokemon = equipoPokemon[indice] = null; // aqui quitaria el pokemon de la posicion que le pasemos.
+                if (indice ) // poner que la posición que nos pase esté entre 0 y 5, ya que son 6 posiciones máximas del equipo.
+
+            // -- Pokemon pokemon = equipoPokemon.removeElement .remove(indice.length()-1); // o borrar con el .del
             grupoSecundario[5] = pokemon;
             System.out.println(nombre + " ha movido a " + pokemon.getNombre() + " a la caja.");
         }
+        // ponerlo a null
     }
 
     public void moverPokemonAEquipo(int indice) {
@@ -209,6 +212,8 @@ public class Entrenador {
             pokedollar -= costo;
         }
 
+        // Falta por hacer
+         EQUIPAR EL ENTRENADOR EL OBJETO AL POKEMON
 
 
     }

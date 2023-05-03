@@ -542,5 +542,6 @@ public class Pokemon {
 
 
     public boolean combatir(Pokemon pokemonRival) {
+        return false;
     }
 }
