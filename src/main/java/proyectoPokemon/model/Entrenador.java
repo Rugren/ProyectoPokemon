@@ -248,6 +248,7 @@ public class Entrenador {
         Mecánica capturar pokemon
 
 
+
     }
 }
 
