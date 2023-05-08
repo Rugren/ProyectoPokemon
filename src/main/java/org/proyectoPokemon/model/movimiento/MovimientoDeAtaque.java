@@ -15,7 +15,7 @@ public class MovimientoDeAtaque extends Movimiento{
         this.potenciaDeAtaque = potenciaDeAtaque;
         this.tipoDelAtaque = tipoDelAtaque;
         setCosteDeEstamina(this.potenciaDeAtaque / 2);
-        Movimiento.getMovimientosDisponibles().add(this);
+
     }
 
     public int getPotenciaDeAtaque() {
