@@ -544,4 +544,8 @@ public class Pokemon {
     public boolean combatir(Pokemon pokemonRival) {
         return false;
     }
+
+    public void anadirExperiencia(int nivelExperiencia) {
+        this.nivelExperiencia += nivelExperiencia;
+    }
 }

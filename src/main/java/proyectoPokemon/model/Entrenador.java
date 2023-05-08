@@ -5,6 +5,14 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Random;
 
+// HACER JAVA DOC cuando terminemos la clase. Tools / Generate JavaDoc.
+
+/**
+ * Clase principal de nuestro proyecto Pokemon / Entrenador
+ * @author
+ * @version
+ */
+
 public class Entrenador {
     // private Pokemon[] listaPokemon = new Pokemon[];
     private String nombre;
@@ -68,6 +76,11 @@ public class Entrenador {
     public int getNivelMaximoEquipo() {
         return 0;
     }
+
+    /**
+     * Método constructor para recibir pokedollar
+     * @param pokedollar los pokedollar que tenemos más los pokedollar que ganamos al combatir.
+     */
     public void recibirPokedollar(int pokedollar) {
         this.pokedollar += pokedollar;
     }
@@ -92,6 +105,11 @@ public class Entrenador {
         }
      */
 
+    /**
+     * Para mover pokemon del equipo a caja
+     * @param indice número del array del orden de nuestro pokemon en equipo que se mueve a caja.
+     */
+
     // Así con ArrayList
     public void moverPokemonACaja(int indice) {
         if (equipoPokemon.length() > 1) { // al menos debe quedar un Pokemon en el equipo principal
@@ -105,6 +123,10 @@ public class Entrenador {
         // ponerlo a null
     }
 
+    /**
+     * Para mover pokemon de caja al equipo
+     * @param indice número del array del orden de nuestro pokemon en caja que se mueva a equipo.
+     */
     public void moverPokemonAEquipo(int indice) {
         if (equipoPokemon.length() < 4 && indice < grupoSecundario.()) { // no se deben tener más de 4 Pokemon en el equipo y el índice debe ser válido
             Pokemon pokemon = grupoSecundario.remove(indice);
@@ -113,6 +135,11 @@ public class Entrenador {
         }
     }
 
+    /**
+     * Método para entrenar a nuestros pokemon
+     * @param pokemon el pokemon que queremos subir de atributos(ataque, defensa, ataqueEspecial, defensaEspecial, velocidad, vitalidad)
+     * @param tipoEntrenamiento el entrenamiento que haremos para subir ciertos atributos, según el tipo de entrenamiento subirá una serie de atributos u otros.
+     */
     public void entrenarPokemon(Pokemon pokemon, TipoEntrenamiento tipoEntrenamiento) {
         int costo, ataque, defensa, ataqueEspecial, defensaEspecial, velocidad, vitalidad;
         switch (tipoEntrenamiento) {
@@ -202,7 +229,7 @@ public class Entrenador {
                 System.out.println(nombre + " ha entrenado a " + pokemon.getNombre() + " mediante un entrenamiento de tipo " + TipoEntrenamiento + ".");
             }
  */
-        // *Haciendo así en el switch.
+/* *Haciendo así en el switch.
         if (pokedollars >= costo) {
             // por ejemplo si fuese un entrenamiento "pesado":
             pokemon.setDefensa(pokemon.getDefensa() + defensa);
@@ -211,9 +238,14 @@ public class Entrenador {
             System.out.println(nombre + " ha entrenado a " + pokemon.getNombre() + " mediante un entrenamiento de tipo " + TipoEntrenamiento + ".");
             pokedollar -= costo;
         }
+*/
 
-        // Falta por hacer
+
+        // Falta por hacer: EQUIPAR EL ENTRENADOR EL OBJETO AL POKEMON
          EQUIPAR EL ENTRENADOR EL OBJETO AL POKEMON
+
+        // Hacer: Mecánica capturar pokemon
+        Mecánica capturar pokemon
 
 
     }

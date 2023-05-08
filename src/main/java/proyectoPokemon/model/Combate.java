@@ -87,11 +87,11 @@ public class Combate {
         int pokedollar = (int) Math.floor(rival.getPokedollar() / 3);
         ganador.recibirPokedollar(pokedollar);
 
-        // Se reparte la experiencia entre los Pokémon del equipo del ganador
+        // Se reparte la experiencia(llamada: nivelExperiencia) entre los Pokémon del equipo del ganador
         ArrayList<Pokemon> equipoGanador = ganador.getEquipoPokemon();
         for (Pokemon pokemon : equipoGanador) {
-            int experiencia = (pokemon.getNivel() + nivelMaximo * 10) / 4; // nivelMaximo del rival o pokemon.getNivelRival, algo así?
-            pokemon.añadirExperiencia(experiencia);
+            int nivelExperiencia = (pokemon.getNivel() + nivelMaximo * 10) / 4; // nivelMaximo del rival o pokemon.getNivelRival, algo así?
+            pokemon.anadirExperiencia(nivelExperiencia);
         }
     }
 
