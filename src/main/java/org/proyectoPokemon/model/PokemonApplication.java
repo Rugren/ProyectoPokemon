@@ -10,6 +10,7 @@ import javafx.scene.Scene;
 
 import javafx.stage.Stage;
 import org.proyectoPokemon.database.PokemonCRUD;
+import org.proyectoPokemon.model.movimiento.MovimientoDeAtaque;
 
 import java.io.IOException;
 
@@ -35,6 +36,7 @@ public class PokemonApplication extends Application {
     public static void main(String[] args) {
         launch();
     }
+    MovimientoDeAtaque ataque1 = new MovimientoDeAtaque("ataque1", 10,Tipo.PLANTA);
 
 
 }

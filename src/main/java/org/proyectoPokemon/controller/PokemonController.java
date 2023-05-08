@@ -39,7 +39,7 @@ public class PokemonController {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/fxml/MainMenu.fxml")));
         Scene scene = new Scene(root, 600, 400);
         Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        stage.setTitle("Menu principal");
+        stage.setTitle("Login");
         stage.setScene(scene);
         stage.show();
 
@@ -57,7 +57,6 @@ public class PokemonController {
 
     @FXML
     public void initialize (){
-
 
     }
 }

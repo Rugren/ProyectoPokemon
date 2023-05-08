@@ -32,8 +32,12 @@ public abstract class Movimiento {
         this.costeDeEstamina = costeDeEstamina;
     }
 
-    public static LinkedList<Movimiento> getMovimientosDisponibles() {
+    private static LinkedList<Movimiento> getMovimientosDisponibles() {
         return movimientosDisponibles;
+    }
+    public static Movimiento getMovimiento(int movimiento){
+        return Movimiento.movimientosDisponibles.get(movimiento);
+
     }
 
     public static void setMovimientosDisponibles(LinkedList<Movimiento> movimientosDisponibles) {

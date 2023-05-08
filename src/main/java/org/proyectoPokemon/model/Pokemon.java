@@ -8,9 +8,12 @@ import java.util.LinkedList;
 import java.util.Random;
 
 import static org.proyectoPokemon.model.Tipo.listaTipos;
-
+//JAVADOC
+/**
+ * Clase Pokemon principal de mi proyecto.
+ * @author MikelAndersonOtavalo
+ */
 public class Pokemon {
-    private static LinkedList<Pokemon> pokedex;
     private String nombre;
     private String mote;
     private int vitalidad;
@@ -42,6 +45,15 @@ public class Pokemon {
         return listaTipos;
     }
 
+    /**
+     * Construtor de pokemon para pruebas
+     * @param nombre
+     * @param mote
+     * @param listaDeMovimientos Array de 4 posiciones con movimientos de la lista estatica de la clase Movmientos.
+     * @param sexo
+     * @param tipo1
+     * @param tipo2
+     */
     public Pokemon(String nombre, String mote,
                    Movimiento[] listaDeMovimientos,
                    Sexo sexo, Tipo tipo1, Tipo tipo2) {
@@ -56,7 +68,7 @@ public class Pokemon {
         this.velocidad = rnd.nextInt(10) + 1;
         this.estamina = rnd.nextInt(10) + 1;
         this.nivel = 1;
-        this.listaDeMovimientos = new Movimiento[4];
+        this.listaDeMovimientos = listaDeMovimientos;
         this.fertilidad = 5;
         this.sexo = sexo;
         this.tipo1 = tipo1;
@@ -196,6 +208,13 @@ public class Pokemon {
         this.nivelExperiencia = nivelExperiencia;
     }
 
+    /*public void Movimiento[] getListaDeMovimientos() {
+
+        if(listaDeMovimientos == null)
+            Movimiento listaDeMovimientos[] = new Movimiento[3];
+            listaDeMovimientos[0] =
+        return listaDeMovimientos;
+    }*/
 
     public Estado getEstado() {
         return estado;
@@ -206,6 +225,10 @@ public class Pokemon {
     }
 
     //FUNCIONES DEL POKEMON
+
+    /**
+     * Metodo para subir de nivel a nuestro pokemon.
+     */
     public void subirNivel() {
         Random rnd = new Random();
         if (this.nivelExperiencia == 10 * this.nivel) {
@@ -216,15 +239,32 @@ public class Pokemon {
             setDefensaEspecial(this.defensaEspecial + (rnd.nextInt(5) + 1));
             setVelocidad(this.velocidad + (rnd.nextInt(5) + 1));
         }
-        if (nivel % 3 == 0) {
-            aprenderMovimiento();
-        }
     }
-    public void aprenderMovimiento() {
 
+    /**
+     *
+     * @param aprendenMovimiento
+     * @param quitarMovimiento
+     * @return indica si se ha completado o no el metodo.
+     */
+    public boolean aprenderMovimiento(int aprendenMovimiento, int quitarMovimiento) {
+        if (this.nivel % 3 == 0) {
+            if (listaDeMovimientos.length > 2) {
+                quitarmoviento(quitarMovimiento);
+                listaDeMovimientos[quitarMovimiento] = Movimiento.getMovimiento(aprendenMovimiento);
+                return true;
+            }
+        }
+        return false;
+    }
+    public boolean quitarmoviento(int indexMovimiento){
+        if (listaDeMovimientos.length > 0){
+            listaDeMovimientos[indexMovimiento] = null;
+            return true;
+        }else
+            return false;
     }
     public void atacar(Pokemon pokemon) {
-
     }
 
     /*public String comprobarVentaja(Pokemon pokemon) {
@@ -540,7 +580,12 @@ public class Pokemon {
         }
         return listaAtaqueNulo;
     }
-    //Método para comprobar ventaja
+
+    /**
+     * Comprobar ventaja de this con otro pokemon indicado.
+     * @param pokemon
+     * @return nos devuelve l aventaja ue tiene sobre el otro pokemon
+     */
     public float comprobarVentaja(Pokemon pokemon){
         if (listaVentaja.get(this.tipo1).contains(pokemon.tipo1))
             return 2.0f;
@@ -553,3 +598,4 @@ public class Pokemon {
 
 
 }
+
