@@ -143,8 +143,7 @@ public class Entrenador {
     public void entrenarPokemon(Pokemon pokemon, TipoEntrenamiento tipoEntrenamiento) {
         int costo, ataque, defensa, ataqueEspecial, defensaEspecial, velocidad, vitalidad;
         switch (tipoEntrenamiento) {
-            // Se puede sustituir el switch al darle a la bombilla y te lo hace así:
-            // if ("pesado".equals(TipoEntrenamiento)) { // entrenamiento pesado
+            // Se puede sustituir el switch al darle a la bombilla y te lo hace así: if ("pesado".equals(TipoEntrenamiento)) { // entrenamiento pesado
             case "pesado": // entrenamiento pesado
                 costo = 20 * pokemon.getNivel();
                 ataque = 0;
@@ -241,7 +240,7 @@ public class Entrenador {
 */
 
 
-        // Falta por hacer: EQUIPAR EL ENTRENADOR EL OBJETO AL POKEMON
+        // Falta por hacer: Equiparar el Entrenador el objeto al Pokemon
          EQUIPAR EL ENTRENADOR EL OBJETO AL POKEMON
 
         // Hacer: Mecánica capturar pokemon

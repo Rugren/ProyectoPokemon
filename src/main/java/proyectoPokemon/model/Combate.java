@@ -1,7 +1,5 @@
 package proyectoPokemon.model;
 
-import java.util.LinkedList;
-import java.util.ArrayList;
 import java.util.Random;
 
 public class Combate {
@@ -48,13 +46,13 @@ public class Combate {
 
     public void inicioCombate() {
         System.out.println("¡Comienza el combate!");
-        ArrayList<Pokemon> equipoJugador = jugador.getEquipoPokemon();
-        ArrayList<Pokemon> equipoRival = rival.getEquipoPokemon();
+        Pokemon[] equipoJugador = jugador.getEquipoPokemon();
+        Pokemon[] equipoRival = rival.getEquipoPokemon();
 
         while (numPokemonsKOjugador < 6 && numPokemonsKOrival < 6) {
             System.out.println("Turno " + turno + ":");
-            Pokemon pokemonJugador = equipoJugador.get(numPokemonsKOjugador);
-            Pokemon pokemonRival = equipoRival.get(numPokemonsKOrival);
+            Pokemon pokemonJugador = equipoJugador[numPokemonsKOjugador];
+            Pokemon pokemonRival = equipoRival[numPokemonsKOrival];
 
             // Para establecer el nivel máximo del Pokémon rival
             int nivelMaximo = jugador.getNivelMaximoEquipo();
@@ -88,8 +86,10 @@ public class Combate {
         ganador.recibirPokedollar(pokedollar);
 
         // Se reparte la experiencia(llamada: nivelExperiencia) entre los Pokémon del equipo del ganador
-        ArrayList<Pokemon> equipoGanador = ganador.getEquipoPokemon();
+        Pokemon[] equipoGanador = ganador.getEquipoPokemon();
         for (Pokemon pokemon : equipoGanador) {
+            int nivelMaximo = jugador.getNivelMaximoEquipo(); // añadido esta línea en casa el 09/05/23 a las 15:06, para comprobar con Mikel si dejar aquí y así el "int nivelMaximo"."
+
             int nivelExperiencia = (pokemon.getNivel() + nivelMaximo * 10) / 4; // nivelMaximo del rival o pokemon.getNivelRival, algo así?
             pokemon.anadirExperiencia(nivelExperiencia);
         }
