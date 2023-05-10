@@ -1,4 +1,4 @@
-module proyectoPokemon {
+module ProyectoPokemon {
     requires javafx.fxml;
     requires javafx.controls;
     requires org.junit.jupiter.api;
@@ -6,4 +6,5 @@ module proyectoPokemon {
 
     opens org.proyectoPokemon.model;
     opens org.proyectoPokemon.controller;
+
 }
