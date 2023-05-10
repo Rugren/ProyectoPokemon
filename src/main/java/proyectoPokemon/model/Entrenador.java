@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Random;
 
-// HACER JAVA DOC cuando terminemos la clase. Tools / Generate JavaDoc.
+/ HACER JAVA DOC cuando terminemos la clase. Tools / Generate JavaDoc.
 
 /**
  * Clase principal de nuestro proyecto Pokemon / Entrenador
@@ -16,8 +16,8 @@ import java.util.Random;
 public class Entrenador {
     // private Pokemon[] listaPokemon = new Pokemon[];
     private String nombre;
-    private Pokemon[] equipoPokemon = new Pokemon[6];
-    private Pokemon[] grupoSecundario = new Pokemon[6];
+    private Pokemon[] equipoPokemon = new Pokemon[5];
+    private Pokemon[] grupoSecundario = new Pokemon[19]; // 20 pokemon en el equipo secundario.
     private int pokedollar = new Random().nextInt(201) + 800; // Al crearse tiene que tener un random entre 800 y 1000;
     private Objeto[] listaObjetos = new Objeto[4]; // La listaObjetos viene a ser "mochila", la equipada.
     // puesto[4] un máximo de 5 objetos para la mochila (para luego testear que entren 5 objetos y no más.
@@ -74,7 +74,13 @@ public class Entrenador {
 
     // Métodos para la Clase Combate
     public int getNivelMaximoEquipo() {
-        return 0;
+        int nivelMaximo = 0;
+        for (int i = 0; i < equipoPokemon.length; i++) {
+            if (equipoPokemon[i].getNivel() >= nivelMaximo) {
+                nivelMaximo = equipoPokemon[i].getNivel();
+            }
+        }
+        return nivelMaximo;
     }
 
     /**
@@ -239,15 +245,27 @@ public class Entrenador {
         }
 */
 
-
-        // Falta por hacer: Equiparar el Entrenador el objeto al Pokemon
-         EQUIPAR EL ENTRENADOR EL OBJETO AL POKEMON
-
-        // Hacer: Mecánica capturar pokemon
-        Mecánica capturar pokemon
-
-
-
+    // Capturar pokemon
+    public boolean capturar(Pokemon pokemonCapturado){
+        Random randomCaptura = new Random();
+        int captura = randomCaptura.nextInt(3);
+        if (captura != 0)
+            return false;
+        Pokemon.getListaPokemon().add(pokemonCapturado);
+        addPokemonCapturado();
+        return true;
     }
+
+    // Si capturo un pokemon, que se vaya añadiendo al grupoSecundario.
+    public void addPokemonCapturado(){
+    // hacer
+    }
+
+    public void recibirPokedollar(int pokedollar) {
+    }
+
+    // Falta por hacer: Equiparar el Entrenador el objeto al Pokemon
+    EQUIPAR EL ENTRENADOR EL OBJETO AL POKEMON
+
 }
 

@@ -27,6 +27,7 @@ public class Pokemon {
     private Estado estado;
     private Objeto objeto;
     private int nivelExperiencia;
+    private static LinkedList<Pokemon> listaPokemon;
     private static HashMap<Tipo, LinkedList<Tipo>> listaVentaja;
     private static HashMap<Tipo, LinkedList<Tipo>> listaDesventaja;
 
@@ -183,6 +184,9 @@ public class Pokemon {
         this.nivelExperiencia = nivelExperiencia;
     }
 
+    public static LinkedList<Pokemon> getListaPokemon() {
+        return listaPokemon;
+    }
 
     public Estado getEstado() {
         return estado;

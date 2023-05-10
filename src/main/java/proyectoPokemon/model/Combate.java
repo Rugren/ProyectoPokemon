@@ -1,5 +1,7 @@
 package proyectoPokemon.model;
 
+import java.util.LinkedList;
+import java.util.ArrayList;
 import java.util.Random;
 
 public class Combate {
@@ -88,7 +90,7 @@ public class Combate {
         // Se reparte la experiencia(llamada: nivelExperiencia) entre los Pokémon del equipo del ganador
         Pokemon[] equipoGanador = ganador.getEquipoPokemon();
         for (Pokemon pokemon : equipoGanador) {
-            int nivelMaximo = jugador.getNivelMaximoEquipo(); // añadido esta línea en casa el 09/05/23 a las 15:06, para comprobar con Mikel si dejar aquí y así el "int nivelMaximo"."
+            int nivelMaximo = jugador.getNivelMaximoEquipo(); // ¿dejar así el "int nivelMaximo"?
 
             int nivelExperiencia = (pokemon.getNivel() + nivelMaximo * 10) / 4; // nivelMaximo del rival o pokemon.getNivelRival, algo así?
             pokemon.anadirExperiencia(nivelExperiencia);
