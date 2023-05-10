@@ -11,6 +11,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import org.proyectoPokemon.model.Entrenador;
 
 import java.io.IOException;
 import java.util.Objects;
@@ -30,6 +31,8 @@ public class RegistroController {
 
     @FXML
     public void registrarse (ActionEvent event) throws IOException {
+        Entrenador.getEntrenador().setNombre(user.getText());
+        Entrenador.getEntrenador().setPassword(password.getText());
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/fxml/MainMenu.fxml")));
         Scene scene = new Scene(root, 600, 400);
         Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
@@ -38,7 +41,5 @@ public class RegistroController {
         stage.show();
 
     }
-
-
 
 }

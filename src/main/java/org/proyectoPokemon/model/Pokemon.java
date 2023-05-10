@@ -48,13 +48,11 @@ public class Pokemon {
      * Construtor de pokemon para pruebas
      * @param nombre
      * @param mote
-     * @param listaDeMovimientos Array de 4 posiciones con movimientos de la lista estatica de la clase Movmientos.
      * @param sexo
      * @param tipo1
      * @param tipo2
      */
     public Pokemon(String nombre, String mote,
-                   Movimiento[] listaDeMovimientos,
                    Sexo sexo, Tipo tipo1, Tipo tipo2) {
         Random rnd = new Random();
         this.nombre = nombre;
@@ -164,6 +162,7 @@ public class Pokemon {
         this.movimiento = movimiento;
     }
 
+
     public int getFertilidad() {
         return fertilidad;
     }
@@ -207,13 +206,12 @@ public class Pokemon {
         this.nivelExperiencia = nivelExperiencia;
     }
 
-    /*public void Movimiento[] getListaDeMovimientos() {
+    public Movimiento[] getListaDeMovimientos() {
 
         if(listaDeMovimientos == null)
-            Movimiento listaDeMovimientos[] = new Movimiento[3];
-            listaDeMovimientos[0] =
+            listaDeMovimientos[0] = org.proyectoPokemon.model.movimiento.Movimiento.getMovimiento(1);
         return listaDeMovimientos;
-    }*/
+    }
 
     public Estado getEstado() {
         return estado;

@@ -6,6 +6,7 @@ import java.util.LinkedList;
 import java.util.Random;
 
 public class Entrenador {
+    private static Entrenador Entrenador = null;
     private String nombre;
     private String password;
     private LinkedList<Pokemon> equipoPokemon = new LinkedList<>();
@@ -15,19 +16,32 @@ public class Entrenador {
     private LinkedList<Objeto> listaObjetos = new LinkedList<>(); // también se podría llamar a la listaObjetos "mochila". Viene a ser lo mismo, la mochila equipada.
     // poner un máximo o número finito de capacidad de la mochila.
 
-    public Entrenador(String nombre, LinkedList<Pokemon> equipoPokemon, LinkedList<Pokemon> grupoSecundario,
+    public Entrenador(String nombre, String password, LinkedList<Pokemon> equipoPokemon, LinkedList<Pokemon> grupoSecundario,
                       int pokedollar, LinkedList<Objeto> listaObjetos) {
         this.nombre = nombre;
+        this.password = password;
         this.equipoPokemon = equipoPokemon;
         this.grupoSecundario = grupoSecundario;
         this.pokedollar = pokedollar;
         this.listaObjetos = listaObjetos;
     }
 
-    public Entrenador(String nombre, String password){
+    public Entrenador(){
 
     }
 
+    public static Entrenador getEntrenador() {
+        synchronized (Entrenador.class){
+            if(Entrenador == null){
+                Entrenador = new Entrenador();
+            }
+        }
+        return Entrenador;
+    }
+
+    public static void setEntrenador(org.proyectoPokemon.model.Entrenador entrenador) {
+        Entrenador = entrenador;
+    }
 
     public String getNombre() {
         return nombre;
@@ -35,6 +49,14 @@ public class Entrenador {
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public LinkedList<Pokemon> getEquipoPokemon() {

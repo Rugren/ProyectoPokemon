@@ -8,6 +8,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.text.TextFlow;
 import javafx.stage.Stage;
 import org.proyectoPokemon.model.Entrenador;
@@ -35,15 +36,41 @@ public class PokemonController {
     private ImageView logo;
 
     @FXML
-    public void login (ActionEvent event) throws IOException {
+    private Label lblConectado;
+
+    @FXML
+    public void cambiarMenu (ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/fxml/MainMenu.fxml")));
         Scene scene = new Scene(root, 600, 400);
         Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         stage.setTitle("Login");
         stage.setScene(scene);
         stage.show();
+    }
+
+    @FXML
+    public void login (ActionEvent event) throws IOException{
+        if (user.getText().equals(Entrenador.getEntrenador().getNombre()) && password.getText().equals(Entrenador.getEntrenador().getPassword())){
+            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/fxml/MainMenu.fxml")));
+            Scene scene = new Scene(root, 600, 400);
+            Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            stage.setTitle("Login");
+            stage.setScene(scene);
+            stage.show();
+            lblConectado.setText("connected");
+        }else {
+            lblConectado.setText("Disconnected");
+        }
 
     }
+
+    @FXML
+    public void conectado(){
+        lblConectado.setText("Conectado");
+    }
+
+
+
     @FXML
     public void registrar (ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/fxml/RegistroEntrenador.fxml")));

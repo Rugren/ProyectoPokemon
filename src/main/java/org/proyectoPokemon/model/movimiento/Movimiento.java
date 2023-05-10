@@ -43,6 +43,9 @@ public abstract class Movimiento {
     public static void setMovimientosDisponibles(LinkedList<Movimiento> movimientosDisponibles) {
         Movimiento.movimientosDisponibles = movimientosDisponibles;
     }
+    public static void addMovimiento(Movimiento movimiento){
+        movimientosDisponibles.add(movimiento);
+    }
 
     //Aplicar movimiento
     public void aplicarMovimiento(Pokemon pokemon){
