@@ -33,7 +33,7 @@ public class PokemonController {
     private PasswordField password;
 
     @FXML
-    private ImageView logo;
+    public ImageView logo;
 
     @FXML
     private Label lblConectado;
@@ -57,10 +57,12 @@ public class PokemonController {
             stage.setTitle("Login");
             stage.setScene(scene);
             stage.show();
-            lblConectado.setText("connected");
-        }else {
-            lblConectado.setText("Disconnected");
-        }
+            lblConectado.setText("Conectado");
+        }if (Entrenador.getEntrenador() == null){
+            lblConectado.setText("Debe registrarse primero");
+        }else
+            lblConectado.setText("Datos incorrectos");
+
 
     }
 
