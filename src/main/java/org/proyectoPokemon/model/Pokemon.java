@@ -37,15 +37,10 @@ public class Pokemon {
     private static HashMap<Tipo, LinkedList<Tipo>> listaDesventaja;
 
     private static HashMap<Tipo, LinkedList<Tipo>> listaAtaqueNulo;
-    private static LinkedList<Tipo> listaTipos;
-    public static LinkedList<Tipo> getListaTipos(){
-        if (listaTipos == null)
-        listaTipos = new LinkedList<>();
-        return listaTipos;
-    }
 
     /**
      * Construtor de pokemon para pruebas
+     *
      * @param nombre
      * @param mote
      * @param sexo
@@ -162,7 +157,6 @@ public class Pokemon {
         this.movimiento = movimiento;
     }
 
-
     public int getFertilidad() {
         return fertilidad;
     }
@@ -186,6 +180,7 @@ public class Pokemon {
     public void setTipo1(Tipo tipo1) {
         this.tipo1 = tipo1;
     }
+
     public void setTipo2(Tipo tipo2) {
         this.tipo2 = tipo2;
     }
@@ -208,7 +203,7 @@ public class Pokemon {
 
     public Movimiento[] getListaDeMovimientos() {
 
-        if(listaDeMovimientos == null)
+        if (listaDeMovimientos == null)
             listaDeMovimientos[0] = org.proyectoPokemon.model.movimiento.Movimiento.getMovimiento(1);
         return listaDeMovimientos;
     }
@@ -236,10 +231,16 @@ public class Pokemon {
             setDefensaEspecial(this.defensaEspecial + (rnd.nextInt(5) + 1));
             setVelocidad(this.velocidad + (rnd.nextInt(5) + 1));
         }
+        if (nivel % 3 == 0) {
+            aprenderMovimiento();
+        }
+    }
+
+    public void aprenderMovimiento() {
+
     }
 
     /**
-     *
      * @param aprendenMovimiento
      * @param quitarMovimiento
      * @return indica si se ha completado o no el metodo.
@@ -254,17 +255,22 @@ public class Pokemon {
         }
         return false;
     }
-    public boolean quitarmoviento(int indexMovimiento){
-        if (listaDeMovimientos.length > 0){
+
+    public boolean quitarmoviento(int indexMovimiento) {
+        if (listaDeMovimientos.length > 0) {
             listaDeMovimientos[indexMovimiento] = null;
             return true;
-        }else
+        } else
             return false;
     }
+
     public void atacar(Pokemon pokemon) {
+
     }
 
     /*public String comprobarVentaja(Pokemon pokemon) {
+    // Sustituido por el diccionario HashMap: public static HashMap<Tipo, LinkedList<Tipo>> getListaDesventaja() - getListaVentaja() y getListaAtaqueNulo
+    // No borrar este método porque estaría bien hecho. Pero abajo mejor hecho con diccionarios en el método comprobarVentaja.
         String mensaje = "";
         if (this.tipo == Tipo.AGUA) {
             if (pokemon.tipo == Tipo.AGUA || pokemon.tipo == Tipo.DRAGON || pokemon.tipo == Tipo.PLANTA) {
@@ -404,7 +410,7 @@ public class Pokemon {
 
 
     public static HashMap<Tipo, LinkedList<Tipo>> getListaDesventaja() {
-        if (listaDesventaja == null){
+        if (listaDesventaja == null) {
             listaDesventaja = new HashMap<>();
             listaDesventaja.put(Tipo.AGUA, new LinkedList<>());
             listaDesventaja.put(Tipo.BICHO, new LinkedList<>());
@@ -466,7 +472,6 @@ public class Pokemon {
             listaDesventaja.get(Tipo.TIERRA).add(Tipo.PLANTA);
 
             listaDesventaja.get(Tipo.VENENO).add(Tipo.FANTASMA);
-
             listaDesventaja.get(Tipo.VENENO).add(Tipo.ROCA);
             listaDesventaja.get(Tipo.VENENO).add(Tipo.TIERRA);
             listaDesventaja.get(Tipo.VENENO).add(Tipo.VENENO);
@@ -479,7 +484,7 @@ public class Pokemon {
     }
 
     public static HashMap<Tipo, LinkedList<Tipo>> getListaVentaja() {
-        if (listaVentaja == null){
+        if (listaVentaja == null) {
             listaVentaja = new HashMap<>();
 
             listaVentaja.put(Tipo.AGUA, new LinkedList<>());
@@ -554,8 +559,8 @@ public class Pokemon {
         return listaVentaja;
     }
 
-    public static HashMap<Tipo, LinkedList<Tipo>> getListaAtaqueNulo(){
-        if (listaAtaqueNulo == null){
+    public static HashMap<Tipo, LinkedList<Tipo>> getListaAtaqueNulo() {
+        if (listaAtaqueNulo == null) {
             listaAtaqueNulo = new HashMap<>();
 
             listaAtaqueNulo.put(Tipo.ELECTRICO, new LinkedList<>());
@@ -580,10 +585,11 @@ public class Pokemon {
 
     /**
      * Comprobar ventaja de this con otro pokemon indicado.
+     *
      * @param pokemon
      * @return nos devuelve l aventaja ue tiene sobre el otro pokemon
      */
-    public float comprobarVentaja(Pokemon pokemon){
+    public float comprobarVentaja(Pokemon pokemon) {
         if (listaVentaja.get(this.tipo1).contains(pokemon.tipo1))
             return 2.0f;
         if (listaDesventaja.get(this.tipo1).contains(pokemon.tipo1))
@@ -594,5 +600,14 @@ public class Pokemon {
     }
 
 
+    public boolean combatir(Pokemon pokemonRival) {
+        return false;
+    }
+
+    public void anadirExperiencia(int nivelExperiencia) {
+        this.nivelExperiencia += nivelExperiencia;
+    }
 }
+
+
 
