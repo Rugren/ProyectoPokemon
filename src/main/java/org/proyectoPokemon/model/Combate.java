@@ -42,15 +42,15 @@ public class Combate {
     }
 
 
-   /* public void inicioCombate() {
+    public void inicioCombate() {
         System.out.println("¡Comienza el combate!");
-        LinkedList<Pokemon> equipoJugador = jugador.getEquipoPokemon();
-        LinkedList<Pokemon> equipoRival = rival.getEquipoPokemon();
+        Pokemon[] equipoJugador = jugador.getEquipoPokemon();
+        Pokemon[] equipoRival = rival.getEquipoPokemon();
 
         while (numPokemonsKOjugador < 6 && numPokemonsKOrival < 6) {
             System.out.println("Turno " + turno + ":");
-            Pokemon pokemonJugador = equipoJugador.get(numPokemonsKOjugador);
-            Pokemon pokemonRival = equipoRival.get(numPokemonsKOrival);
+            Pokemon pokemonJugador = equipoJugador[numPokemonsKOjugador];
+            Pokemon pokemonRival = equipoRival[numPokemonsKOrival];
 
             // Para establecer el nivel máximo del Pokémon rival
             int nivelMaximo = jugador.getNivelMaximoEquipo();
@@ -83,17 +83,15 @@ public class Combate {
         int pokedollar = (int) Math.floor(rival.getPokedollar() / 3);
         ganador.recibirPokedollar(pokedollar);
 
-        // Se reparte la experiencia entre los Pokémon del equipo del ganador
-        LinkedList<Pokemon> equipoGanador = ganador.getEquipoPokemon();
+        // Se reparte la experiencia(llamada: nivelExperiencia) entre los Pokémon del equipo del ganador
+        Pokemon[] equipoGanador = ganador.getEquipoPokemon().toArray(new Pokemon[0]);
         for (Pokemon pokemon : equipoGanador) {
-            int experiencia = (pokemon.getNivel() + nivelMaximo * 10) / 4; // nivelMaximo del rival o pokemon.getNivelRival, algo así?
-            pokemon.añadirExperiencia(experiencia);
-            //uSAR LOS GET Y SET DEL POKEMON
-            // this.nivelExperiencia += experiencia;
+            int nivelMaximo = jugador.getNivelMaximoEquipo(); // ¿dejar así el "int nivelMaximo"?
+
+            int nivelExperiencia = (pokemon.getNivel() + nivelMaximo * 10) / 4; // nivelMaximo del rival o pokemon.getNivelRival, algo así?
+            pokemon.anadirExperiencia(nivelExperiencia);
         }
-    }*/
-
-
+    }
 
 }
 
