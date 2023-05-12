@@ -1,3 +1,4 @@
+
 package org.proyectoPokemon.model;
 
 public class Combate {
@@ -84,7 +85,7 @@ public class Combate {
         ganador.recibirPokedollar(pokedollar);
 
         // Se reparte la experiencia(llamada: nivelExperiencia) entre los Pokémon del equipo del ganador
-        Pokemon[] equipoGanador = ganador.getEquipoPokemon().toArray(new Pokemon[0]);
+        Pokemon[] equipoGanador = ganador.getEquipoPokemon();
         for (Pokemon pokemon : equipoGanador) {
             int nivelMaximo = jugador.getNivelMaximoEquipo(); // ¿dejar así el "int nivelMaximo"?
 

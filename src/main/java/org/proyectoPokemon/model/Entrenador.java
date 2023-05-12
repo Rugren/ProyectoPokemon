@@ -1,3 +1,4 @@
+
 package org.proyectoPokemon.model;
 
 import org.proyectoPokemon.model.objeto.Objeto;
@@ -15,16 +16,10 @@ import java.util.Random;
  */
 
 public class Entrenador {
+
     private static Entrenador Entrenador = null;
-    // private Pokemon[] listaPokemon = new Pokemon[];
     private String nombre;
     private String password;
-    private LinkedList<Pokemon> equipoPokemon = new LinkedList<>();
-    private LinkedList<Pokemon> grupoSecundario = new LinkedList<>();
-    //   private int pokedollar; //asi es como lo tenia mikel
-    private int pokedollar = new Random().nextInt(201) + 800; // random entre 800 y 1000;
-    private LinkedList<Objeto> listaObjetos = new LinkedList<>(); // también se podría llamar a la listaObjetos "mochila". Viene a ser lo mismo, la mochila equipada.
-    // poner un máximo o número finito de capacidad de la mochila.
     private Pokemon[] equipoPokemon = new Pokemon[5];
     private Pokemon[] grupoSecundario = new Pokemon[19]; // 20 pokemon en el equipo secundario.
     private int pokedollar = new Random().nextInt(201) + 800; // Al crearse tiene que tener un random entre 800 y 1000;
@@ -160,10 +155,10 @@ public class Entrenador {
     public void moverPokemonACaja(int indice) {
         if (equipoPokemon.length() > 1) { // al menos debe quedar un Pokemon en el equipo principal
             Pokemon pokemon = equipoPokemon[indice] = null; // aqui quitaria el pokemon de la posicion que le pasemos.
-                if (indice ) // poner que la posición que nos pase esté entre 0 y 5, ya que son 6 posiciones máximas del equipo.
+            if (indice ) // poner que la posición que nos pase esté entre 0 y 5, ya que son 6 posiciones máximas del equipo.
 
-            // -- Pokemon pokemon = equipoPokemon.removeElement .remove(indice.length()-1); // o borrar con el .del
-            grupoSecundario[5] = pokemon;
+                // -- Pokemon pokemon = equipoPokemon.removeElement .remove(indice.length()-1); // o borrar con el .del
+                grupoSecundario[5] = pokemon;
             System.out.println(nombre + " ha movido a " + pokemon.getNombre() + " a la caja.");
         }
         // ponerlo a null
@@ -283,9 +278,8 @@ public class Entrenador {
 
     // Si capturo un pokemon, que se vaya añadiendo al grupoSecundario.
     public void addPokemonCapturado(){
-    // hacer
+        // hacer
     }
 
 }
-
 
