@@ -34,7 +34,5 @@ public class PokemonApplication extends Application {
     public static void main(String[] args) {
         launch();
     }
-    MovimientoDeAtaque ataque1 = new MovimientoDeAtaque("ataque1", 10,Tipo.PLANTA);
-
 
 }

@@ -7,10 +7,10 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="ProyectoPokemon" />
-        <module name="javafx" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="javafx" target="19" />
       <module name="lib" target="19" />
     </bytecodeTargetLevel>
   </component>

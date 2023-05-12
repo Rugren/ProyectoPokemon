@@ -37,6 +37,7 @@ public class Pokemon {
     private static HashMap<Tipo, LinkedList<Tipo>> listaDesventaja;
 
     private static HashMap<Tipo, LinkedList<Tipo>> listaAtaqueNulo;
+    private static LinkedList<Pokemon> pokedex;
 
     /**
      * Construtor de pokemon para pruebas
@@ -66,6 +67,18 @@ public class Pokemon {
         this.tipo1 = tipo1;
         this.tipo2 = tipo2;
         this.nivelExperiencia = 1;
+    }
+
+    public Pokemon( String nomPokemon, Tipo tipo1, Tipo tipo2) {
+        this.nombre = nomPokemon;
+        this.tipo1 = tipo1;
+        this.tipo2 = tipo2;
+    }
+
+    public static LinkedList<Pokemon> getPokedex() {
+        if (pokedex == null)
+            pokedex = new LinkedList<>();
+        return pokedex;
     }
 
 
@@ -175,6 +188,9 @@ public class Pokemon {
 
     public Tipo getTipo1() {
         return tipo1;
+    }
+    public Tipo getTipo2() {
+        return tipo2;
     }
 
     public void setTipo1(Tipo tipo1) {
@@ -606,6 +622,15 @@ public class Pokemon {
 
     public void anadirExperiencia(int nivelExperiencia) {
         this.nivelExperiencia += nivelExperiencia;
+    }
+
+    @Override
+    public String toString() {
+        return "Pokemon{" +
+                "nombre='" + nombre + '\'' +
+                ", tipo1=" + tipo1 +
+                ", tipo2=" + tipo2 +
+                '}';
     }
 }
 

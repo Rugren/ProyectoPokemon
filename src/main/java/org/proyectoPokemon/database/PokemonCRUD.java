@@ -1,6 +1,7 @@
 package org.proyectoPokemon.database;
 
 import org.proyectoPokemon.model.Pokemon;
+import org.proyectoPokemon.model.PokemonApplication;
 import org.proyectoPokemon.model.Tipo;
 
 import java.sql.PreparedStatement;
@@ -14,30 +15,34 @@ public class PokemonCRUD {
 
     }
 
-    public static List<Tipo> readPokemon() {
-        String query = "SELECT * FROM TIPOS";
+    public static List<Pokemon> readPokemon() {
+        String query = "SELECT p.NOM_POKEMON,t.NOM_TIPO as TIPO1,t.NOM_TIPO as TIPO2\n" +
+                "from pokedex p\n" +
+                "inner JOIN tipos t\n" +
+                "on t.ID_TIPO = p.TIPO1";
 
         PreparedStatement preparedStatement = null;
-        LinkedList<Tipo> listaTipos = new LinkedList<>();
+        LinkedList<Pokemon> listaPokemon = new LinkedList<>();
         try {
             preparedStatement = MySQLConnection.getConnection().prepareStatement(query);
             //preparedStatement.setInt(1, id);
             ResultSet resultSet = preparedStatement.executeQuery();
 
             while (resultSet.next()) {
-                String name = resultSet.getString("nom_tipo");
-                String tipo = resultSet.getString("id_tipo");
-                listaTipos.add(Tipo.valueOf(tipo));
+                String nomPokemon = resultSet.getString("NOM_POKEMON");
+                String tipo1 = resultSet.getString("TIPO1");
+                String tipo2 = resultSet.getString("TIPO2");
+                listaPokemon.add(new Pokemon(nomPokemon,Tipo.valueOf(tipo1),Tipo.valueOf(tipo2)));
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
 
-        return listaTipos;
+        return listaPokemon;
     }
 
     public static void updatePokemon() {
-
+        System.out.println(Pokemon.getPokedex());
     }
 
     public static boolean deletePokemon() {
