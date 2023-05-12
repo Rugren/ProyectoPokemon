@@ -37,7 +37,7 @@ public class PokemonCRUD {
     }
 
     public static void updatePokemon() {
-        System.out.println(Pokemon.getListaTipos());
+
     }
 
     public static boolean deletePokemon() {

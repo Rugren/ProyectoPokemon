@@ -1,6 +1,8 @@
 
 package org.proyectoPokemon.model;
 
+import java.util.Random;
+
 public class Combate {
     private Entrenador ganador;
     private Entrenador jugador;

@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Random;
 
-/ HACER JAVA DOC cuando terminemos la clase. Tools / Generate JavaDoc.
+//HACER JAVA DOC cuando terminemos la clase. Tools / Generate JavaDoc.
 
 /**
  * Clase principal de nuestro proyecto Pokemon / Entrenador
@@ -16,7 +16,7 @@ import java.util.Random;
  */
 
 public class Entrenador {
-
+private TipoEntrenamiento tipoEntrenamiento;
     private static Entrenador Entrenador = null;
     private String nombre;
     private String password;
@@ -32,8 +32,8 @@ public class Entrenador {
                       int pokedollar, Objeto[] listaObjetos) {
     }
 
-    public Entrenador(String nombre, String password, LinkedList<Pokemon> equipoPokemon, LinkedList<Pokemon> grupoSecundario,
-                      int pokedollar, LinkedList<Objeto> listaObjetos) {
+    public Entrenador(String nombre, String password, Pokemon[] equipoPokemon, Pokemon[] grupoSecundario,
+                      int pokedollar, Objeto[] listaObjetos) {
         this.nombre = nombre;
         this.password = password;
         this.equipoPokemon = equipoPokemon;
@@ -76,7 +76,7 @@ public class Entrenador {
         this.password = password;
     }
 
-    public LinkedList<Pokemon> getEquipoPokemon() {
+    public Pokemon[] getEquipoPokemon() {
         return equipoPokemon;
     }
 
@@ -151,8 +151,8 @@ public class Entrenador {
      * @param indice número del array del orden de nuestro pokemon en equipo que se mueve a caja.
      */
 
-    -PENDIENTE DE TERMINAR moverPokemonACaja // Con ArrayList
-    public void moverPokemonACaja(int indice) {
+    //PENDIENTE DE TERMINAR moverPokemonACaja // Con ArrayList
+    /*public void moverPokemonACaja(int indice) {
         if (equipoPokemon.length() > 1) { // al menos debe quedar un Pokemon en el equipo principal
             Pokemon pokemon = equipoPokemon[indice] = null; // aqui quitaria el pokemon de la posicion que le pasemos.
             if (indice ) // poner que la posición que nos pase esté entre 0 y 5, ya que son 6 posiciones máximas del equipo.
@@ -162,21 +162,21 @@ public class Entrenador {
             System.out.println(nombre + " ha movido a " + pokemon.getNombre() + " a la caja.");
         }
         // ponerlo a null
-    }
+    }*/
 
     /**
      * Para mover pokemon de caja al equipo
      * @param indice número del array del orden de nuestro pokemon en caja que se mueva a equipo.
      */
 
-    -PENDIENTE DE CORREGIR moverPokemonAEquipo:
-    public void moverPokemonAEquipo(int indice) {
+    //-PENDIENTE DE CORREGIR moverPokemonAEquipo:
+   /* public void moverPokemonAEquipo(int indice) {
         if (equipoPokemon.length() < 4 && indice < grupoSecundario.()) { // no se deben tener más de 4 Pokemon en el equipo y el índice debe ser válido
             Pokemon pokemon = grupoSecundario.remove(indice);
             equipoPokemon.add(pokemon);
             System.out.println(nombre + " ha movido a " + pokemon.getNombre() + " a su equipo.");
         }
-    }
+    }*/
 
     /**
      * Método para entrenar a nuestros pokemon
@@ -187,7 +187,7 @@ public class Entrenador {
         int costo, ataque, defensa, ataqueEspecial, defensaEspecial, velocidad, vitalidad;
         switch (tipoEntrenamiento) {
             // Se puede sustituir el switch al darle a la bombilla y te lo hace así: if ("pesado".equals(TipoEntrenamiento)) { // entrenamiento pesado
-            case "pesado": // entrenamiento pesado
+            case PESADO: // entrenamiento pesado
                 costo = 20 * pokemon.getNivel();
                 ataque = 0;
                 defensa = 5;
@@ -201,11 +201,11 @@ public class Entrenador {
                     pokemon.setDefensa(pokemon.getDefensa() + defensa);
                     pokemon.setDefensaEspecial(pokemon.getDefensaEspecial() + defensaEspecial);
                     pokemon.setVitalidad(pokemon.getVitalidad() + vitalidad);
-                    System.out.println(nombre + " ha entrenado a " + pokemon.getNombre() + " mediante un entrenamiento de tipo " + TipoEntrenamiento + ".");
+                    System.out.println(nombre + " ha entrenado a " + pokemon.getNombre() + " mediante un entrenamiento de tipo " + tipoEntrenamiento + ".");
                     pokedollar -= costo;
                 }
                 break;
-            case "furioso": // entrenamiento furioso
+            case FURIOSO: // entrenamiento furioso
                 costo = 30 * pokemon.getNivel();
                 ataque = 5;
                 defensa = 0;
@@ -217,11 +217,11 @@ public class Entrenador {
                     pokemon.setAtaque(pokemon.getAtaque() + ataque);
                     pokemon.setAtaqueEspecial(pokemon.getAtaqueEspecial() + ataqueEspecial);
                     pokemon.setVelocidad(pokemon.getVelocidad() + velocidad);
-                    System.out.println(nombre + " ha entrenado a " + pokemon.getNombre() + " mediante un entrenamiento de tipo " + TipoEntrenamiento + ".");
+                    System.out.println(nombre + " ha entrenado a " + pokemon.getNombre() + " mediante un entrenamiento de tipo " + tipoEntrenamiento + ".");
                     pokedollar -= costo;
                 }
                 break;
-            case "funcional": // entrenamiento funcional
+            case FUNCIONAL: // entrenamiento funcional
                 costo = 40 * pokemon.getNivel();
                 ataque = 5;
                 defensa = 5;
@@ -234,11 +234,11 @@ public class Entrenador {
                     pokemon.setDefensa(pokemon.getDefensa() + defensa);
                     pokemon.setVelocidad(pokemon.getVelocidad() + velocidad);
                     pokemon.setVitalidad(pokemon.getVitalidad() + vitalidad);
-                    System.out.println(nombre + " ha entrenado a " + pokemon.getNombre() + " mediante un entrenamiento de tipo " + TipoEntrenamiento + ".");
+                    System.out.println(nombre + " ha entrenado a " + pokemon.getNombre() + " mediante un entrenamiento de tipo " + tipoEntrenamiento + ".");
                     pokedollar -= costo;
                 }
                 break;
-            case "onírico": // entrenamiento onírico
+            case ONIRICO: // entrenamiento onírico
                 costo = 40 * pokemon.getNivel();
                 ataque = 0;
                 defensa = 0;
@@ -251,7 +251,7 @@ public class Entrenador {
                     pokemon.setDefensaEspecial(pokemon.getDefensaEspecial() + defensaEspecial);
                     pokemon.setVelocidad(pokemon.getVelocidad() + velocidad);
                     pokemon.setVitalidad(pokemon.getVitalidad() + vitalidad);
-                    System.out.println(nombre + " ha entrenado a " + pokemon.getNombre() + " mediante un entrenamiento de tipo " + TipoEntrenamiento + ".");
+                    System.out.println(nombre + " ha entrenado a " + pokemon.getNombre() + " mediante un entrenamiento de tipo " + tipoEntrenamiento + ".");
                     pokedollar -= costo;
                 }
                 break;
@@ -266,7 +266,7 @@ public class Entrenador {
  */
 
     // Capturar pokemon
-    public boolean capturar(Pokemon pokemonCapturado){
+    /*public boolean capturar(Pokemon pokemonCapturado){
         Random randomCaptura = new Random();
         int captura = randomCaptura.nextInt(3);
         if (captura != 0)
@@ -274,7 +274,7 @@ public class Entrenador {
         Pokemon.getListaPokemon().add(pokemonCapturado);
         addPokemonCapturado();
         return true;
-    }
+    }*/
 
     // Si capturo un pokemon, que se vaya añadiendo al grupoSecundario.
     public void addPokemonCapturado(){
