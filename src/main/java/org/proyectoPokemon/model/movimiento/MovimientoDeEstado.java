@@ -3,7 +3,13 @@ package org.proyectoPokemon.model.movimiento;
 import org.proyectoPokemon.model.Estado;
 import org.proyectoPokemon.model.Pokemon;
 
-//Altera el estado del pokemon Enemigo
+/**
+ * Clase principal de nuestro proyecto Pokemon / MovimientoDeEstado
+ * Altera el estado del pokemon Enemigo
+ * @author
+ * @version
+ */
+
 public class MovimientoDeEstado extends Movimiento{
     private Estado estadoAplicado;
     private int turnosDuracion;
@@ -31,7 +37,11 @@ public class MovimientoDeEstado extends Movimiento{
         this.turnosDuracion = turnosDuracion;
     }
 
-    //Metodo aplicar movimiento de estado.
+    /**
+     * Constructor aplicarMovimientoEstado
+     * Método para aplicar movimiento de estado
+     * @param pokemon
+     */
     public String aplicarMovimientoEstado(Pokemon pokemon){
         String mensaje = "";
         if (pokemon.getEstamina() < getCosteDeEstamina()){

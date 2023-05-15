@@ -16,7 +16,7 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="ProyectoPokemon" options="--add-exports org.junit.platform.commons/org.junit.platform.commons.util=ProyectoPokemon" />
+      <module name="ProyectoPokemon" options="" />
     </option>
   </component>
 </project>

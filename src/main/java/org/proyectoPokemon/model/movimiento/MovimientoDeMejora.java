@@ -2,6 +2,11 @@ package org.proyectoPokemon.model.movimiento;
 
 import org.proyectoPokemon.model.Pokemon;
 
+/**
+ * Clase principal de nuestro proyecto Pokemon / MovimientoDeMejora
+ * @author
+ * @version
+ */
 public class MovimientoDeMejora extends Movimiento{
     private TipoMejora mejoraAplicada;
     private int turnosDuracion;
@@ -30,7 +35,11 @@ public class MovimientoDeMejora extends Movimiento{
         this.turnosDuracion = turnosDuracion;
     }
 
-    //Metodo para aplicar movimineto de mejora
+    /**
+     * Constructor aplicarMovimentoMejora
+     * Metodo para aplicar movimineto de mejora
+     * @param pokemon
+     */
     public String aplicarMovimentoMejora(Pokemon pokemon){
         String mensaje = "";
         if (getCosteDeEstamina() > pokemon.getEstamina()){

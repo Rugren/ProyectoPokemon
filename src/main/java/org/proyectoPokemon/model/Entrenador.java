@@ -110,6 +110,11 @@ public class Entrenador {
 
 
     // Métodos para la Clase Combate
+
+    /**
+     * Método que nos devuelve el nivel máximo del equipo.
+     * @return indica el nivel máximo del equipo.
+     */
     public int getNivelMaximoEquipo() {
         int nivelMaximo = 0;
         for (int i = 0; i < equipoPokemon.length; i++) {
@@ -147,7 +152,7 @@ public class Entrenador {
      */
 
     /**
-     * Para mover pokemon del equipo a caja
+     * Método para mover pokemon del equipo a caja
      * @param indice número del array del orden de nuestro pokemon en equipo que se mueve a caja.
      */
 
@@ -165,7 +170,7 @@ public class Entrenador {
     }
 
     /**
-     * Para mover pokemon de caja al equipo
+     * Método para mover pokemon de caja al equipo
      * @param indice número del array del orden de nuestro pokemon en caja que se mueva a equipo.
      */
 
@@ -265,6 +270,10 @@ public class Entrenador {
                 pokemon.equals(TipoEntrenamiento.equals("pesado"));
  */
 
+    /**
+     * Método para capturar pokemon
+     * @param pokemonCapturado pokemon que se captura(si o no).
+     */
     // Capturar pokemon
     public boolean capturar(Pokemon pokemonCapturado){
         Random randomCaptura = new Random();
@@ -276,6 +285,10 @@ public class Entrenador {
         return true;
     }
 
+    /**
+     * Método para añadir pokemon capturado
+     *  -En caso de ser capturado que se añada a nuestra ListaPokemon.
+     */
     // Si capturo un pokemon, que se vaya añadiendo al grupoSecundario.
     public void addPokemonCapturado(){
         // hacer

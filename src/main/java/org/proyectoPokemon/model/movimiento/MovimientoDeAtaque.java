@@ -3,7 +3,12 @@ package org.proyectoPokemon.model.movimiento;
 import org.proyectoPokemon.model.Pokemon;
 import org.proyectoPokemon.model.Tipo;
 
-//Quita vitalidad al enemigo
+/**
+ * Clase principal de nuestro proyecto Pokemon / MovimientoDeAtaque
+ * Quita vitalidad al enemigo
+ * @author
+ * @version
+ */
 public class MovimientoDeAtaque extends Movimiento{
     private int potenciaDeAtaque;
     private Tipo tipoDelAtaque;
@@ -35,7 +40,11 @@ public class MovimientoDeAtaque extends Movimiento{
         this.tipoDelAtaque = tipoDelAtaque;
     }
 
-    //metodo para aplicar movimiento de ataque
+    /**
+     * Constructor aplicarMovimentoAtaque
+     * metodo para aplicar movimiento de ataque a los pokemon
+     * @param pokemon
+     */
     public int aplicarMovimentoAtaque(Pokemon pokemon){
         if (pokemon.getEstamina() < getCosteDeEstamina()){
             return 0;

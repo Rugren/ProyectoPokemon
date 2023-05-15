@@ -8,10 +8,13 @@ import java.util.LinkedList;
 import java.util.Random;
 
 //JAVADOC
+
 /**
- * Clase Pokemon principal de mi proyecto.
- * @author MikelAndersonOtavalo
+ * Clase principal de nuestro proyecto Pokemon / Pokemon
+ * @author
+ * @version
  */
+
 public class Pokemon {
     private String nombre;
     private String mote;
@@ -256,6 +259,10 @@ public class Pokemon {
         return false;
     }
 
+    /**
+     * @param indexMovimiento
+     * @return indica si se ha completado o no el metodo.
+     */
     public boolean quitarmoviento(int indexMovimiento) {
         if (listaDeMovimientos.length > 0) {
             listaDeMovimientos[indexMovimiento] = null;
@@ -264,6 +271,10 @@ public class Pokemon {
             return false;
     }
 
+    /**
+     * Método para atacar un pokemon a otro.
+     * @param pokemon
+     */
     public void atacar(Pokemon pokemon) {
 
     }
@@ -404,11 +415,20 @@ public class Pokemon {
         return mensaje;
     }*/
 
+    /**
+     * Método descansar, usado para recuperar estamina cada que se utilice.
+     */
     public void descansar() {
         this.estamina = this.estamina + 15;
     }
 
-
+    /**
+     * Listado de tipo del pokemon:
+     * Método estático que devuelve un hashmap
+     * Este método crea un hashmap usando los tipos de pokemon como clave valor
+     * y el valor asociado a cada clave es una lista LinkedList con los tipos de pokemon que tienen desventaja
+     * @return devuelve una colección hashmap con los tipos de pokemon que tienen desventaja con otro tipo
+     */
     public static HashMap<Tipo, LinkedList<Tipo>> getListaDesventaja() {
         if (listaDesventaja == null) {
             listaDesventaja = new HashMap<>();
@@ -483,6 +503,13 @@ public class Pokemon {
         return listaDesventaja;
     }
 
+    /**
+     * Listado de tipo del pokemon:
+     * Método estático que devuelve un hashmap
+     * Este método crea un hashmap usando los tipos de pokemon como clave valor
+     * y el valor asociado a cada clave es una lista LinkedList con los tipos de pokemon que tienen ventaja
+     * @return devuelve una colección hashmap con los tipos de pokemon que tienen ventaja con otro tipo
+     */
     public static HashMap<Tipo, LinkedList<Tipo>> getListaVentaja() {
         if (listaVentaja == null) {
             listaVentaja = new HashMap<>();
@@ -559,6 +586,13 @@ public class Pokemon {
         return listaVentaja;
     }
 
+    /**
+     * Listado de tipo del pokemon:
+     * Método estático que devuelve un hashmap
+     * Este método crea un hashmap usando los tipos de pokemon como clave valor
+     * y el valor asociado a cada clave es una lista LinkedList con los tipos de pokemon que tienen un ataque nulo
+     * @return devuelve una colección hashmap con los tipos de pokemon que tienen un ataque nulo con otro tipo
+     */
     public static HashMap<Tipo, LinkedList<Tipo>> getListaAtaqueNulo() {
         if (listaAtaqueNulo == null) {
             listaAtaqueNulo = new HashMap<>();
@@ -587,7 +621,7 @@ public class Pokemon {
      * Comprobar ventaja de this con otro pokemon indicado.
      *
      * @param pokemon
-     * @return nos devuelve l aventaja ue tiene sobre el otro pokemon
+     * @return nos devuelve la ventaja que tiene sobre el otro pokemon
      */
     public float comprobarVentaja(Pokemon pokemon) {
         if (listaVentaja.get(this.tipo1).contains(pokemon.tipo1))
@@ -599,11 +633,20 @@ public class Pokemon {
         return 1f;
     }
 
-
+    /**
+     * Método combatir contra pokemon rival.
+     * @param pokemonRival
+     * @return nos devuelve si estamos combatiendo contra un pokemon rival.
+     */
     public boolean combatir(Pokemon pokemonRival) {
         return false;
     }
 
+    /**
+     * Método anadirExperiencia
+     * Usado para añadir experiencia obtenida por cualquier cosa, ya sea un combate, con objeto, etc.
+     * @param nivelExperiencia
+     */
     public void anadirExperiencia(int nivelExperiencia) {
         this.nivelExperiencia += nivelExperiencia;
     }

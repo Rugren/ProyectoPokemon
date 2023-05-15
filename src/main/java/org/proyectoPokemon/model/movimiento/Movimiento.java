@@ -4,6 +4,11 @@ import org.proyectoPokemon.model.Pokemon;
 
 import java.util.LinkedList;
 
+/**
+ * Clase principal de nuestro proyecto Pokemon / Movimiento
+ * @author
+ * @version
+ */
 public abstract class Movimiento {
     private String nombre;
     private int costeDeEstamina;
@@ -11,6 +16,10 @@ public abstract class Movimiento {
 
     private static LinkedList<Movimiento> movimientosDisponibles = new LinkedList<>();
 
+    /**
+     * Método del nombre del Movimiento
+     * @param nombre
+     */
     public Movimiento(String nombre) {
         this.nombre = nombre;
     }
@@ -43,10 +52,21 @@ public abstract class Movimiento {
     public static void setMovimientosDisponibles(LinkedList<Movimiento> movimientosDisponibles) {
         Movimiento.movimientosDisponibles = movimientosDisponibles;
     }
+
+    /**
+     * Método addMovimiento
+     * contructor que añade un movimiento nuevo a nuestros movimientos que ya tenemos
+     * @param movimiento
+     */
     public static void addMovimiento(Movimiento movimiento){
         movimientosDisponibles.add(movimiento);
     }
 
+    /**
+     * Método aplicarMovimiento
+     * contructor que aplica movimiento al pokemon, es decir, que se lo añade los movientos que ya tenía el pokemon.
+     * @param pokemon
+     */
     //Aplicar movimiento
     public void aplicarMovimiento(Pokemon pokemon){
 
