@@ -12,5 +12,10 @@ public class Main {
         }
 
         PokemonCRUD.updatePokemon();
+
+        Pokemon p1 = new Pokemon(1,"pablillo");
+
+        PokemonCRUD.insertPokemon(p1);
+
     }
 }

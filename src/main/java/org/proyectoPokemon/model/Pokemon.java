@@ -1,6 +1,5 @@
 package org.proyectoPokemon.model;
 
-import org.proyectoPokemon.Logger;
 import org.proyectoPokemon.model.movimiento.Movimiento;
 import org.proyectoPokemon.model.objeto.Objeto;
 
@@ -15,6 +14,8 @@ import java.util.Random;
  * @author MikelAndersonOtavalo
  */
 public class Pokemon {
+    private int idPokedex;
+    private int idPokemon;
     private String nombre;
     private String mote;
     private int vitalidad;
@@ -44,14 +45,17 @@ public class Pokemon {
     /**
      * Construtor de pokemon para pruebas
      *
+     * @param idPokemon
      * @param nombre
      * @param mote
      * @param sexo
      * @param tipo1
      * @param tipo2
      */
-    public Pokemon(String nombre, String mote,
+    public Pokemon(int idPokedex, int idPokemon, String nombre, String mote,
                    Sexo sexo, Tipo tipo1, Tipo tipo2) {
+        this.idPokedex = idPokedex;
+        this.idPokemon = idPokemon;
         Random rnd = new Random();
         this.nombre = nombre;
         this.mote = mote;
@@ -71,10 +75,9 @@ public class Pokemon {
         this.nivelExperiencia = 1;
     }
 
-    public Pokemon( String nomPokemon, Tipo tipo1, Tipo tipo2) {
-        this.nombre = nomPokemon;
-        this.tipo1 = tipo1;
-        this.tipo2 = tipo2;
+    public Pokemon(int numPokedex, String mote) {
+        this.idPokedex = numPokedex;
+        this.mote = mote;
     }
 
     public static LinkedList<Pokemon> getPokedex() {

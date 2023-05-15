@@ -273,20 +273,19 @@ private TipoEntrenamiento tipoEntrenamiento;
                 pokemon.equals(TipoEntrenamiento.equals("pesado"));
  */
 
-    // Capturar pokemon
-    /*public boolean capturar(Pokemon pokemonCapturado){
+    //Capturar pokemon
+    public boolean capturar(Pokemon pokemonCapturado){
         Random randomCaptura = new Random();
         int captura = randomCaptura.nextInt(3);
         if (captura != 0)
             return false;
-        Pokemon.getListaPokemon().add(pokemonCapturado);
         addPokemonCapturado();
         return true;
-    }*/
+    }
 
     // Si capturo un pokemon, que se vaya añadiendo al grupoSecundario.
     public void addPokemonCapturado(){
-        // hacer
+
     }
 
 }

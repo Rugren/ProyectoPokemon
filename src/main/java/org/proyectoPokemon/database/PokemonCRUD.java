@@ -1,7 +1,6 @@
 package org.proyectoPokemon.database;
 
 import org.proyectoPokemon.model.Pokemon;
-import org.proyectoPokemon.model.PokemonApplication;
 import org.proyectoPokemon.model.Tipo;
 
 import java.sql.PreparedStatement;
@@ -34,13 +33,23 @@ public class PokemonCRUD {
                 String nomPokemon = resultSet.getString("NOM_POKEMON");
                 String tipo1 = resultSet.getString("TIPO");
                 String tipo2 = resultSet.getString("TIPO2");
-                listaPokemon.add(new Pokemon(nomPokemon,Tipo.valueOf(tipo1),Tipo.valueOf(tipo2)));
+                listaPokemon.add(new Pokemon(idPokemon, nomPokemon,Tipo.valueOf(tipo1),Tipo.valueOf(tipo2)));
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
 
         return listaPokemon;
+    }
+
+    public static void insertPokemon(Pokemon pokemon) throws SQLException {
+        String query = "INSERT INTO POKEMON (ID_POKEDEX, MOTE) VALUES (?, ?)";
+        PreparedStatement preparedStatement = MySQLConnection.getConnection().prepareStatement(query);
+        preparedStatement.setInt(1, pokemon.get);
+        preparedStatement.setInt(2, pokemon.getTipo1().ordinal());
+        preparedStatement.setString(1, pokemon.getNombre());
+
+        ResultSet resultSet = preparedStatement.executeQuery();
     }
 
     public static void updatePokemon() {
