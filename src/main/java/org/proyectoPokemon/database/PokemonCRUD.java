@@ -16,10 +16,12 @@ public class PokemonCRUD {
     }
 
     public static List<Pokemon> readPokemon() {
-        String query = "SELECT p.NOM_POKEMON,t.NOM_TIPO as TIPO1,t.NOM_TIPO as TIPO2\n" +
-                "from pokedex p\n" +
-                "inner JOIN tipos t\n" +
-                "on t.ID_TIPO = p.TIPO1";
+        String query = "SELECT P.NOM_POKEMON, T.NOM_TIPO AS TIPO, T2.NOM_TIPO AS TIPO2\n" +
+                "FROM pokedex P\n" +
+                "INNER JOIN TIPOS T\n" +
+                "\tON T.ID_TIPO = P.TIPO1\n" +
+                "JOIN TIPOS T2\n" +
+                "\tON T2.ID_TIPO = P.TIPO2";
 
         PreparedStatement preparedStatement = null;
         LinkedList<Pokemon> listaPokemon = new LinkedList<>();
@@ -30,7 +32,7 @@ public class PokemonCRUD {
 
             while (resultSet.next()) {
                 String nomPokemon = resultSet.getString("NOM_POKEMON");
-                String tipo1 = resultSet.getString("TIPO1");
+                String tipo1 = resultSet.getString("TIPO");
                 String tipo2 = resultSet.getString("TIPO2");
                 listaPokemon.add(new Pokemon(nomPokemon,Tipo.valueOf(tipo1),Tipo.valueOf(tipo2)));
             }

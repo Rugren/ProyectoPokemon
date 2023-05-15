@@ -28,7 +28,7 @@ public class MainMenuController {
 
 
     @FXML
-    public void backWindow(ActionEvent event) throws IOException {
+    public void cerrarSesion(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/fxml/PokemonApplication.fxml")));
         Scene scene = new Scene(root, 600, 400);
         Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
@@ -37,4 +37,13 @@ public class MainMenuController {
         stage.show();
     }
 
+    @FXML
+    public void ventanaCapturarPokemon(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/fxml/CapturarPokemon.fxml")));
+        Scene scene = new Scene(root, 600, 400);
+        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        stage.setTitle("Captura un pokemon.");
+        stage.setScene(scene);
+        stage.show();
+    }
 }

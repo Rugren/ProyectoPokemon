@@ -47,6 +47,14 @@ private TipoEntrenamiento tipoEntrenamiento;
     }
 
     //Funciones del entrenador
+
+    public static boolean entrenadornull(){
+        synchronized (Entrenador.class){
+            if(Entrenador == null){
+                return true;
+            }
+        }return false;
+    }
     public static Entrenador getEntrenador() {
         synchronized (Entrenador.class){
             if(Entrenador == null){

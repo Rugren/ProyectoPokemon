@@ -1,11 +1,13 @@
 package org.proyectoPokemon.model;
 
+import org.proyectoPokemon.Logger;
 import org.proyectoPokemon.model.movimiento.Movimiento;
 import org.proyectoPokemon.model.objeto.Objeto;
 
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Random;
+
 
 //JAVADOC
 /**

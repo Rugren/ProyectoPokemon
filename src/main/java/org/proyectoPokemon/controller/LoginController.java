@@ -8,15 +8,13 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.KeyEvent;
-import javafx.scene.text.TextFlow;
 import javafx.stage.Stage;
 import org.proyectoPokemon.model.Entrenador;
 
 import java.io.IOException;
 import java.util.Objects;
 
-public class PokemonController {
+public class LoginController {
     @FXML
     private Button botonLogin;
     @FXML
@@ -50,20 +48,20 @@ public class PokemonController {
 
     @FXML
     public void login (ActionEvent event) throws IOException{
-        if (user.getText().equals(Entrenador.getEntrenador().getNombre()) && password.getText().equals(Entrenador.getEntrenador().getPassword())){
+        if(Entrenador.entrenadornull()){
+            lblConectado.setText("Debe registrarse primero.");
+        }
+        else if (user.getText().equals(Entrenador.getEntrenador().getNombre()) && password.getText().equals(Entrenador.getEntrenador().getPassword())){
             Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/fxml/MainMenu.fxml")));
             Scene scene = new Scene(root, 600, 400);
             Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
             stage.setTitle("Login");
             stage.setScene(scene);
             stage.show();
-            lblConectado.setText("Conectado");
-        }if (Entrenador.getEntrenador() == null){
-            lblConectado.setText("Debe registrarse primero");
+            lblConectado.setText("Conectado.");
         }else
-            lblConectado.setText("Datos incorrectos");
-
-
+            lblConectado.setText("Usuario o contraseña incorrectos.");
+        //Logger.write("Inicio de sesion");
     }
 
     @FXML

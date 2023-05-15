@@ -7,5 +7,6 @@ module ProyectoPokemon {
 
     opens org.proyectoPokemon.model;
     opens org.proyectoPokemon.controller;
+    opens org.proyectoPokemon;
 
 }
