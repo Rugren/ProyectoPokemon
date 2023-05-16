@@ -1,5 +1,6 @@
 package org.proyectoPokemon.model;
 
+import org.proyectoPokemon.database.PokemonCRUD;
 import org.proyectoPokemon.model.movimiento.Movimiento;
 import org.proyectoPokemon.model.objeto.Objeto;
 
@@ -75,9 +76,30 @@ public class Pokemon {
         this.nivelExperiencia = 1;
     }
 
-    public Pokemon(int numPokedex, String mote) {
-        this.idPokedex = numPokedex;
+    public Pokemon(int idPokedex, String mote, Sexo sexo) {
+        this.idPokedex = idPokedex;
         this.mote = mote;
+        Random rnd = new Random();
+        this.vitalidad = rnd.nextInt(10) + 1;
+        this.ataque = rnd.nextInt(10) + 1;
+        this.defensa = rnd.nextInt(10) + 1;
+        this.ataqueEspecial = rnd.nextInt(10) + 1;
+        this.defensaEspecial = rnd.nextInt(10) + 1;
+        this.velocidad = rnd.nextInt(10) + 1;
+        this.estamina = rnd.nextInt(10) + 1;
+        this.nivel = 1;
+        this.fertilidad = 5;
+        this.sexo = sexo;
+        this.tipo1 = PokemonCRUD.getTipo1(idPokedex);
+        //this.tipo2 = PokemonCRUD.getTipo2(idPokedex);
+        this.nivelExperiencia = 1;
+        pokedex.add(this);
+    }
+
+   public Pokemon(String nombre, Tipo tipo1, Tipo tipo2) {
+        this.nombre = nombre;
+        this.tipo1 = tipo1;
+        this.tipo2 = tipo2;
     }
 
     public static LinkedList<Pokemon> getPokedex() {
@@ -86,6 +108,21 @@ public class Pokemon {
         return pokedex;
     }
 
+    public int getIdPokedex() {
+        return idPokedex;
+    }
+
+    public void setIdPokedex(int idPokedex) {
+        this.idPokedex = idPokedex;
+    }
+
+    public int getIdPokemon() {
+        return idPokemon;
+    }
+
+    public void setIdPokemon(int idPokemon) {
+        this.idPokemon = idPokemon;
+    }
 
     public String getNombre() {
         return nombre;
@@ -185,6 +222,11 @@ public class Pokemon {
 
     public Sexo getSexo() {
         return sexo;
+    }
+
+    public String getSexoString(){
+        String string = String.valueOf(Sexo.valueOf(String.valueOf(getSexo())));
+        return string;
     }
 
     public void setSexo(Sexo sexo) {

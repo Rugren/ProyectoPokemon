@@ -28,9 +28,6 @@ private TipoEntrenamiento tipoEntrenamiento;
 
     private static LinkedList<Pokemon> listaPokemon;
 
-    public Entrenador(String nombre, Pokemon[] equipoPokemon, Pokemon[] grupoSecundario,
-                      int pokedollar, Objeto[] listaObjetos) {
-    }
 
     public Entrenador(String nombre, String password, Pokemon[] equipoPokemon, Pokemon[] grupoSecundario,
                       int pokedollar, Objeto[] listaObjetos) {
@@ -282,6 +279,7 @@ private TipoEntrenamiento tipoEntrenamiento;
         addPokemonCapturado();
         return true;
     }
+
 
     // Si capturo un pokemon, que se vaya añadiendo al grupoSecundario.
     public void addPokemonCapturado(){
