@@ -1,7 +1,6 @@
 package org.proyectoPokemon.model;
 
 import junit.framework.TestCase;
-import org.proyectoPokemon.model.movimiento.Movimiento;
 import org.proyectoPokemon.model.movimiento.MovimientoDeAtaque;
 
 public class PokemonTest extends TestCase {

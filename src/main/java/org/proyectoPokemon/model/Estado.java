@@ -2,7 +2,7 @@ package org.proyectoPokemon.model;
 
 /**
  * Clase principal de nuestro proyecto Pokemon / Estado
- * @author
+ * @author Rugren MikelAnderson
  * @version
  */
 public enum Estado {

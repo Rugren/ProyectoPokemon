@@ -4,7 +4,7 @@ import java.util.LinkedList;
 
 /**
  * Clase principal de nuestro proyecto Pokemon / Objeto
- * @author
+ * @author Rugren MikelAnderson
  * @version
  */
 public abstract class Objeto{
@@ -32,6 +32,6 @@ public abstract class Objeto{
         this.nombre = nombre;
     }
 
-    // CREAR METODO APLICAR PESA, APLICAR pluma, etc.
+    // CREAR METODO APLICAR PESA, APLICAR pluma, etc. SERÍA NUESTRA TIENDA
 
 }

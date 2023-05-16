@@ -7,7 +7,7 @@ import java.util.Random;
 
 /**
  * Clase principal de nuestro proyecto Pokemon / Combate
- * @author
+ * @author Rugren MikelAnderson
  * @version
  */
 public class Combate {

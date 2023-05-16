@@ -4,7 +4,7 @@ import org.proyectoPokemon.model.Pokemon;
 
 /**
  * Clase principal de nuestro proyecto Pokemon / MovimientoDeMejora
- * @author
+ * @author Rugren MikelAnderson
  * @version
  */
 public class MovimientoDeMejora extends Movimiento{

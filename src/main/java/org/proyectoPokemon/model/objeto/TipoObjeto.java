@@ -2,7 +2,7 @@ package org.proyectoPokemon.model.objeto;
 
 /**
  * Clase principal de nuestro proyecto Pokemon / TipoObjeto
- * @author
+ * @author Rugren MikelAnderson
  * @version
  */
 public enum TipoObjeto {

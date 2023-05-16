@@ -7,11 +7,9 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Random;
 
-//JAVADOC
-
 /**
  * Clase principal de nuestro proyecto Pokemon / Pokemon
- * @author
+ * @author MikelAnderson Rugren
  * @version
  */
 

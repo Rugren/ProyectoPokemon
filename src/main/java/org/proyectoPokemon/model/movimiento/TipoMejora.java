@@ -2,7 +2,7 @@ package org.proyectoPokemon.model.movimiento;
 
 /**
  * Clase principal de nuestro proyecto Pokemon / TipoMejora
- * @author
+ * @author Rugren MikelAnderson
  * @version
  */
 public enum TipoMejora {

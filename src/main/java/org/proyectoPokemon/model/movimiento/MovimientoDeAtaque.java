@@ -6,7 +6,7 @@ import org.proyectoPokemon.model.Tipo;
 /**
  * Clase principal de nuestro proyecto Pokemon / MovimientoDeAtaque
  * Quita vitalidad al enemigo
- * @author
+ * @author Rugren MikelAnderson
  * @version
  */
 public class MovimientoDeAtaque extends Movimiento{

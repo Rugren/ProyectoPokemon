@@ -7,11 +7,10 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Random;
 
-/ HACER JAVA DOC cuando terminemos la clase. Tools / Generate JavaDoc.
 
 /**
  * Clase principal de nuestro proyecto Pokemon / Entrenador
- * @author
+ * @author Rugren MikelAnderson
  * @version
  */
 
@@ -32,8 +31,8 @@ public class Entrenador {
                       int pokedollar, Objeto[] listaObjetos) {
     }
 
-    public Entrenador(String nombre, String password, LinkedList<Pokemon> equipoPokemon, LinkedList<Pokemon> grupoSecundario,
-                      int pokedollar, LinkedList<Objeto> listaObjetos) {
+    public Entrenador(String nombre, String password, Pokemon[] equipoPokemon, Pokemon[] grupoSecundario,
+                      int pokedollar, Objeto[] listaObjetos) {
         this.nombre = nombre;
         this.password = password;
         this.equipoPokemon = equipoPokemon;
@@ -42,6 +41,9 @@ public class Entrenador {
         this.listaObjetos = listaObjetos;
     }
 
+    /**
+     * Usamos este constructor vacío de Entrenador para comprobar el loggin
+     */
     public Entrenador(){
 
     }
@@ -76,7 +78,7 @@ public class Entrenador {
         this.password = password;
     }
 
-    public LinkedList<Pokemon> getEquipoPokemon() {
+    public Pokemon[] getEquipoPokemon() {
         return equipoPokemon;
     }
 

@@ -6,7 +6,7 @@ import org.proyectoPokemon.model.Pokemon;
 /**
  * Clase principal de nuestro proyecto Pokemon / MovimientoDeEstado
  * Altera el estado del pokemon Enemigo
- * @author
+ * @author Rugren MikelAnderson
  * @version
  */
 
