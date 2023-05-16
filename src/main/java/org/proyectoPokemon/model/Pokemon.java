@@ -42,7 +42,7 @@ public class Pokemon {
 
     private static HashMap<Tipo, LinkedList<Tipo>> listaAtaqueNulo;
     private static LinkedList<Pokemon> pokedex;
-
+/*
     /**
      * Construtor de pokemon para pruebas
      *
@@ -53,7 +53,7 @@ public class Pokemon {
      * @param tipo1
      * @param tipo2
      */
-    public Pokemon(int idPokedex, int idPokemon, String nombre, String mote,
+    /*public Pokemon(int idPokedex, int idPokemon, String nombre, String mote,
                    Sexo sexo, Tipo tipo1, Tipo tipo2) {
         this.idPokedex = idPokedex;
         this.idPokemon = idPokemon;
@@ -74,10 +74,11 @@ public class Pokemon {
         this.tipo1 = tipo1;
         this.tipo2 = tipo2;
         this.nivelExperiencia = 1;
-    }
+    }*/
 
     public Pokemon(int idPokedex, String mote, Sexo sexo) {
         this.idPokedex = idPokedex;
+        this.nombre = PokemonCRUD.getNombre(idPokedex);
         this.mote = mote;
         Random rnd = new Random();
         this.vitalidad = rnd.nextInt(10) + 1;
@@ -91,7 +92,7 @@ public class Pokemon {
         this.fertilidad = 5;
         this.sexo = sexo;
         this.tipo1 = PokemonCRUD.getTipo1(idPokedex);
-        //this.tipo2 = PokemonCRUD.getTipo2(idPokedex);
+        this.tipo2 = PokemonCRUD.getTipo2(idPokedex);
         this.nivelExperiencia = 1;
         pokedex.add(this);
     }
@@ -674,9 +675,9 @@ public class Pokemon {
     @Override
     public String toString() {
         return "Pokemon{" +
-                "nombre='" + nombre + '\'' +
-                ", tipo1=" + tipo1 +
-                ", tipo2=" + tipo2 +
+                "nombre='" + this.nombre + '\'' +
+                ", tipo1=" + this.tipo1 +
+                ", tipo2=" + this.tipo2 +
                 '}';
     }
 }

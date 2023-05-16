@@ -14,8 +14,9 @@ public class Main {
 
         PokemonCRUD.updatePokemon();
 
-        Pokemon p1 = new Pokemon(3,"lolo",Sexo.MACHO);
+        Pokemon p1 = new Pokemon(1,"lolo",Sexo.MACHO);
         PokemonCRUD.insertPokemon(p1);
+        System.out.println(p1.toString());
 
 
 
