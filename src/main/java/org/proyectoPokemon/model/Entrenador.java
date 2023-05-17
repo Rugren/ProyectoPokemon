@@ -301,10 +301,11 @@ private TipoEntrenamiento tipoEntrenamiento;
         if (captura != 0)
             return false;
         org.proyectoPokemon.model.Entrenador.listaPokemon.add(pokemonCapturado);
+        pokemonCapturado.setMote("");
         return true;
     }
 
-    public void addPokemonCapturado(){
+    public void addMote(Pokemon pokemonCapturado){
 
     }
 

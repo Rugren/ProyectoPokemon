@@ -63,10 +63,10 @@ public class Pokemon {
         this.nivelExperiencia = 1;
     }
 
-   public Pokemon(String nombre, Tipo tipo1) {
+   public Pokemon(String nombre, Tipo tipo1, Tipo tipo2) {
         this.nombre = nombre;
         this.tipo1 = tipo1;
-        this.tipo2
+        this.tipo2 = tipo2;
     }
 
     public static LinkedList<Pokemon> getPokedex() {
@@ -637,6 +637,7 @@ public class Pokemon {
     public void anadirExperiencia(int nivelExperiencia) {
         this.nivelExperiencia += nivelExperiencia;
     }
+
 
     @Override
     public String toString() {

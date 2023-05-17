@@ -9,6 +9,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
+import org.proyectoPokemon.Logger;
 import org.proyectoPokemon.database.PokemonCRUD;
 import org.proyectoPokemon.model.Entrenador;
 import org.proyectoPokemon.model.Pokemon;
@@ -30,6 +31,8 @@ public class CapturarPokemonController {
     private Label mensajeCapturado;
     @FXML
     private Button botonTienda;
+
+
     @FXML
     public void volver(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/fxml/MainMenu.fxml")));
@@ -49,10 +52,12 @@ public class CapturarPokemonController {
     @FXML
     public void capturar(ActionEvent event) throws IOException {
         Random rnd = new Random();
-        int numAleatorio = rnd.nextInt(10);
+        int numAleatorio = rnd.nextInt(19);
         if (Entrenador.getEntrenador().capturar(PokemonCRUD.readPokemon().get(numAleatorio))){
             mensajeCapturado.setText("Pokemon Capturado");
             numPokeballs.setText("Pokeballs: " + Entrenador.getEntrenador().getPokeballs());
+            Logger.write("Pokemon capturado");
+
         }else if(Entrenador.getEntrenador().getPokeballs() == 0){
             mensajeCapturado.setText("Ya no te quedan Pokeballs. Compra más en la tienda.");
         }else

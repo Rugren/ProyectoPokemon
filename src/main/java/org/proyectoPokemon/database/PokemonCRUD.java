@@ -32,7 +32,8 @@ public class PokemonCRUD {
                 String nomPokemon = resultSet.getString("NOM_POKEMON");
                 String tipo1 = resultSet.getString("TIPO");
                 String tipo2 = resultSet.getString("TIPO2");
-                listaPokemon.add(new Pokemon(nomPokemon,Tipo.valueOf(tipo1)));
+
+                listaPokemon.add(new Pokemon(nomPokemon,Tipo.valueOf(tipo1), tipo2 != null ? Tipo.valueOf(tipo2) : null));
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
