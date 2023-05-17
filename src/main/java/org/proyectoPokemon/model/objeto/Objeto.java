@@ -7,7 +7,7 @@ import java.util.LinkedList;
  * @author Rugren MikelAnderson
  * @version
  */
-public abstract class Objeto{
+public class Objeto{
     private String nombre;
     private TipoObjeto tipoDeObjeto;
     private static LinkedList<Objeto> Tienda;
