@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.Pane?>
 
-
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="121.0" prefWidth="378.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.proyectoPokemon.controller.LoginController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="121.0" prefWidth="378.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.proyectoPokemon.controller.PonerMoteController">
    <children>
-      <TextField layoutX="123.0" layoutY="48.0" />
+      <TextField fx:id="mote" layoutX="123.0" layoutY="48.0" onAction="#addMote" />
+      <Label fx:id="lblMensaje" layoutX="126.0" layoutY="83.0" prefHeight="17.0" prefWidth="149.0" text="Mensaje" />
    </children>
 </Pane>

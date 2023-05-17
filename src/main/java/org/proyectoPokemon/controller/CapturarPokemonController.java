@@ -8,6 +8,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 import org.proyectoPokemon.Logger;
 import org.proyectoPokemon.database.PokemonCRUD;
@@ -56,12 +57,24 @@ public class CapturarPokemonController {
         if (Entrenador.getEntrenador().capturar(PokemonCRUD.readPokemon().get(numAleatorio))){
             mensajeCapturado.setText("Pokemon Capturado");
             numPokeballs.setText("Pokeballs: " + Entrenador.getEntrenador().getPokeballs());
+            ventanaMote();
             Logger.write("Pokemon capturado");
 
         }else if(Entrenador.getEntrenador().getPokeballs() == 0){
             mensajeCapturado.setText("Ya no te quedan Pokeballs. Compra más en la tienda.");
         }else
             mensajeCapturado.setText("Pokemon no capturado");
+    }
+
+    @FXML
+    private void ventanaMote() throws IOException {
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/fxml/PonerMote.fxml")));
+        Scene scene = new Scene(root);
+        Stage stage = new Stage();
+        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.setTitle("Añadir mote al pokemon.");
+        stage.setScene(scene);
+        stage.showAndWait();
     }
 
 }
