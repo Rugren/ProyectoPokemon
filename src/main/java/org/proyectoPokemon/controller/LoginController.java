@@ -62,6 +62,7 @@ public class LoginController {
         }else
             lblConectado.setText("Usuario o contraseña incorrectos.");
         //Logger.write("Inicio de sesion");
+
     }
 
     @FXML

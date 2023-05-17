@@ -42,39 +42,6 @@ public class Pokemon {
 
     private static HashMap<Tipo, LinkedList<Tipo>> listaAtaqueNulo;
     private static LinkedList<Pokemon> pokedex;
-/*
-    /**
-     * Construtor de pokemon para pruebas
-     *
-     * @param idPokemon
-     * @param nombre
-     * @param mote
-     * @param sexo
-     * @param tipo1
-     * @param tipo2
-     */
-    /*public Pokemon(int idPokedex, int idPokemon, String nombre, String mote,
-                   Sexo sexo, Tipo tipo1, Tipo tipo2) {
-        this.idPokedex = idPokedex;
-        this.idPokemon = idPokemon;
-        Random rnd = new Random();
-        this.nombre = nombre;
-        this.mote = mote;
-        this.vitalidad = rnd.nextInt(10) + 1;
-        this.ataque = rnd.nextInt(10) + 1;
-        this.defensa = rnd.nextInt(10) + 1;
-        this.ataqueEspecial = rnd.nextInt(10) + 1;
-        this.defensaEspecial = rnd.nextInt(10) + 1;
-        this.velocidad = rnd.nextInt(10) + 1;
-        this.estamina = rnd.nextInt(10) + 1;
-        this.nivel = 1;
-        this.listaDeMovimientos = listaDeMovimientos;
-        this.fertilidad = 5;
-        this.sexo = sexo;
-        this.tipo1 = tipo1;
-        this.tipo2 = tipo2;
-        this.nivelExperiencia = 1;
-    }*/
 
     public Pokemon(int idPokedex, String mote, Sexo sexo) {
         this.idPokedex = idPokedex;
@@ -94,13 +61,12 @@ public class Pokemon {
         this.tipo1 = PokemonCRUD.getTipo1(idPokedex);
         this.tipo2 = PokemonCRUD.getTipo2(idPokedex);
         this.nivelExperiencia = 1;
-        pokedex.add(this);
     }
 
-   public Pokemon(String nombre, Tipo tipo1, Tipo tipo2) {
+   public Pokemon(String nombre, Tipo tipo1) {
         this.nombre = nombre;
         this.tipo1 = tipo1;
-        this.tipo2 = tipo2;
+        this.tipo2
     }
 
     public static LinkedList<Pokemon> getPokedex() {

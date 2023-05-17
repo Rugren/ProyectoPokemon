@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 
 <AnchorPane fx:id="cobt" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.proyectoPokemon.controller.MainMenuController">
    <children>
-      <Button fx:id="botonCerrarSesion" layoutX="478.0" layoutY="339.0" mnemonicParsing="false" onAction="#backWindow" text="Cerrar sesión" />
+      <Button fx:id="botonCerrarSesion" layoutX="478.0" layoutY="339.0" mnemonicParsing="false" onAction="#cerrarSesion" text="Cerrar sesión" />
       <Button fx:id="botonEquipoPokemon" layoutX="127.0" layoutY="107.0" mnemonicParsing="false" text="Mi equipo Pokémon" />
       <Button fx:id="botonCombate" layoutX="341.0" layoutY="107.0" mnemonicParsing="false" text="Combate " />
-      <Button fx:id="botonCapturar" layoutX="137.0" layoutY="216.0" mnemonicParsing="false" text="Capturar Pokémon" />
-      <Button fx:id="botonTienda" layoutX="348.0" layoutY="216.0" mnemonicParsing="false" text="Tienda Pokémon" />
+      <Button fx:id="botonCapturar" layoutX="137.0" layoutY="216.0" mnemonicParsing="false" onAction="#ventanaCapturarPokemon" text="Capturar Pokémon" />
+      <Button fx:id="botonTienda" layoutX="348.0" layoutY="216.0" mnemonicParsing="false" onAction="#ventanaTienda" text="Tienda Pokémon" />
+      <Label fx:id="numPokedollars" layoutX="74.0" layoutY="27.0" prefHeight="18.0" prefWidth="124.0" text="Pokedollars: $" />
    </children>
 </AnchorPane>

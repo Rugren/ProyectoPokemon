@@ -9,13 +9,17 @@ import java.util.List;
 
 public class PokemonCRUD {
 
+    /**
+     * Método que devuelve una lista con todos los pokemon y sus tipos
+     * @return
+     */
     public static List<Pokemon> readPokemon() {
         String query = "SELECT P.NOM_POKEMON, T.NOM_TIPO AS TIPO, T2.NOM_TIPO AS TIPO2\n" +
                 "FROM pokedex P\n" +
-                "INNER JOIN TIPOS T\n" +
-                "\tON T.ID_TIPO = P.TIPO1\n" +
-                "JOIN TIPOS T2\n" +
-                "\tON T2.ID_TIPO = P.TIPO2";
+                "JOIN TIPOS T\n" +
+                "ON T.ID_TIPO = P.TIPO1\n" +
+                "left JOIN TIPOS T2\n" +
+                "ON T2.ID_TIPO = P.TIPO2";
 
         PreparedStatement preparedStatement = null;
         LinkedList<Pokemon> listaPokemon = new LinkedList<>();
@@ -28,7 +32,7 @@ public class PokemonCRUD {
                 String nomPokemon = resultSet.getString("NOM_POKEMON");
                 String tipo1 = resultSet.getString("TIPO");
                 String tipo2 = resultSet.getString("TIPO2");
-                listaPokemon.add(new Pokemon(nomPokemon,Tipo.valueOf(tipo1),Tipo.valueOf(tipo2)));
+                listaPokemon.add(new Pokemon(nomPokemon,Tipo.valueOf(tipo1)));
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -37,8 +41,12 @@ public class PokemonCRUD {
         return listaPokemon;
     }
 
-    public static void insertPokemon(Pokemon pokemon){
 
+    /**
+     * Método para insertar un Pokemon en la base de datos pokemon.
+     * @param pokemon
+     */
+    public static void insertPokemon(Pokemon pokemon){
         Statement preparedStatement = null;
         try {
             String query = "INSERT INTO POKEMON (ID_POKEDEX, MOTE, SEXO, ATAQUE, AT_ESPECIAL,DEFENSA," +
@@ -75,6 +83,12 @@ public class PokemonCRUD {
         System.out.println(Pokemon.getPokedex());
     }
 
+    /**
+     * Metodo para coger el nombre de ka tabla Pokedex y aplicarselo al constructor de la clase
+     * Pokemon
+     * @param idPokedex
+     * @return
+     */
     public static String getNombre(int idPokedex){
         String query = "select pokedex.NOM_POKEMON as NOM_POKEMON\n" +
                 "from pokedex\n" +
@@ -95,6 +109,12 @@ public class PokemonCRUD {
         return nomPokemon;
     }
 
+    /**
+     * Con este método seleccionamos el nombre del tipo de la tabla Tipos para aplicarselo
+     * al constructor de la clase Pokemon
+     * @param idPokedex
+     * @return
+     */
     public static Tipo getTipo1(int idPokedex){
         String query = "SELECT t1.NOM_TIPO as TIPO1\n" +
                 "FROM pokedex P\n" +
@@ -117,6 +137,11 @@ public class PokemonCRUD {
         return Tipo.valueOf(tipo1);
     }
 
+    /**
+     * con este método realizamos exactamente el mismo proceso que con el PokemonCRUD.getTipo1
+     * @param idPokedex
+     * @return
+     */
     public static Tipo getTipo2(int idPokedex) {
 
         String query = "SELECT t2.NOM_TIPO as TIPO2\n" +
