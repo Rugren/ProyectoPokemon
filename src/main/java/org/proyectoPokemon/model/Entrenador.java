@@ -129,6 +129,13 @@ private TipoEntrenamiento tipoEntrenamiento;
         this.listaObjetos = listaObjetos;
     }
 
+    public static LinkedList<Pokemon> getListaPokemon() {
+        return listaPokemon;
+    }
+
+    public static void setListaPokemon(LinkedList<Pokemon> listaPokemon) {
+        org.proyectoPokemon.model.Entrenador.listaPokemon = listaPokemon;
+    }
 
     // Métodos para la Clase Combate
     public int getNivelMaximoEquipo() {
@@ -303,10 +310,6 @@ private TipoEntrenamiento tipoEntrenamiento;
         org.proyectoPokemon.model.Entrenador.listaPokemon.add(pokemonCapturado);
         pokemonCapturado.setMote("");
         return true;
-    }
-
-    public void addMote(Pokemon pokemonCapturado){
-
     }
 
 }

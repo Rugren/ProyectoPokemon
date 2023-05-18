@@ -4,41 +4,41 @@ import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
-public class Logger {
-    private static BufferedWriter bufferedWriter;
-    private static String logPath = "src/main/files/";
-
-    public static BufferedWriter getOrCreateFileWriter() {
-
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyyMMddHHmmss");
-        String fechaFormateada = simpleDateFormat.format(new Date());
-        logPath += fechaFormateada + ".log";
-
-        if (bufferedWriter != null)
-            return bufferedWriter;
+public class Logger implements AutoCloseable{
+    private BufferedWriter writer;
+    public Logger() {
         try {
-            bufferedWriter = new BufferedWriter(new FileWriter(logPath, true));
+            String filePath = "src/main/files/PokemonCaptura.log";
+            writer = new BufferedWriter(new FileWriter(filePath, true));
         } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-        return bufferedWriter;
-    }
-
-    public static void write(String line) {
-        try {
-            getOrCreateFileWriter().write(line);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
         }
     }
 
-    public static void close(){
+    public void logger(String message) {
+        LocalDateTime now = LocalDateTime.now();
+        String timestamp = now.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
+        String logMessage = timestamp + " - " + message;
+
         try {
-            bufferedWriter.close();
+            writer.write(logMessage);
+            writer.newLine();
+            writer.flush();
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public void close() {
+        try {
+            writer.close();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 }

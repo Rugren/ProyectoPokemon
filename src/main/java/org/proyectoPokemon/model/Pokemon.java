@@ -643,6 +643,7 @@ public class Pokemon {
     public String toString() {
         return "Pokemon{" +
                 "nombre='" + this.nombre + '\'' +
+                ", mote='" + this.mote + '\'' +
                 ", tipo1=" + this.tipo1 +
                 ", tipo2=" + this.tipo2 +
                 '}';

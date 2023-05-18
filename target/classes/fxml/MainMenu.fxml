@@ -5,16 +5,28 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="cobt" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.proyectoPokemon.controller.MainMenuController">
+<AnchorPane fx:id="cobt" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #1C2833;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.proyectoPokemon.controller.MainMenuController">
    <children>
-      <Button fx:id="botonCerrarSesion" layoutX="478.0" layoutY="339.0" mnemonicParsing="false" onAction="#cerrarSesion" text="Cerrar sesión" />
-      <Button fx:id="botonEquipoPokemon" layoutX="127.0" layoutY="107.0" mnemonicParsing="false" text="Mi equipo Pokémon" />
-      <Button fx:id="botonCombate" layoutX="341.0" layoutY="107.0" mnemonicParsing="false" text="Combate " />
-      <Button fx:id="botonCapturar" layoutX="137.0" layoutY="216.0" mnemonicParsing="false" onAction="#ventanaCapturarPokemon" text="Capturar Pokémon" />
-      <Button fx:id="botonTienda" layoutX="348.0" layoutY="216.0" mnemonicParsing="false" onAction="#ventanaTienda" text="Tienda Pokémon" />
-      <Label fx:id="numPokedollars" layoutX="74.0" layoutY="27.0" prefHeight="18.0" prefWidth="124.0" text="Pokedollars: $">
+      <Button fx:id="botonCerrarSesion" layoutX="442.0" layoutY="339.0" mnemonicParsing="false" onAction="#cerrarSesion" style="-fx-background-color: #ffffff;" text="Cerrar sesión" textFill="#1c2833">
          <font>
-            <Font name="System Bold" size="12.0" />
-         </font></Label>
+            <Font name="System Italic" size="12.0" />
+         </font></Button>
+      <Button fx:id="botonEquipoPokemon" layoutX="74.0" layoutY="100.0" mnemonicParsing="false" onAction="#ventanaMiEquipoPokemon" prefHeight="91.0" prefWidth="201.0" style="-fx-background-color: #ffffff;" text="Mi equipo Pokémon" textFill="#1c2833">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font></Button>
+      <Button fx:id="botonCombate" layoutX="326.0" layoutY="100.0" mnemonicParsing="false" prefHeight="91.0" prefWidth="201.0" style="-fx-background-color: #ffffff;" text="Combate " textFill="#1c2833">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font></Button>
+      <Button fx:id="botonCapturar" layoutX="77.0" layoutY="216.0" mnemonicParsing="false" onAction="#ventanaCapturarPokemon" prefHeight="91.0" prefWidth="201.0" style="-fx-background-color: #ffffff;" text="Capturar Pokémon" textFill="#1c2833">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font></Button>
+      <Button fx:id="botonTienda" layoutX="326.0" layoutY="216.0" mnemonicParsing="false" onAction="#ventanaTienda" prefHeight="91.0" prefWidth="201.0" style="-fx-background-color: #ffffff;" text="Tienda Pokémon" textFill="#1c2833">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font></Button>
+      <Label fx:id="numPokedollars" layoutX="74.0" layoutY="37.0" prefHeight="18.0" prefWidth="124.0" text="Pokedollars: $" textFill="WHITE" />
    </children>
 </AnchorPane>

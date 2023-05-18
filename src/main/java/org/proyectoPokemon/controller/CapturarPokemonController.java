@@ -58,7 +58,6 @@ public class CapturarPokemonController {
             mensajeCapturado.setText("Pokemon Capturado");
             numPokeballs.setText("Pokeballs: " + Entrenador.getEntrenador().getPokeballs());
             ventanaMote();
-            Logger.write("Pokemon capturado");
 
         }else if(Entrenador.getEntrenador().getPokeballs() == 0){
             mensajeCapturado.setText("Ya no te quedan Pokeballs. Compra más en la tienda.");
@@ -67,7 +66,7 @@ public class CapturarPokemonController {
     }
 
     @FXML
-    private void ventanaMote() throws IOException {
+    public void ventanaMote() throws IOException {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/fxml/PonerMote.fxml")));
         Scene scene = new Scene(root);
         Stage stage = new Stage();

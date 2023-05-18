@@ -59,6 +59,15 @@ public class MainMenuController {
         stage.setScene(scene);
         stage.show();
     }
+    @FXML
+    public void ventanaMiEquipoPokemon(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/fxml/MiEquipoPokemon.fxml")));
+        Scene scene = new Scene(root);
+        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        stage.setTitle("Mi equipo Pokemon");
+        stage.setScene(scene);
+        stage.show();
+    }
 
     @FXML
     public void initialize(){
