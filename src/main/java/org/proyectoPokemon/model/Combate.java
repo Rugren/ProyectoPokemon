@@ -1,8 +1,15 @@
 
 package org.proyectoPokemon.model;
 
+import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.Random;
 
+/**
+ * Clase principal de nuestro proyecto Pokemon / Combate
+ * @author Rugren MikelAnderson
+ * @version
+ */
 public class Combate {
     private Entrenador ganador;
     private Entrenador jugador;
@@ -36,6 +43,15 @@ public class Combate {
     public int getnumPokemonsKOrival() {
         return numPokemonsKOrival;
     }
+
+    /**
+     * Método Combate
+     * realiza un combate entre jugador y rival
+     * @param jugador
+     * @param rival
+     * se puede combatir hasta que todos los pokemon (tanto del jugador como del rival) estén KO, es decir, estén a 0.
+     */
+
     public Combate(Entrenador jugador, Entrenador rival) {
         this.jugador = jugador;
         this.rival = rival;
@@ -44,7 +60,15 @@ public class Combate {
         this.numPokemonsKOrival = 0;
     }
 
-
+    /**
+     * Método inicioCombate
+     * - realiza el inicio del combate entre jugador y rival, respetando los turnos entre ambos.
+     * - se establece el nivel máximo del Pokémon rival, para que no haya descompesación de nivel entre nuestro jugador.
+     * - se establece el combate entre los dos Pokémon
+     * - se determina el ganador del combate; si somos nosotros(jugador) o el rival
+     * - se entrega el premio al ganador, si ganamos nosotros(jugador) o rival
+     * - se reparte la experiencia(llamada: nivelExperiencia) entre los Pokémon del equipo del ganador
+     */
     public void inicioCombate() {
         System.out.println("¡Comienza el combate!");
         Pokemon[] equipoJugador = jugador.getEquipoPokemon();
