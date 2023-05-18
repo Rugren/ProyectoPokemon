@@ -207,7 +207,7 @@ private TipoEntrenamiento tipoEntrenamiento;
         }
     }
 
-    HACIENDO public void moverPokemonACaja(int indice) {
+    //HACIENDO public void moverPokemonACaja(int indice) {
     /*
     public void moverPokemonACaja(int indice) {
         Pokemon p = equipoPokemon[indice];
