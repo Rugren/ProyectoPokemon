@@ -16,17 +16,19 @@ import java.util.Random;
  */
 
 public class Entrenador {
+
 private TipoEntrenamiento tipoEntrenamiento;
     private static Entrenador Entrenador = null;
     private String nombre;
     private String password;
-    private Pokemon[] equipoPokemon = new Pokemon[5];
-    private Pokemon[] grupoSecundario = new Pokemon[19]; // 20 pokemon en el equipo secundario.
-    private int pokedollar = new Random().nextInt(201) + 800; // Al crearse tiene que tener un random entre 800 y 1000;
-    private Objeto[] listaObjetos = new Objeto[4]; // La listaObjetos viene a ser "mochila", la equipada.
+    private Pokemon[] equipoPokemon;
+    private Pokemon[] grupoSecundario;
+    private int pokedollar;
+    private int pokeballs;
+    private Objeto[] listaObjetos; // La listaObjetos viene a ser "mochila", la equipada.
     // puesto[4] un máximo de 5 objetos para la mochila (para luego testear que entren 5 objetos y no más.
 
-    private static LinkedList<Pokemon> listaPokemon;
+    private static LinkedList<Pokemon> listaPokemon = new LinkedList<>();
 
 
     public Entrenador(String nombre, String password, Pokemon[] equipoPokemon, Pokemon[] grupoSecundario,
@@ -40,7 +42,13 @@ private TipoEntrenamiento tipoEntrenamiento;
     }
 
     public Entrenador(){
-
+        this.nombre = nombre;
+        this.password = password;
+        this.equipoPokemon = new Pokemon[5];
+        this.grupoSecundario = new Pokemon[19];
+        this.pokedollar = new Random().nextInt(201) + 800;
+        this.pokeballs = 8;
+        this.listaObjetos = new Objeto[4];
     }
 
     //Funciones del entrenador
@@ -62,7 +70,7 @@ private TipoEntrenamiento tipoEntrenamiento;
     }
 
     public static void setEntrenador(org.proyectoPokemon.model.Entrenador entrenador) {
-        Entrenador = entrenador;
+        Entrenador = new Entrenador();
     }
 
     public String getNombre() {
@@ -105,6 +113,14 @@ private TipoEntrenamiento tipoEntrenamiento;
         this.pokedollar = pokedollar;
     }
 
+    public int getPokeballs() {
+        return pokeballs;
+    }
+
+    public void setPokeballs(int pokeballs) {
+        this.pokeballs = pokeballs;
+    }
+
     public Objeto[] getListaObjetos() {
         return listaObjetos;
     }
@@ -113,6 +129,13 @@ private TipoEntrenamiento tipoEntrenamiento;
         this.listaObjetos = listaObjetos;
     }
 
+    public static LinkedList<Pokemon> getListaPokemon() {
+        return listaPokemon;
+    }
+
+    public static void setListaPokemon(LinkedList<Pokemon> listaPokemon) {
+        org.proyectoPokemon.model.Entrenador.listaPokemon = listaPokemon;
+    }
 
     // Métodos para la Clase Combate
     public int getNivelMaximoEquipo() {
@@ -270,20 +293,23 @@ private TipoEntrenamiento tipoEntrenamiento;
                 pokemon.equals(TipoEntrenamiento.equals("pesado"));
  */
 
-    //Capturar pokemon
+    /**
+     * Metodo para capturar Pokemon
+     * @param pokemonCapturado
+     * @return
+     */
     public boolean capturar(Pokemon pokemonCapturado){
+
+        if (this.pokeballs < 1)
+            return false;
+        this.pokeballs--;
         Random randomCaptura = new Random();
-        int captura = randomCaptura.nextInt(3);
+        int captura = randomCaptura.nextInt(2);
         if (captura != 0)
             return false;
-        addPokemonCapturado();
+        org.proyectoPokemon.model.Entrenador.listaPokemon.add(pokemonCapturado);
+        pokemonCapturado.setMote("");
         return true;
-    }
-
-
-    // Si capturo un pokemon, que se vaya añadiendo al grupoSecundario.
-    public void addPokemonCapturado(){
-
     }
 
 }
