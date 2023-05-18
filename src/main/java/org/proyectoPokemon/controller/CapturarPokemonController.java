@@ -61,8 +61,12 @@ public class CapturarPokemonController {
 
         }else if(Entrenador.getEntrenador().getPokeballs() == 0){
             mensajeCapturado.setText("Ya no te quedan Pokeballs. Compra más en la tienda.");
+            Logger log = new Logger();
+            log.logger("Sin pokeballs");
         }else
             mensajeCapturado.setText("Pokemon no capturado");
+        Logger log = new Logger();
+        log.logger("Pokemon no capturado");
     }
 
     @FXML

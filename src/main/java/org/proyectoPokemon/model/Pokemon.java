@@ -191,6 +191,10 @@ public class Pokemon {
         return sexo;
     }
 
+    /**
+     * Devuelve el valor del Enum Sexo en un String
+     * @return
+     */
     public String getSexoString(){
         String string = String.valueOf(Sexo.valueOf(String.valueOf(getSexo())));
         return string;
@@ -646,6 +650,7 @@ public class Pokemon {
                 ", mote='" + this.mote + '\'' +
                 ", tipo1=" + this.tipo1 +
                 ", tipo2=" + this.tipo2 +
+                ", nivel=" + this.nivel +
                 '}';
     }
 }

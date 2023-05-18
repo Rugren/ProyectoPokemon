@@ -1,37 +1,32 @@
 package org.proyectoPokemon.model;
 
-import junit.framework.TestCase;
-import org.proyectoPokemon.model.movimiento.MovimientoDeAtaque;
+import org.junit.Test;
 
-public class PokemonTest extends TestCase {
+import static org.junit.Assert.*;
 
-    public void testSubirNivel() {
+public class PokemonTest {
+
+    @Test
+    public void subirNivel() {
     }
 
+    @Test
+    public void aprenderMovimiento() {
+    }
+
+    @Test
     public void testAprenderMovimiento() {
-        MovimientoDeAtaque mA1 = new MovimientoDeAtaque("impactrueno", 10, Tipo.ELECTRICO);
-        //Pokemon p1 = new Pokemon(idPokemon, "Pikachu","juanito", Sexo.MACHO,Tipo.ELECTRICO,null);
-
     }
 
-    public void testQuitarmoviento() {
+    @Test
+    public void quitarmoviento() {
     }
 
-    public void testAtacar() {
+    @Test
+    public void descansar() {
     }
 
-    public void testDescansar() {
-    }
-
-    public void testGetListaDesventaja() {
-    }
-
-    public void testGetListaVentaja() {
-    }
-
-    public void testGetListaAtaqueNulo() {
-    }
-
-    public void testComprobarVentaja() {
+    @Test
+    public void comprobarVentaja() {
     }
 }
