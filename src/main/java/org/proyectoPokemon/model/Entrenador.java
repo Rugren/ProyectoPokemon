@@ -18,12 +18,13 @@ public class Entrenador {
     private String nombre;
     private String password;
     private Pokemon[] equipoPokemon = new Pokemon[5];
-    private Pokemon[] grupoSecundario = new Pokemon[19]; // 20 pokemon en el equipo secundario.
+    private Pokemon[] grupoSecundario = new Pokemon[7]; // [19], son 20 pokemon en el equipo secundario.
     private int pokedollar = new Random().nextInt(201) + 800; // Al crearse tiene que tener un random entre 800 y 1000;
     private Objeto[] listaObjetos = new Objeto[4]; // La listaObjetos viene a ser "mochila", la equipada.
     // puesto[4] un máximo de 5 objetos para la mochila (para luego testear que entren 5 objetos y no más.
 
     private static LinkedList<Pokemon> listaPokemon;
+//    private int indice;
 
     public Entrenador(String nombre, String password, Pokemon[] equipoPokemon, Pokemon[] grupoSecundario,
                       int pokedollar, Objeto[] listaObjetos) {
@@ -162,7 +163,42 @@ public class Entrenador {
      * @param indice número del array del orden de nuestro pokemon en equipo que se mueve a caja.
      */
 
+    public void moverPokemonACaja(int indice) { // CORRECTO
+        Pokemon pok1 = equipoPokemon[indice];
 
+        // Para buscar el pokemon en el equipoPokemon
+        int pokemonACaja = -1;
+        for (int i = 0; i < equipoPokemon.length; i++) {
+            if (equipoPokemon[i] != null && equipoPokemon[i].equals(pok1)) {
+                pokemonACaja = i;
+                break;
+            }
+        }
+        if (pokemonACaja != -1) {
+        // Mover el pokemon a la caja(que es el grupoSecundario)
+            for (int i = 0; i < grupoSecundario.length; i++) {
+                if (grupoSecundario[i] == null) {
+                    grupoSecundario[i] = equipoPokemon[pokemonACaja];
+                    equipoPokemon[pokemonACaja] = null;
+                    break;
+                }
+            }
+
+        } else {
+            System.out.println("El pokemon no se encontró en el equipo.");
+        }
+
+        System.out.println("Equipo: ");
+        for (Pokemon pokemonDelEquipo : equipoPokemon) {
+            System.out.println(pokemonDelEquipo);
+        }
+
+        System.out.println("Grupo Secundario(Caja): "); // El grupoSecundario es nuestra caja, no lo olvidemos
+        for (Pokemon pokemonEnGrupoSecundario : grupoSecundario) {
+            System.out.println(pokemonEnGrupoSecundario);
+        }
+    }
+/*
     public void moverPokemonACaja(int indice) {
         Pokemon p = equipoPokemon[indice];
         equipoPokemon[indice] = null;
@@ -181,32 +217,13 @@ public class Entrenador {
                 equipoPokemon[i] = null; // sería nulo el que saquemos del equipoPokemon
             }
         }
-
-        // i == indice // sería nulo el que saquemos del equipoPokemon
-
-        System.out.println("El entrenador " + nombre + " ha movido a " + Pokemon.getNombre() + " a la caja.");
     }
-
-
-
-    -PENDIENTE DE TERMINAR moverPokemonACaja // Con Array
-    public void moverPokemonACaja(int indice) {
-        if (equipoPokemon.length() > 1) { // al menos debe quedar un Pokemon en el equipo principal
-            Pokemon pokemon = equipoPokemon[indice] = null; // aqui quitaria el pokemon de la posicion que le pasemos.
-            if (indice ) // poner que la posición que nos pase esté entre 0 y 5, ya que son 6 posiciones máximas del equipo.
-
-                // -- Pokemon pokemon = equipoPokemon.removeElement .remove(indice.length()-1); // o borrar con el .del
-                grupoSecundario[5] = pokemon;
-            System.out.println(nombre + " ha movido a " + pokemon.getNombre() + " a la caja.");
-        }
-        // ponerlo a null
-    }
-
+*/
     /**
      * Método para mover pokemon de caja al equipo
      * @param indice número del array del orden de nuestro pokemon en caja que se mueva a equipo.
      */
-
+/*
     //editando aqui:
     public void moverPokemonAEquipo(int indice) {
             for (int i = 0; i < equipoPokemon.length; i++)
@@ -222,16 +239,7 @@ public class Entrenador {
 
             System.out.println("El entrenador " + nombre + " ha movido a " + Pokemon.getNombre() + " al equipo.");
         }
-
-    -PENDIENTE DE CORREGIR moverPokemonAEquipo:
-    public void moverPokemonAEquipo(int indice) {
-        if (equipoPokemon.length() < 4 && indice < grupoSecundario.()) { // no se deben tener más de 4 Pokemon en el equipo y el índice debe ser válido
-            Pokemon pokemon = grupoSecundario.remove(indice);
-            equipoPokemon.add(pokemon);
-            System.out.println(nombre + " ha movido a " + pokemon.getNombre() + " a su equipo.");
-        }
-    }
-
+*/
     /**
      * Método para entrenar a nuestros pokemon
      * @param pokemon el pokemon que queremos subir de atributos(ataque, defensa, ataqueEspecial, defensaEspecial, velocidad, vitalidad)
@@ -325,7 +333,7 @@ public class Entrenador {
      * @param pokemonCapturado pokemon que se captura(si o no).
      */
     // Capturar pokemon
-    public boolean capturar(Pokemon pokemonCapturado){
+/*    public boolean capturar(Pokemon pokemonCapturado){
         Random randomCaptura = new Random();
         int captura = randomCaptura.nextInt(3);
         if (captura != 0)
@@ -334,7 +342,7 @@ public class Entrenador {
         addPokemonCapturado();
         return true;
     }
-
+*/
     /**
      * Método para añadir pokemon capturado
      *  -En caso de ser capturado que se añada a nuestra ListaPokemon.

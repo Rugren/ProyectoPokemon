@@ -648,6 +648,14 @@ public class Pokemon {
     public void anadirExperiencia(int nivelExperiencia) {
         this.nivelExperiencia += nivelExperiencia;
     }
+
+    @Override
+    public String toString() {
+        return "Pokemon{" +
+                "nombre='" + nombre + '\'' +
+                ", mote='" + mote + '\'' +
+                '}';
+    }
 }
 
 
