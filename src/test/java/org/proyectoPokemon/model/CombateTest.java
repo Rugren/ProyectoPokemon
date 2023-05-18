@@ -17,4 +17,33 @@ public class CombateTest {
     @Test
     public void getRival() {
     }
+
+    @Test
+    public void testGetGanador() {
+    }
+
+    @Test
+    public void testGetJugador() {
+    }
+
+    @Test
+    public void testGetRival() {
+    }
+
+    @Test
+    public void getTurno() {
+    }
+
+    @Test
+    public void getnumPokemonsKOjugador() {
+    }
+
+    @Test
+    public void getnumPokemonsKOrival() {
+    }
+
+    @Test
+    public void inicioCombate() {
+
+    }
 }
