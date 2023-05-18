@@ -11,10 +11,10 @@ import java.util.*;
  * @author Rugren MikelAnderson
  * @version
  */
-º
 public class Entrenador {
 
-private TipoEntrenamiento tipoEntrenamiento;
+    private int pokeballs;
+    private TipoEntrenamiento tipoEntrenamiento;
     private static Entrenador Entrenador = null;
     private String nombre;
     private String password;
@@ -36,7 +36,7 @@ private TipoEntrenamiento tipoEntrenamiento;
         this.pokedollar = pokedollar;
         this.listaObjetos = listaObjetos;
     }
-*/
+
     /**
      * Usamos este constructor vacío de Entrenador para comprobar el loggin
      */
@@ -51,7 +51,6 @@ private TipoEntrenamiento tipoEntrenamiento;
     }
 
     //Funciones del entrenador
-
     public static boolean entrenadornull(){
         synchronized (Entrenador.class){
             if(Entrenador == null){
@@ -60,6 +59,9 @@ private TipoEntrenamiento tipoEntrenamiento;
         }return false;
     }
 
+    /**
+     * Usamos este constructor vacío de Entrenador para crearlo
+     */
     public static Entrenador getEntrenador() {
         synchronized (Entrenador.class){
             if(Entrenador == null){
@@ -357,7 +359,6 @@ private TipoEntrenamiento tipoEntrenamiento;
      * @return
      */
     public boolean capturar(Pokemon pokemonCapturado){
-
         if (this.pokeballs < 1)
             return false;
         this.pokeballs--;
@@ -365,14 +366,10 @@ private TipoEntrenamiento tipoEntrenamiento;
         int captura = randomCaptura.nextInt(2);
         if (captura != 0)
             return false;
-        org.proyectoPokemon.model.Entrenador.listaPokemon.add(pokemonCapturado);
-        pokemonCapturado.setMote("");
-        Pokemon.getListaPokemon().add(pokemonCapturado);
-        addPokemonCapturado();
+        listaPokemon.add(pokemonCapturado);
         return true;
     }
 
 }
 
-}
 
