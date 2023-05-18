@@ -9,6 +9,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import org.proyectoPokemon.model.Entrenador;
 
@@ -28,6 +29,8 @@ public class MainMenuController {
     private Button botonTienda;
     @FXML
     private Label numPokedollars;
+    @FXML
+    private ImageView logo;
 
 
 
