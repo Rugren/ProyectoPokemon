@@ -3,29 +3,25 @@ package org.proyectoPokemon.model;
 
 import org.proyectoPokemon.model.objeto.Objeto;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.Random;
+import java.util.*;
 
-//HACER JAVA DOC cuando terminemos la clase. Tools / Generate JavaDoc.
 
 /**
  * Clase principal de nuestro proyecto Pokemon / Entrenador
- * @author
+ * @author Rugren MikelAnderson
  * @version
  */
-
 public class Entrenador {
 
-private TipoEntrenamiento tipoEntrenamiento;
+    private int pokeballs;
+    private TipoEntrenamiento tipoEntrenamiento;
     private static Entrenador Entrenador = null;
     private String nombre;
     private String password;
-    private Pokemon[] equipoPokemon;
-    private Pokemon[] grupoSecundario;
-    private int pokedollar;
-    private int pokeballs;
-    private Objeto[] listaObjetos; // La listaObjetos viene a ser "mochila", la equipada.
+    private Pokemon[] equipoPokemon = new Pokemon[5];
+    private Pokemon[] grupoSecundario = new Pokemon[19]; // 20 pokemon en el equipo secundario.
+    private int pokedollar = new Random().nextInt(201) + 800; // Al crearse tiene que tener un random entre 800 y 1000;
+    private Objeto[] listaObjetos = new Objeto[4]; // La listaObjetos viene a ser "mochila", la equipada.
     // puesto[4] un máximo de 5 objetos para la mochila (para luego testear que entren 5 objetos y no más.
 
     private static LinkedList<Pokemon> listaPokemon = new LinkedList<>();
@@ -41,6 +37,9 @@ private TipoEntrenamiento tipoEntrenamiento;
         this.listaObjetos = listaObjetos;
     }
 
+    /**
+     * Usamos este constructor vacío de Entrenador para comprobar el loggin
+     */
     public Entrenador(){
         this.nombre = nombre;
         this.password = password;
@@ -52,7 +51,6 @@ private TipoEntrenamiento tipoEntrenamiento;
     }
 
     //Funciones del entrenador
-
     public static boolean entrenadornull(){
         synchronized (Entrenador.class){
             if(Entrenador == null){
@@ -60,6 +58,10 @@ private TipoEntrenamiento tipoEntrenamiento;
             }
         }return false;
     }
+
+    /**
+     * Usamos este constructor vacío de Entrenador para crearlo
+     */
     public static Entrenador getEntrenador() {
         synchronized (Entrenador.class){
             if(Entrenador == null){
@@ -138,6 +140,11 @@ private TipoEntrenamiento tipoEntrenamiento;
     }
 
     // Métodos para la Clase Combate
+
+    /**
+     * Método que nos devuelve el nivel máximo del equipo.
+     * @return indica el nivel máximo del equipo.
+     */
     public int getNivelMaximoEquipo() {
         int nivelMaximo = 0;
         for (int i = 0; i < equipoPokemon.length; i++) {
@@ -156,12 +163,12 @@ private TipoEntrenamiento tipoEntrenamiento;
         this.pokedollar += pokedollar;
     }
 
-    /* Así sería con LinkedList (no borrar este)
+/* Así sería con LinkedList (no borrar este)
     public void moverPokemonACaja(int indice) {
         if (equipoPokemon.size() > 1) { // al menos debe quedar un Pokemon en el equipo principal
             Pokemon pokemon = equipoPokemon.remove(indice);
             grupoSecundario.add(pokemon);
-            System.out.println(nombre + " ha movido a " + pokemon.getNombre() + " a la caja.");
+            System.out.println("El entrenador " + nombre + " ha movido a " + pokemon.getNombre() + " a la caja.");
         }
     }
 
@@ -169,43 +176,95 @@ private TipoEntrenamiento tipoEntrenamiento;
             if (equipoPokemon.size() < 4 && indice < grupoSecundario.size()) { // no se deben tener más de 4 Pokemon en el equipo y el índice debe ser válido
                 Pokemon pokemon = grupoSecundario.remove(indice);
                 equipoPokemon.add(pokemon);
-                System.out.println(nombre + " ha movido a " + pokemon.getNombre() + " a su equipo.");
+                System.out.println("El entrenador " + nombre + " ha movido a " + pokemon.getNombre() + " a su equipo.");
             }
         }
-     */
+*/
 
     /**
-     * Para mover pokemon del equipo a caja
+     * Método para mover pokemon del equipo a caja
      * @param indice número del array del orden de nuestro pokemon en equipo que se mueve a caja.
      */
 
-    //PENDIENTE DE TERMINAR moverPokemonACaja // Con ArrayList
-    /*public void moverPokemonACaja(int indice) {
-        if (equipoPokemon.length() > 1) { // al menos debe quedar un Pokemon en el equipo principal
-            Pokemon pokemon = equipoPokemon[indice] = null; // aqui quitaria el pokemon de la posicion que le pasemos.
-            if (indice ) // poner que la posición que nos pase esté entre 0 y 5, ya que son 6 posiciones máximas del equipo.
+    public void moverPokemonACaja(int indice) { // CORRECTO
+        Pokemon pok1 = equipoPokemon[indice];
 
-                // -- Pokemon pokemon = equipoPokemon.removeElement .remove(indice.length()-1); // o borrar con el .del
-                grupoSecundario[5] = pokemon;
-            System.out.println(nombre + " ha movido a " + pokemon.getNombre() + " a la caja.");
+        // Para buscar el pokemon en el equipoPokemon
+        int pokemonACaja = -1;
+        for (int i = 0; i < equipoPokemon.length; i++) {
+            if (equipoPokemon[i] != null && equipoPokemon[i].equals(pok1)) {
+                pokemonACaja = i;
+                break;
+            }
         }
-        // ponerlo a null
-    }*/
+        if (pokemonACaja != -1) {
+        // Mover el pokemon a la caja(que es el grupoSecundario)
+            for (int i = 0; i < grupoSecundario.length; i++) {
+                if (grupoSecundario[i] == null) {
+                    grupoSecundario[i] = equipoPokemon[pokemonACaja];
+                    equipoPokemon[pokemonACaja] = null;
+                    break;
+                }
+            }
 
+        } else {
+            System.out.println("El pokemon no se encontró en el equipo.");
+        }
+
+        System.out.println("Equipo: ");
+        for (Pokemon pokemonDelEquipo : equipoPokemon) {
+            System.out.println(pokemonDelEquipo);
+        }
+
+        System.out.println("Grupo Secundario(Caja): "); // El grupoSecundario es nuestra caja, no lo olvidemos
+        for (Pokemon pokemonEnGrupoSecundario : grupoSecundario) {
+            System.out.println(pokemonEnGrupoSecundario);
+        }
+    }
+
+    //HACIENDO public void moverPokemonACaja(int indice) {
+    /*
+    public void moverPokemonACaja(int indice) {
+        Pokemon p = equipoPokemon[indice];
+        equipoPokemon[indice] = null;
+
+        for (int i = 0; i < indice; i++) {
+            grupoSecundario.length;
+
+            if grupoSecundario [i] == null;
+            grupoSecundario[i] = Pokemon p;
+
+
+        for (int i = 0; i < indice; i++) {
+            grupoSecundario[i] = equipoPokemon[indice];
+
+            for (i = indice; i = null; i++) {
+                equipoPokemon[i] = null; // sería nulo el que saquemos del equipoPokemon
+            }
+        }
+    }
+*/
     /**
-     * Para mover pokemon de caja al equipo
+     * Método para mover pokemon de caja al equipo
      * @param indice número del array del orden de nuestro pokemon en caja que se mueva a equipo.
      */
+/*
+    //editando aqui:
+    public void moverPokemonAEquipo(int indice) {
+            for (int i = 0; i < equipoPokemon.length; i++)
+                grupoSecundario[i] = equipoPokemon[i];
 
-    //-PENDIENTE DE CORREGIR moverPokemonAEquipo:
-   /* public void moverPokemonAEquipo(int indice) {
-        if (equipoPokemon.length() < 4 && indice < grupoSecundario.()) { // no se deben tener más de 4 Pokemon en el equipo y el índice debe ser válido
-            Pokemon pokemon = grupoSecundario.remove(indice);
-            equipoPokemon.add(pokemon);
-            System.out.println(nombre + " ha movido a " + pokemon.getNombre() + " a su equipo.");
+            for (int i = 0; i < indice; i++) {
+                grupoSecundario[i] = equipoPokemon[i];
+// falta aquí por poner
+                }
+            }
+
+            // i == indice // sería nulo el que saquemos del equipoPokemon
+
+            System.out.println("El entrenador " + nombre + " ha movido a " + Pokemon.getNombre() + " al equipo.");
         }
-    }*/
-
+*/
     /**
      * Método para entrenar a nuestros pokemon
      * @param pokemon el pokemon que queremos subir de atributos(ataque, defensa, ataqueEspecial, defensaEspecial, velocidad, vitalidad)
@@ -232,6 +291,7 @@ private TipoEntrenamiento tipoEntrenamiento;
                     System.out.println(nombre + " ha entrenado a " + pokemon.getNombre() + " mediante un entrenamiento de tipo " + tipoEntrenamiento + ".");
                     pokedollar -= costo;
                 }
+
                 break;
             case FURIOSO: // entrenamiento furioso
                 costo = 30 * pokemon.getNivel();
@@ -299,7 +359,6 @@ private TipoEntrenamiento tipoEntrenamiento;
      * @return
      */
     public boolean capturar(Pokemon pokemonCapturado){
-
         if (this.pokeballs < 1)
             return false;
         this.pokeballs--;
@@ -307,10 +366,10 @@ private TipoEntrenamiento tipoEntrenamiento;
         int captura = randomCaptura.nextInt(2);
         if (captura != 0)
             return false;
-        org.proyectoPokemon.model.Entrenador.listaPokemon.add(pokemonCapturado);
-        pokemonCapturado.setMote("");
+        listaPokemon.add(pokemonCapturado);
         return true;
     }
 
 }
+
 

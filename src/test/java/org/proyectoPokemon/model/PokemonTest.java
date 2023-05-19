@@ -16,6 +16,9 @@ public class PokemonTest {
 
     @Test
     public void testAprenderMovimiento() {
+        MovimientoDeAtaque mA1 = new MovimientoDeAtaque("impactrueno", 10, Tipo.ELECTRICO);
+        //Pokemon p1 = new Pokemon(idPokemon, "Pikachu","juanito", Sexo.MACHO,Tipo.ELECTRICO,null);
+
     }
 
     @Test
