@@ -36,16 +36,12 @@ public class LoginController {
     @FXML
     private Label lblConectado;
 
-    @FXML
-    public void cambiarMenu (ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/fxml/MainMenu.fxml")));
-        Scene scene = new Scene(root, 600, 400);
-        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        stage.setTitle("Login");
-        stage.setScene(scene);
-        stage.show();
-    }
-
+    /**
+     *Metodo de Login para acceder al menu principal.
+     * Si no hay entrenador debe ir a la ventan registrarse
+     * @param event
+     * @throws IOException
+     */
     @FXML
     public void login (ActionEvent event) throws IOException{
         if(Entrenador.entrenadornull()){
@@ -70,8 +66,12 @@ public class LoginController {
         lblConectado.setText("Conectado");
     }
 
-
-
+    /**
+     * Se accede al metodo al pulsar el boton de registrarse y cambiamos de ventana a la
+     * ventana de registro
+     * @param event
+     * @throws IOException
+     */
     @FXML
     public void registrar (ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/fxml/RegistroEntrenador.fxml")));

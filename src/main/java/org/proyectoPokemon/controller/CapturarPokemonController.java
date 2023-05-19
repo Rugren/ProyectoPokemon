@@ -8,6 +8,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.ImageView;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import org.proyectoPokemon.Logger;
@@ -31,9 +32,14 @@ public class CapturarPokemonController {
     @FXML
     private Label mensajeCapturado;
     @FXML
-    private Button botonTienda;
+    private ImageView pokeball;
 
 
+    /**
+     * El metodo volver para ir al Menu principal
+     * @param event
+     * @throws IOException
+     */
     @FXML
     public void volver(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/fxml/MainMenu.fxml")));
@@ -44,31 +50,43 @@ public class CapturarPokemonController {
         stage.show();
     }
 
+    /**
+     * Para cargar los atributos del Entrenador en los Label
+     */
     @FXML
     public void initialize(){
         numPokedollars.setText("Pokedollars: " + Entrenador.getEntrenador().getPokedollar() + "$");
         numPokeballs.setText("Pokeballs: " + Entrenador.getEntrenador().getPokeballs());
         PokemonCRUD.readPokemon();
     }
+
+    /**
+     * Con este metodo compronbamos si se puede capturar o no al pokemon y salta la ventana
+     * emergente para poner mote al pokemon capturado
+     * @param event
+     * @throws IOException
+     */
     @FXML
     public void capturar(ActionEvent event) throws IOException {
         Random rnd = new Random();
-        int numAleatorio = rnd.nextInt(19);
-        if (Entrenador.getEntrenador().capturar(PokemonCRUD.readPokemon().get(numAleatorio))){
+        int numAleatorio = rnd.nextInt(19); //tamaño de la listaPokedex
+        if(Entrenador.getEntrenador().getPokeballs() == 0){
+            mensajeCapturado.setText("Ya no te quedan Pokeballs. Compra más en la tienda");
+        }else if (Entrenador.getEntrenador().capturar(PokemonCRUD.readPokemon().get(numAleatorio))){
             mensajeCapturado.setText("Pokemon Capturado");
             numPokeballs.setText("Pokeballs: " + Entrenador.getEntrenador().getPokeballs());
             ventanaMote();
-
-        }else if(Entrenador.getEntrenador().getPokeballs() == 0){
-            mensajeCapturado.setText("Ya no te quedan Pokeballs. Compra más en la tienda.");
-            Logger log = new Logger();
-            log.logger("Sin pokeballs");
         }else
             mensajeCapturado.setText("Pokemon no capturado");
-        Logger log = new Logger();
-        log.logger("Pokemon no capturado");
+
+
+
     }
 
+    /**
+     * Con este metodo se cammbia de ventana a la ventana de poner mote al pokemon
+     * @throws IOException
+     */
     @FXML
     public void ventanaMote() throws IOException {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/fxml/PonerMote.fxml")));

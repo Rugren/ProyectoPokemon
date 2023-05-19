@@ -6,5 +6,5 @@ package org.proyectoPokemon.model.objeto;
  * @version
  */
 public enum TipoObjeto {
-    PESA, PLUMA, CHALECO, BASTON, PILAS, POKEBALL
+    PESA, PLUMA, CHALECO, BASTON, PILAS,
 }

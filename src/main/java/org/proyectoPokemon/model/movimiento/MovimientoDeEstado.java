@@ -14,6 +14,14 @@ public class MovimientoDeEstado extends Movimiento{
     private Estado estadoAplicado;
     private int turnosDuracion;
 
+    /**
+     * Constructor hijo para los movimentos de Estado
+     * se añade el movimiento a la lista de movimientos.
+     * @param nombre
+     * @param costeDeEstamina
+     * @param estadoAplicado
+     * @param turnosDuracion
+     */
     public MovimientoDeEstado(String nombre, int costeDeEstamina, Estado estadoAplicado, int turnosDuracion) {
         super(nombre);
         this.estadoAplicado = estadoAplicado;

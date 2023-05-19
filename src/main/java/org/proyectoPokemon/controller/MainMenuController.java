@@ -9,6 +9,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import org.proyectoPokemon.model.Entrenador;
 
@@ -28,9 +29,14 @@ public class MainMenuController {
     private Button botonTienda;
     @FXML
     private Label numPokedollars;
+    @FXML
+    private ImageView logo;
 
-
-
+    /**
+     * con este boton cerramos sesion y volvemos a la pagina de login
+     * @param event
+     * @throws IOException
+     */
     @FXML
     public void cerrarSesion(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/fxml/PokemonApplication.fxml")));
@@ -41,6 +47,12 @@ public class MainMenuController {
         stage.show();
     }
 
+    /**
+     * Metodo que se acciona al pulsar el boton de Capturar pokemon y cambiamos a la ventana
+     * de captura
+     * @param event
+     * @throws IOException
+     */
     @FXML
     public void ventanaCapturarPokemon(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/fxml/CapturarPokemon.fxml")));
@@ -50,6 +62,13 @@ public class MainMenuController {
         stage.setScene(scene);
         stage.show();
     }
+
+    /**
+     * Se acciona el metodo al pulsar el boton de Ir a la tienda y se cambia de ventana
+     * a la ventana Tienda
+     * @param event
+     * @throws IOException
+     */
     @FXML
     public void ventanaTienda(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/fxml/TiendaPokemon.fxml")));
@@ -59,6 +78,27 @@ public class MainMenuController {
         stage.setScene(scene);
         stage.show();
     }
+
+    /**
+     * Al accionar el boton de COmbate Pokemon cambiaremos de ventana a la ventana de Combate
+     * @param event
+     * @throws IOException
+     */
+    @FXML
+    public void ventanaCombate(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/fxml/MiEquipoPokemon.fxml")));
+        Scene scene = new Scene(root);
+        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        stage.setTitle("Mi equipo Pokemon");
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    /**
+     * Para ir a la ventana de Mi equipo pokemon accionaremos el boton Mi equipo Pokemon
+     * @param event
+     * @throws IOException
+     */
     @FXML
     public void ventanaMiEquipoPokemon(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/fxml/MiEquipoPokemon.fxml")));
@@ -69,6 +109,9 @@ public class MainMenuController {
         stage.show();
     }
 
+    /**
+     * En el initialize se cargan los datos de los Pokedollars de nuestro entrenador
+     */
     @FXML
     public void initialize(){
         numPokedollars.setText("Pokedollars: " + Entrenador.getEntrenador().getPokedollar() + "$");

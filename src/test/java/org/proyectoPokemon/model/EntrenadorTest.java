@@ -77,9 +77,10 @@ public class EntrenadorTest {
         System.out.println("1.3 " + "El entrenador " + rubens2.getNombre() + " ha movido a " + pokemon3.getNombre() + "(Apodo: " + pokemon3.getMote() + ")" + " a la caja.");
 
     }
+
     @Test
     public void capturar() {
-        Pokemon p1 = new Pokemon(1,"si",Sexo.MACHO);
+        Pokemon p1 = new Pokemon(1,"simon",Sexo.MACHO);
         Entrenador.getEntrenador().capturar(p1);
     }
 

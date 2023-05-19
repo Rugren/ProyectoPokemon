@@ -25,6 +25,7 @@ public class Pokemon {
     private int defensaEspecial;
     private int velocidad;
     private int estamina;
+    private final int ESTAMINA_MAX = 100;
     private int nivel = 1;
     private Movimiento movimiento;
 
@@ -36,11 +37,17 @@ public class Pokemon {
     private Estado estado;
     private Objeto objeto;
     private int nivelExperiencia;
-    private static HashMap<Tipo, LinkedList<Tipo>> listaVentaja;
-    private static HashMap<Tipo, LinkedList<Tipo>> listaDesventaja;
-    private static HashMap<Tipo, LinkedList<Tipo>> listaAtaqueNulo;
+    private static HashMap<Tipo, LinkedList<Tipo>> listaVentaja = getListaVentaja();
+    private static HashMap<Tipo, LinkedList<Tipo>> listaDesventaja = getListaDesventaja();
+    private static HashMap<Tipo, LinkedList<Tipo>> listaAtaqueNulo = getListaAtaqueNulo();
     private static LinkedList<Pokemon> pokedex;
 
+    /**
+     * Constructor para insertar pokemon en la base de DAtos
+     * @param idPokedex
+     * @param mote
+     * @param sexo
+     */
     public Pokemon(int idPokedex, String mote, Sexo sexo) {
         this.idPokedex = idPokedex;
         this.nombre = PokemonCRUD.getNombre(idPokedex);
@@ -52,7 +59,7 @@ public class Pokemon {
         this.ataqueEspecial = rnd.nextInt(10) + 1;
         this.defensaEspecial = rnd.nextInt(10) + 1;
         this.velocidad = rnd.nextInt(10) + 1;
-        this.estamina = rnd.nextInt(10) + 1;
+        this.estamina = ESTAMINA_MAX;
         this.nivel = 1;
         this.fertilidad = 5;
         this.sexo = sexo;
@@ -61,13 +68,34 @@ public class Pokemon {
         this.nivelExperiencia = 1;
     }
 
-   public Pokemon(String nombre, Tipo tipo1, Tipo tipo2) {
+
+    /**
+     * Constructor para porbar el test De aprender movimientos
+     * @param nombre
+     * @param tipo1
+     * @param tipo2
+     * @param listaDeMovimientos
+     */
+   public Pokemon(String nombre, Tipo tipo1, Tipo tipo2, Movimiento[] listaDeMovimientos) {
+        this.nombre = nombre;
+        this.tipo1 = tipo1;
+        this.tipo2 = tipo2;
+        this.listaDeMovimientos = new Movimiento[3];
+    }
+
+    /**
+     *
+     * @param nombre
+     * @param tipo1
+     * @param tipo2
+     */
+    public Pokemon(String nombre, Tipo tipo1, Tipo tipo2) {
         this.nombre = nombre;
         this.tipo1 = tipo1;
         this.tipo2 = tipo2;
     }
 
-    public Pokemon(String nombre, String mote,Sexo sexo, Tipo tipo1, Tipo tipo2) {
+    public Pokemon(String nombre, String mote, Sexo sexo, Tipo tipo1, Tipo tipo2) {
         this.nombre = nombre;
         this.mote = mote;
         this.sexo = sexo;
@@ -75,6 +103,20 @@ public class Pokemon {
         this.tipo2 = tipo2;
     }
 
+    /**
+     * Constructor para probar el Test descansar
+     * @param nombre
+     * @param estamina
+     */
+    public Pokemon(String nombre, int estamina) {
+        this.nombre = nombre;
+        this.estamina = ESTAMINA_MAX;
+    }
+
+    /**
+     * Devuelve una lista con todos los pokemon
+     * @return
+     */
     public static LinkedList<Pokemon> getPokedex() {
         if (pokedex == null)
             pokedex = new LinkedList<>();
@@ -272,12 +314,23 @@ public class Pokemon {
             setVelocidad(this.velocidad + (rnd.nextInt(5) + 1));
         }
         if (nivel % 3 == 0) {
-            aprenderMovimiento();
+            aprenderMovimiento(movimiento);
         }
     }
 
-    public void aprenderMovimiento() {
-
+    /**
+     * Recorre la lista de movimentos disponibles y se le añade a la lista de movimientos de nuestro pokemon
+     * devuelve verdadero si se realiza correctamente
+     * @param movimiento
+     * @return
+     */
+    public boolean aprenderMovimiento( Movimiento movimiento) {
+        for (int i = 0; i < listaDeMovimientos.length; i++){
+            if(listaDeMovimientos[i] == null){
+                listaDeMovimientos[i] = Movimiento.getMovimiento(movimiento);
+                return true;
+            }
+        }return true;
     }
 
     /**
@@ -313,150 +366,18 @@ public class Pokemon {
      * @param pokemon
      */
     public void atacar(Pokemon pokemon) {
-
     }
 
-    /*public String comprobarVentaja(Pokemon pokemon) {
-    // Sustituido por el diccionario HashMap: public static HashMap<Tipo, LinkedList<Tipo>> getListaDesventaja() - getListaVentaja() y getListaAtaqueNulo
-    // No borrar este método porque estaría bien hecho. Pero abajo mejor hecho con diccionarios en el método comprobarVentaja.
-        String mensaje = "";
-        if (this.tipo == Tipo.AGUA) {
-            if (pokemon.tipo == Tipo.AGUA || pokemon.tipo == Tipo.DRAGON || pokemon.tipo == Tipo.PLANTA) {
-                mensaje = "VENTAJA";
-            } else if (pokemon.tipo == Tipo.FUEGO || pokemon.tipo == Tipo.ROCA || pokemon.tipo == Tipo.TIERRA) {
-                mensaje = "DOBLE_VENTAJA";
-            } else
-                mensaje = "NEUTRO";
-        }
-        if (this.tipo == Tipo.BICHO) {
-            if (pokemon.tipo == Tipo.FANTASMA || pokemon.tipo == Tipo.FUEGO || pokemon.tipo == Tipo.LUCHA) {
-                mensaje = "VENTAJA";
-            } else if (pokemon.tipo == Tipo.PLANTA || pokemon.tipo == Tipo.PSIQUICO || pokemon.tipo == Tipo.VENENO) {
-                mensaje = "DOBLE_VENTAJA";
-            } else
-                mensaje = "NEUTRO";
-        }
-        if (this.tipo == Tipo.DRAGON) {
-            if (pokemon.tipo == Tipo.DRAGON) {
-                mensaje = "DOBLE_VENTAJA";
-            } else
-                mensaje = "NEUTRO";
-        }
-        if (this.tipo == Tipo.ELECTRICO) {
-            if (pokemon.tipo == Tipo.DRAGON || pokemon.tipo == Tipo.ELECTRICO || pokemon.tipo == Tipo.PLANTA) {
-                mensaje = "VENTAJA";
-            } else if (pokemon.tipo == Tipo.AGUA || pokemon.tipo == Tipo.VOLADOR) {
-                mensaje = "DOBLE_VENTAJA";
-            } else if (pokemon.tipo == Tipo.TIERRA) {
-                mensaje = "DESVENTAJA";
-            } else
-                mensaje = "NEUTRO";
-        }
-        if (this.tipo == Tipo.FANTASMA) {
-            if (pokemon.tipo == Tipo.FANTASMA) {
-                mensaje = "DOBLE_VENTAJA";
-            } else if (pokemon.tipo == Tipo.NORMAL || pokemon.tipo == Tipo.PSIQUICO) {
-                mensaje = "DESVENTAJA";
-            } else
-                mensaje = "NEUTRO";
-        }
-        if (this.tipo == Tipo.FUEGO) {
-            if (pokemon.tipo == Tipo.AGUA || pokemon.tipo == Tipo.DRAGON || pokemon.tipo == Tipo.FUEGO || pokemon.tipo == Tipo.ROCA) {
-                mensaje = "VENTAJA";
-            } else if (pokemon.tipo == Tipo.BICHO || pokemon.tipo == Tipo.HIELO || pokemon.tipo == Tipo.PLANTA) {
-                mensaje = "DOBLE_VENTAJA";
-            } else
-                mensaje = "NEUTRO";
-        }
-        if (this.tipo == Tipo.HIELO) {
-            if (pokemon.tipo == Tipo.AGUA || pokemon.tipo == Tipo.HIELO) {
-                mensaje = "VENTAJA";
-            } else if (pokemon.tipo == Tipo.DRAGON || pokemon.tipo == Tipo.PLANTA || pokemon.tipo == Tipo.TIERRA || pokemon.tipo == Tipo.VOLADOR) {
-                mensaje = "DOBLE_VENTAJA";
-            } else
-                mensaje = "NEUTRO";
-        }
-        if (this.tipo == Tipo.LUCHA) {
-            if (pokemon.tipo == Tipo.BICHO || pokemon.tipo == Tipo.PSIQUICO ||
-                    pokemon.tipo == Tipo.VENENO || pokemon.tipo == Tipo.VOLADOR) {
-                mensaje = "VENTAJA";
-            } else if (pokemon.tipo == Tipo.HIELO || pokemon.tipo == Tipo.NORMAL || pokemon.tipo == Tipo.ROCA) {
-                mensaje = "DOBLE_VENTAJA";
-            } else if (pokemon.tipo == Tipo.FANTASMA) {
-                mensaje = "DESVENTAJA";
-            } else
-                mensaje = "NEUTRO";
-        }
-        if (this.tipo == Tipo.NORMAL) {
-            if (pokemon.tipo == Tipo.FANTASMA) {
-                mensaje = "DESVENTAJA";
-            } else if (pokemon.tipo == Tipo.PSIQUICO) {
-                mensaje = "VENTAJA";
-            } else
-                mensaje = "NEUTRO";
-        }
-        if (this.tipo == Tipo.PLANTA) {
-            if (pokemon.tipo == Tipo.BICHO || pokemon.tipo == Tipo.DRAGON || pokemon.tipo == Tipo.FUEGO ||
-                    pokemon.tipo == Tipo.PLANTA || pokemon.tipo == Tipo.VENENO || pokemon.tipo == Tipo.VOLADOR) {
-                mensaje = "VENTAJA";
-            } else if (pokemon.tipo == Tipo.AGUA || pokemon.tipo == Tipo.ROCA || pokemon.tipo == Tipo.TIERRA) {
-                mensaje = "DOBLE_VENTAJA";
-            } else
-                mensaje = "NEUTRO";
-        }
-        if (this.tipo == Tipo.PSIQUICO) {
-            if (pokemon.tipo == Tipo.PSIQUICO) {
-                mensaje = "VENTAJA";
-            } else if (pokemon.tipo == Tipo.LUCHA || pokemon.tipo == Tipo.VENENO) {
-                mensaje = "DOBLE_VENTAJA";
-            } else
-                mensaje = "NEUTRO";
-        }
-        if (this.tipo == Tipo.ROCA) {
-            if (pokemon.tipo == Tipo.LUCHA || pokemon.tipo == Tipo.TIERRA) {
-                mensaje = "VENTAJA";
-            } else if (pokemon.tipo == Tipo.BICHO || pokemon.tipo == Tipo.FUEGO || pokemon.tipo == Tipo.HIELO ||
-                    pokemon.tipo == Tipo.VOLADOR) {
-                mensaje = "DOBLE_VENTAJA";
-            } else
-                mensaje = "NEUTRO";
-        }
-        if (this.tipo == Tipo.TIERRA) {
-            if (pokemon.tipo == Tipo.BICHO || pokemon.tipo == Tipo.PLANTA) {
-                mensaje = "VENTAJA";
-            } else if (pokemon.tipo == Tipo.ELECTRICO || pokemon.tipo == Tipo.FUEGO || pokemon.tipo == Tipo.ROCA ||
-                    pokemon.tipo == Tipo.VENENO) {
-                mensaje = "DOBLE_VENTAJA";
-            } else if (pokemon.tipo == Tipo.VOLADOR) {
-                mensaje = "DESVENTAJA";
-            } else
-                mensaje = "NEUTRO";
-        }
-        if (this.tipo == Tipo.VENENO) {
-            if (pokemon.tipo == Tipo.FANTASMA || pokemon.tipo == Tipo.ROCA || pokemon.tipo == Tipo.TIERRA ||
-                    pokemon.tipo == Tipo.VENENO) {
-                mensaje = "VENTAJA";
-            } else if (pokemon.tipo == Tipo.BICHO || pokemon.tipo == Tipo.PLANTA) {
-                mensaje = "DOBLE_VENTAJA";
-            } else
-                mensaje = "NEUTRO";
-        }
-        if (this.tipo == Tipo.VOLADOR) {
-            if (pokemon.tipo == Tipo.ELECTRICO || pokemon.tipo == Tipo.ROCA) {
-                mensaje = "VENTAJA";
-            } else if (pokemon.tipo == Tipo.BICHO || pokemon.tipo == Tipo.LUCHA || pokemon.tipo == Tipo.PLANTA) {
-                mensaje = "DOBLE_VENTAJA";
-            } else
-                mensaje = "NEUTRO";
-        }
-        return mensaje;
-    }*/
-
     /**
-     * Método descansar, usado para recuperar estamina cada que se utilice.
+     * Metodo para descanasar el pokemon y recuperar estamina
+     * devuelve un boolean
+     * @return
      */
-    public void descansar() {
-        this.estamina = this.estamina + 15;
+    public boolean descansar() {
+        if (getEstamina() >= ESTAMINA_MAX)
+            return false;
+        setEstamina(ESTAMINA_MAX);
+        return true;
     }
 
     /**
@@ -661,11 +582,11 @@ public class Pokemon {
      * @return nos devuelve la ventaja que tiene sobre el otro pokemon
      */
     public float comprobarVentaja(Pokemon pokemon) {
-        if (listaVentaja.get(this.tipo1).contains(pokemon.tipo1))
+        if (Pokemon.listaVentaja.get(getTipo1()).contains(pokemon.getTipo1()))
             return 2.0f;
-        if (listaDesventaja.get(this.tipo1).contains(pokemon.tipo1))
+        if (Pokemon.listaVentaja.get(getTipo1()).contains(pokemon.getTipo1()))
             return 0.5f;
-        if (listaAtaqueNulo.get(this.tipo1).contains(pokemon.tipo1))
+        if (Pokemon.listaAtaqueNulo.get(getTipo1()).contains(pokemon.getTipo1()))
             return 0f;
         return 1f;
     }

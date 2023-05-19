@@ -10,6 +10,10 @@ import java.util.Date;
 
 public class Logger implements AutoCloseable{
     private BufferedWriter writer;
+
+    /**
+     * Constructor de Logger
+     */
     public Logger() {
         try {
             String filePath = "src/main/files/PokemonCaptura.log";
@@ -19,6 +23,10 @@ public class Logger implements AutoCloseable{
         }
     }
 
+    /**
+     * Metodo logger para escribir mensaje en el Path
+     * @param message
+     */
     public void logger(String message) {
         LocalDateTime now = LocalDateTime.now();
         String timestamp = now.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
