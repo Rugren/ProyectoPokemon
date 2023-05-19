@@ -12,6 +12,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.InputMethodEvent;
 import javafx.stage.Stage;
 import org.proyectoPokemon.Logger;
+import org.proyectoPokemon.database.PokemonCRUD;
 import org.proyectoPokemon.model.Entrenador;
 import org.proyectoPokemon.model.Pokemon;
 
@@ -27,6 +28,13 @@ public class PonerMoteController {
     @FXML
     private Button botonAceptar;
 
+    /**
+     * Con este metodo validaremos el mote de nuestro Pokemon y usaremos expresiones regulares
+     * para controlar palabras malsonantes, saltandonos un aviso sobre nuestro mote
+     * @param event
+     * @return
+     * @throws IOException
+     */
     @FXML
     public String validaMote(ActionEvent event) throws IOException {
         String validaMote = mote.getText();
@@ -41,9 +49,15 @@ public class PonerMoteController {
         }else
             addMote(validaMote);
         return validaMote;
-
-
     }
+
+    /**
+     * Si el mote es valido, se le añade al pokemon y este pasa a ser capturado agregandolo a la
+     * caja del entrenador
+     * Ademas el Logger registra todos los pokemon capturados
+     * @param moteNuevo
+     * @throws IOException
+     */
     @FXML
     public void addMote(String moteNuevo) throws IOException {
         Entrenador.getListaPokemon().get(Entrenador.getListaPokemon().size()- 1).setMote(moteNuevo);
@@ -53,6 +67,11 @@ public class PonerMoteController {
         log.logger("Has capturado al pokemon :" + (Entrenador.getListaPokemon().get(Entrenador.getListaPokemon().size()-1)));
     }
 
+    /**
+     *
+     * @param event
+     * @throws IOException
+     */
     @FXML
     public void aceptarMote(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/fxml/CapturarPokemon.fxml")));

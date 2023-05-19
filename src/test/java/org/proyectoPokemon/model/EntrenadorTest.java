@@ -75,8 +75,9 @@ public class EntrenadorTest {
 
     }
 
+    @Test
     public void capturar() {
-        Pokemon p1 = new Pokemon(1,"si",Sexo.MACHO);
+        Pokemon p1 = new Pokemon(1,"simon",Sexo.MACHO);
         Entrenador.getEntrenador().capturar(p1);
     }
 }

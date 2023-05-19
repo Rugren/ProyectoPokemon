@@ -348,13 +348,10 @@ public class Entrenador {
                 return;
         }
     }
- /*
-            if (pokedollar >= costo) {
-                pokemon.equals(TipoEntrenamiento.equals("pesado"));
- */
 
     /**
-     * Metodo para capturar Pokemon
+     * Metodo para capturar Pokemon gastando pokeballs
+     * si no tiene pokeballs no se puede realizar el metodo
      * @param pokemonCapturado
      * @return
      */
@@ -368,6 +365,21 @@ public class Entrenador {
             return false;
         listaPokemon.add(pokemonCapturado);
         return true;
+    }
+
+    /**
+     * metodo para comprar pokeballs con pokedollars y nos devuelve true
+     * si se ha realizado bien el metodo
+     * @return
+     */
+    public boolean comprarPokeball(){
+        if (Entrenador.getPokedollar() < 20) {
+            return false;
+        }
+        Entrenador.setPokedollar(Entrenador.getPokedollar() - 20);
+        Entrenador.pokeballs++;
+        return true;
+
     }
 
 }

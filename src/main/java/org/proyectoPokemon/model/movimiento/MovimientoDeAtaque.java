@@ -13,9 +13,14 @@ public class MovimientoDeAtaque extends Movimiento{
     private int potenciaDeAtaque;
     private Tipo tipoDelAtaque;
 
-
+    /**
+     * Constructor hijo para los movimientos de Ataque
+     * añade el movimiento a la lista de todos los movimientos
+     * @param nombre
+     * @param potenciaDeAtaque
+     * @param tipoDelAtaque
+     */
     public MovimientoDeAtaque(String nombre, int potenciaDeAtaque, Tipo tipoDelAtaque) {
-
         super(nombre);
         this.potenciaDeAtaque = potenciaDeAtaque;
         this.tipoDelAtaque = tipoDelAtaque;

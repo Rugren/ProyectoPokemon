@@ -11,7 +11,14 @@ public class MovimientoDeMejora extends Movimiento{
     private TipoMejora mejoraAplicada;
     private int turnosDuracion;
 
-
+    /**
+     * Constructor hijo para los movimientos de mejora
+     * se añade el movimiento a la lista de movimientos
+     * @param nombre
+     * @param costeDeEstamina
+     * @param mejoraAplicada
+     * @param turnosDuracion
+     */
     public MovimientoDeMejora(String nombre, int costeDeEstamina, TipoMejora mejoraAplicada, int turnosDuracion) {
         super(nombre);
         this.mejoraAplicada = mejoraAplicada;

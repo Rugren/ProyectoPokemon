@@ -12,14 +12,7 @@ import java.util.LinkedList;
 public abstract class Movimiento {
     private String nombre;
     private int costeDeEstamina;
-
-
     private static LinkedList<Movimiento> movimientosDisponibles = new LinkedList<>();
-
-    /**
-     * Método del nombre del Movimiento
-     * @param nombre
-     */
     public Movimiento(String nombre) {
         this.nombre = nombre;
     }
@@ -31,7 +24,6 @@ public abstract class Movimiento {
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
-
 
     public int getCosteDeEstamina() {
         return costeDeEstamina;
@@ -46,7 +38,19 @@ public abstract class Movimiento {
     }
     public static Movimiento getMovimiento(int movimiento){
         return Movimiento.movimientosDisponibles.get(movimiento);
+    }
 
+    /**
+     * Recorre la lista de todos los movimientos para devolver un movimiento concreto de la lista
+     * @param movimiento
+     * @return
+     */
+    public static Movimiento getMovimiento(Movimiento movimiento){
+        for (int i = 0; i < movimientosDisponibles.size(); i++){
+            if(movimientosDisponibles.get(i) == movimiento){
+                return movimiento;
+            }
+        }return movimiento;
     }
 
     public static void setMovimientosDisponibles(LinkedList<Movimiento> movimientosDisponibles) {
@@ -62,13 +66,4 @@ public abstract class Movimiento {
         movimientosDisponibles.add(movimiento);
     }
 
-    /**
-     * Método aplicarMovimiento
-     * contructor que aplica movimiento al pokemon, es decir, que se lo añade los movientos que ya tenía el pokemon.
-     * @param pokemon
-     */
-    //Aplicar movimiento
-    public void aplicarMovimiento(Pokemon pokemon){
-
-    }
 }

@@ -35,6 +35,11 @@ public class CapturarPokemonController {
     private ImageView pokeball;
 
 
+    /**
+     * El metodo volver para ir al Menu principal
+     * @param event
+     * @throws IOException
+     */
     @FXML
     public void volver(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/fxml/MainMenu.fxml")));
@@ -45,12 +50,22 @@ public class CapturarPokemonController {
         stage.show();
     }
 
+    /**
+     * Para cargar los atributos del Entrenador en los Label
+     */
     @FXML
     public void initialize(){
         numPokedollars.setText("Pokedollars: " + Entrenador.getEntrenador().getPokedollar() + "$");
         numPokeballs.setText("Pokeballs: " + Entrenador.getEntrenador().getPokeballs());
         PokemonCRUD.readPokemon();
     }
+
+    /**
+     * Con este metodo compronbamos si se puede capturar o no al pokemon y salta la ventana
+     * emergente para poner mote al pokemon capturado
+     * @param event
+     * @throws IOException
+     */
     @FXML
     public void capturar(ActionEvent event) throws IOException {
         Random rnd = new Random();
@@ -68,6 +83,10 @@ public class CapturarPokemonController {
 
     }
 
+    /**
+     * Con este metodo se cammbia de ventana a la ventana de poner mote al pokemon
+     * @throws IOException
+     */
     @FXML
     public void ventanaMote() throws IOException {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/fxml/PonerMote.fxml")));
