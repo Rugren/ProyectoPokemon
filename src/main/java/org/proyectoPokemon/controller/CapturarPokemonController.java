@@ -78,7 +78,7 @@ public class CapturarPokemonController {
             ventanaMote();
         }else
             mensajeCapturado.setText("Pokemon no capturado");
-
+        numPokeballs.setText("Pokeballs: " + Entrenador.getEntrenador().getPokeballs());
 
 
     }

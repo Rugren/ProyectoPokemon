@@ -46,7 +46,7 @@ public class Entrenador {
         this.equipoPokemon = new Pokemon[5];
         this.grupoSecundario = new Pokemon[19];
         this.pokedollar = new Random().nextInt(201) + 800;
-        this.pokeballs = 8;
+        this.pokeballs = 5;
         this.listaObjetos = new Objeto[4];
     }
 

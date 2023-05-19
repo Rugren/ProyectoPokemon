@@ -610,7 +610,7 @@ public class Pokemon {
     }
 
 
-    /*@Override
+    @Override
     public String toString() {
         return "Pokemon{" +
                 "nombre='" + this.nombre + '\'' +
@@ -619,15 +619,15 @@ public class Pokemon {
                 ", tipo2=" + this.tipo2 +
                 ", nivel=" + this.nivel +
                 '}';
-    }*/
+    }
 
-    @Override
+    /*@Override
     public String toString() {
         return "Pokemon{" +
                 "nombre='" + nombre + '\'' +
                 ", mote='" + mote + '\'' +
                 '}';
-    }
+    }*/
 }
 
 

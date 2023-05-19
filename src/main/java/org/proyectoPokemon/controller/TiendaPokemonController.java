@@ -59,7 +59,7 @@ public class TiendaPokemonController {
     public void comprarPokeball(){
         if (Entrenador.getEntrenador().comprarPokeball()){
             lblPokeballs.setText("Pokeballs: " + Entrenador.getEntrenador().getPokeballs());
-            lblPokedollars.setText("Pokeballs: " + Entrenador.getEntrenador().getPokedollar());
+            lblPokedollars.setText("Pokedollars: " + Entrenador.getEntrenador().getPokedollar() + "$");
         }
     }
 
@@ -69,7 +69,7 @@ public class TiendaPokemonController {
     @FXML
     public void initialize(){
         lblPokeballs.setText("Pokeballs: " + Entrenador.getEntrenador().getPokeballs());
-        lblPokedollars.setText("Pokeballs: " + Entrenador.getEntrenador().getPokedollar());
+        lblPokedollars.setText("Pokedollars: " + Entrenador.getEntrenador().getPokedollar() + "$");
         Objeto o1 = new Objeto("Pluma", TipoObjeto.PLUMA);
         Objeto o2 = new Objeto("chaleco", TipoObjeto.CHALECO);
         Objeto o3 = new Objeto("Pesa", TipoObjeto.PESA);

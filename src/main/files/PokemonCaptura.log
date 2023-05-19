@@ -56,3 +56,19 @@
 2023-05-19 12:54:32 - Has capturado al pokemon :Pokemon{nombre='Ivisaur', mote=''}
 2023-05-19 13:43:21 - Has capturado al pokemon :Pokemon{nombre='Pidgey', mote='sa'}
 2023-05-19 14:00:01 - Has capturado al pokemon :Pokemon{nombre='Blastoise', mote='sad'}
+2023-05-19 16:42:36 - Has capturado al pokemon :Pokemon{nombre='Squirtle', mote='mikel'}
+2023-05-19 16:42:51 - Has capturado al pokemon :Pokemon{nombre='Butterfree', mote='rugren'}
+2023-05-19 16:43:04 - Has capturado al pokemon :Pokemon{nombre='Kakuna', mote='paco'}
+2023-05-19 16:43:11 - Has capturado al pokemon :Pokemon{nombre='Wartortle', mote='manolo'}
+2023-05-19 17:40:02 - Has capturado al pokemon :Pokemon{nombre='Butterfree', mote=''}
+2023-05-19 17:40:04 - Has capturado al pokemon :Pokemon{nombre='Charmeleon', mote=''}
+2023-05-19 17:40:05 - Has capturado al pokemon :Pokemon{nombre='Kakuna', mote=''}
+2023-05-19 17:43:16 - Has capturado al pokemon :Pokemon{nombre='Charizard', mote='mikelito', tipo1=FUEGO, tipo2=VOLADOR, nivel=1}
+2023-05-19 17:43:19 - Has capturado al pokemon :Pokemon{nombre='Charmander', mote='', tipo1=FUEGO, tipo2=null, nivel=1}
+2023-05-19 17:43:21 - Has capturado al pokemon :Pokemon{nombre='Beedrill', mote='', tipo1=BICHO, tipo2=VENENO, nivel=1}
+2023-05-19 17:43:31 - Has capturado al pokemon :Pokemon{nombre='Charmeleon', mote='', tipo1=FUEGO, tipo2=null, nivel=1}
+2023-05-19 17:57:56 - Has capturado al pokemon :Pokemon{nombre='Kakuna', mote='mikel', tipo1=BICHO, tipo2=VENENO, nivel=1}
+2023-05-19 17:58:03 - Has capturado al pokemon :Pokemon{nombre='Bulbasur', mote='ruben', tipo1=PLANTA, tipo2=VENENO, nivel=1}
+2023-05-19 18:03:16 - Has capturado al pokemon :Pokemon{nombre='Blastoise', mote='mikel', tipo1=AGUA, tipo2=null, nivel=1}
+2023-05-19 18:03:51 - Has capturado al pokemon :Pokemon{nombre='Rattata', mote='ruben', tipo1=NORMAL, tipo2=null, nivel=1}
+2023-05-19 18:03:55 - Has capturado al pokemon :Pokemon{nombre='Squirtle', mote='mikel2', tipo1=AGUA, tipo2=null, nivel=1}
