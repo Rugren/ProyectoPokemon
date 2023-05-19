@@ -3,7 +3,7 @@ package org.proyectoPokemon.model.objeto;
 import java.util.LinkedList;
 
 /**
- * Clase principal de nuestro proyecto Pokemon / Objeto
+ * Clase principal de nuestro proyecto Pokemon / Objeto // ESTA SERÍA NUESTRA TIENDA
  * @author Rugren MikelAnderson
  * @version
  */
@@ -21,7 +21,7 @@ public class Objeto{
     public Objeto(String nombre, TipoObjeto tipoDeObjeto) {
         this.nombre = nombre;
         this.tipoDeObjeto = tipoDeObjeto;
-        Tienda.add(this);
+      //  Tienda.add(this);
     }
 
     public String getNombre() {
@@ -32,6 +32,6 @@ public class Objeto{
         this.nombre = nombre;
     }
 
-    // CREAR METODO APLICAR PESA, APLICAR pluma, etc. SERÍA NUESTRA TIENDA
+    // CREAR METODO APLICAR PESA, APLICAR pluma, etc.
 
 }

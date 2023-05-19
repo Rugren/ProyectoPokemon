@@ -67,6 +67,14 @@ public class Pokemon {
         this.tipo2 = tipo2;
     }
 
+    public Pokemon(String nombre, String mote,Sexo sexo, Tipo tipo1, Tipo tipo2) {
+        this.nombre = nombre;
+        this.mote = mote;
+        this.sexo = sexo;
+        this.tipo1 = tipo1;
+        this.tipo2 = tipo2;
+    }
+
     public static LinkedList<Pokemon> getPokedex() {
         if (pokedex == null)
             pokedex = new LinkedList<>();

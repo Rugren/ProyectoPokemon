@@ -186,7 +186,7 @@ public class Entrenador {
      * @param indice número del array del orden de nuestro pokemon en equipo que se mueve a caja.
      */
 
-    public void moverPokemonACaja(int indice) { // CORRECTO
+    public void moverPokemonACaja(int indice) { // CORRECTO moverPokemonACaja
         Pokemon pok1 = equipoPokemon[indice];
 
         // Para buscar el pokemon en el equipoPokemon
@@ -222,9 +222,9 @@ public class Entrenador {
         }
     }
 
-    //HACIENDO public void moverPokemonACaja(int indice) {
     /*
     public void moverPokemonACaja(int indice) {
+    // esta primera parte era otro ejemplo(Paco), pero no finalizado
         Pokemon p = equipoPokemon[indice];
         equipoPokemon[indice] = null;
 
@@ -233,7 +233,6 @@ public class Entrenador {
 
             if grupoSecundario [i] == null;
             grupoSecundario[i] = Pokemon p;
-
 
         for (int i = 0; i < indice; i++) {
             grupoSecundario[i] = equipoPokemon[indice];
@@ -244,10 +243,48 @@ public class Entrenador {
         }
     }
 */
+
     /**
      * Método para mover pokemon de caja al equipo
      * @param indice número del array del orden de nuestro pokemon en caja que se mueva a equipo.
      */
+
+    public void moverPokemonAEquipo(int indice) { // CORRECTO moverPokemonAEquipo
+        Pokemon pok2 = grupoSecundario[indice];
+
+        // Para buscar el pokemon en el grupoSecundario
+        int pokemonAEquipo = -1;
+        for (int i = 0; i < grupoSecundario.length; i++) {
+            if (grupoSecundario[i] != null && grupoSecundario[i].equals(pok2)) {
+                pokemonAEquipo = i;
+                break;
+            }
+        }
+        if (pokemonAEquipo != -1) {
+            // Mover el pokemon del grupoSecundario(caja) al equipoPokemon
+            for (int i = 0; i < equipoPokemon.length; i++) {
+                if (equipoPokemon[i] == null) {
+                    equipoPokemon[i] = grupoSecundario[pokemonAEquipo];
+                    grupoSecundario[pokemonAEquipo] = null;
+                    break;
+                }
+            }
+
+        } else {
+            System.out.println("El pokemon no se encontró en el grupoSecundario(Caja).");
+        }
+
+        System.out.println("Grupo Secundario(Caja): ");
+        for (Pokemon pokemonDelEquipo : grupoSecundario) {
+            System.out.println(pokemonDelEquipo);
+        }
+
+        System.out.println("Equipo: ");
+        for (Pokemon pokemonEnGrupoSecundario : equipoPokemon) {
+            System.out.println(pokemonEnGrupoSecundario);
+        }
+    }
+
 /*
     //editando aqui:
     public void moverPokemonAEquipo(int indice) {
